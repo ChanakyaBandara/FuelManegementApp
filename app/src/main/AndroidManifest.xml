@@ -10,6 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FuelManegementApp">
         <activity
+            android:name=".FuelStationProfile"
+            android:exported="false" />
+        <activity
+            android:name=".FuelStationViewQrInfo"
+            android:exported="false" />
+        <activity
+            android:name=".FuelStationScanQr"
+            android:exported="false" />
+        <activity
+            android:name=".FuelStationDash"
+            android:exported="false" />
+        <activity
+            android:name=".FuelStationRegister"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRegister"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerFuelStationDetails"
+            android:exported="false" />
+        <activity
             android:name=".CustomerViewVehicles"
             android:exported="false" />
         <activity
