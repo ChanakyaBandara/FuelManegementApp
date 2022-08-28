@@ -210,7 +210,6 @@
                         android:layout_marginBottom="2sp"
                         android:layout_gravity="start"
                         android:fontFamily="@font/regular"
-                        android:text="@string/amox"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
