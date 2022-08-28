@@ -43,7 +43,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="We provide excellent services"
+                        android:text="We provide excellent service"
                         android:textColor="@color/white"
                         android:fontFamily="@font/regular"
                         android:textSize="13sp" />

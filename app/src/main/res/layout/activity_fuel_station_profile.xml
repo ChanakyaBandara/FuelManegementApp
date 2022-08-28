@@ -26,8 +26,7 @@
                 android:clickable="true"
                 android:fontFamily="@font/regular"
                 android:src="@drawable/ic_back"
-                android:textColor="@color/white"
-                android:onClick="goBack"/>
+                android:textColor="@color/white"/>
 
             <TextView
                 android:visibility="visible"
@@ -142,7 +141,66 @@
                             android:layout_marginLeft="10sp"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/medium"
-                            android:text="NIC Number"
+                            android:text="Email"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="15dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_age"/>
+
+                            <TextView
+                                android:id="@+id/txtemail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="15dp"
+                                android:fontFamily="@font/medium"
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardUseCompatPadding="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:stateListAnimator="@anim/cardanim"
+                    android:clickable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/medium"
+                            android:text="Reg. Number"
                             android:textColor="@color/colorAccent"
                             android:textSize="15dp" />
 
@@ -261,7 +319,7 @@
                             android:layout_marginLeft="10sp"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/medium"
-                            android:text="Gender"
+                            android:text="City"
                             android:textColor="@color/colorAccent"
                             android:textSize="15dp" />
 
@@ -320,7 +378,7 @@
                             android:layout_marginLeft="10sp"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/medium"
-                            android:text="Age"
+                            android:text="Address"
                             android:textColor="@color/colorAccent"
                             android:textSize="15dp" />
 
@@ -354,64 +412,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardUseCompatPadding="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:stateListAnimator="@anim/cardanim"
-                    android:clickable="true">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginLeft="10sp"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/medium"
-                            android:text="Email"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="15dp" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:src="@drawable/ic_age"/>
-
-                            <TextView
-                                android:id="@+id/txtemail"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="15dp"
-                                android:fontFamily="@font/medium"
-                                android:textColor="@color/black"
-                                android:textSize="15dp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
                 <!--<androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -503,7 +504,6 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Log out"
-                android:onClick="logout"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

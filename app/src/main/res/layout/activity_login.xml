@@ -28,7 +28,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Med"
+                    android:text="Fuel"
                     android:textColor="@color/black"
                     android:fontFamily="@font/bold"
                     android:textSize="35sp" />
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:text="CO"
+                    android:text="App"
                     android:textColor="@color/black"
                     android:fontFamily="@font/bold"
                     android:textSize="35sp" />

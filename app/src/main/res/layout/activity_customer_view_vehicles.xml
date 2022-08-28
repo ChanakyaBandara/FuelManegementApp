@@ -42,18 +42,18 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.core.widget.NestedScrollView
-            android:layout_below="@id/toolbar"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_marginTop="10dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layoutAnimation="@anim/layout_animation"
-                tools:listitem="@layout/item_vehicle"
-                android:scrollbars="vertical">
+                android:scrollbars="vertical"
+                tools:listitem="@layout/item_vehicle">
 
             </androidx.recyclerview.widget.RecyclerView>
 
