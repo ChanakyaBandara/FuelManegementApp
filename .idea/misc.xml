@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/drawable-v24/btn_login.xml" value="0.3828125" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_add_vehicle.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_dash.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_fuel_station_details.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_profile.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_register.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_view_fuel_stations.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_view_vehicle_details.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_customer_view_vehicles.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_dash.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_profile.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_register.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_scan_qr.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_view_qr_info.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_login.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_splash.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/item_prescription.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/item_vehicle.xml" value="0.20520833333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_14_PREVIEW" project-jdk-name="14" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

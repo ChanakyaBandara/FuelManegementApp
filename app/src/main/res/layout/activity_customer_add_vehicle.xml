@@ -6,4 +6,246 @@
     android:layout_height="match_parent"
     tools:context=".CustomerAddVehicle">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Profile">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@null"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageButton
+                android:id="@+id/backBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/transparent"
+                android:clickable="true"
+                android:fontFamily="@font/regular"
+                android:onClick="goBack"
+                android:src="@drawable/ic_back"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="@font/medium"
+                android:text="Register Vehicle"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="visible" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:id="@+id/details"
+            android:layout_below="@id/toolbar"
+            android:layout_above="@id/logout"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/logincard"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:paddingRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:id="@+id/txtname"
+                            android:inputType="text"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Name"
+                            android:fontFamily="@font/regular"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:backgroundTint="@color/colorAlmostWhite"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_weight="4"
+                            android:layout_width="0sp"
+                            android:layout_height="70dp"
+                            android:gravity="bottom">
+
+                            <EditText
+                                android:id="@+id/txtNIC"
+                                android:inputType="text"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:hint="NIC No"
+                                android:fontFamily="@font/regular"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:backgroundTint="@color/colorAlmostWhite"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginLeft="8sp"
+                            android:layout_weight="3"
+                            android:layout_width="0sp"
+                            android:layout_height="70dp"
+                            android:gravity="bottom">
+
+                            <EditText
+                                android:id="@+id/txtAge"
+                                android:inputType="number"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:hint="Age"
+                                android:fontFamily="@font/regular"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:backgroundTint="@color/colorAlmostWhite"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:id="@+id/txtemail"
+                            android:inputType="textEmailAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Email"
+                            android:fontFamily="@font/regular"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:backgroundTint="@color/colorAlmostWhite"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:id="@+id/txtPhone"
+                            android:inputType="number"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Phone"
+                            android:fontFamily="@font/regular"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:backgroundTint="@color/colorAlmostWhite"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:gravity="bottom"
+                        app:passwordToggleEnabled="true">
+
+                        <EditText
+                            android:id="@+id/txtpassword"
+                            android:inputType="textPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Password"
+                            android:fontFamily="@font/regular"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:backgroundTint="@color/colorAlmostWhite"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <!--<Button
+                android:id="@+id/changePass"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/medium"
+                android:background="@drawable/btn_login"
+                android:text="Change Password"
+                android:onClick="changePass"
+                android:textColor="@color/white"/>-->
+
+            <Button
+                android:id="@+id/delete"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/medium"
+                android:background="@drawable/btn_login"
+                android:text="Save"
+                android:onClick="logout"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

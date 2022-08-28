@@ -41,7 +41,7 @@ public class Backgroundworker extends AsyncTask<HashMap<String, String>, Void, S
     @Override
     protected String doInBackground(HashMap<String, String>... params) {
         HashMap<String, String> param = params[0];
-        String login_url = "http://192.168.1.4/Medco_Web/PHP/mobile.php";
+        String login_url = "http://192.168.8.102/FuelManagementWeb/PHP/mobile.php";
         try {
             URL url = new URL(login_url);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
