@@ -143,18 +143,18 @@ public class Login extends AppCompatActivity implements httpDataManager {
                     if(Type.equals("2")){
                         Intent intent = new Intent(this, CustomerDash.class);
                         String Extra_text1 = LID;
-                        intent.putExtra("Extra_text", Extra_text1);
+                        intent.putExtra("LID", Extra_text1);
                         this.startActivity(intent);
                     }else if(Type.equals("3")){
                         Intent intent = new Intent(this, FuelStationDash.class);
                         String Extra_text1 = LID;
-                        intent.putExtra("Extra_text", Extra_text1);
+                        intent.putExtra("LID", Extra_text1);
                         this.startActivity(intent);
                     }
                 } else {
                     alertDialog = new AlertDialog.Builder(this).create();
                     alertDialog.setTitle("Login Status");
-                    alertDialog.setMessage("Invalid Credintials");
+                    alertDialog.setMessage("Invalid Credentials");
                     alertDialog.show();
                 }
             } catch (JSONException e) {
