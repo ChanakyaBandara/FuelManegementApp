@@ -76,13 +76,13 @@
             android:textSize="13sp" />
 
         <ImageView
-            android:layout_below="@id/desc"
-            android:layout_above="@id/logincard"
             android:id="@+id/logo"
-            android:layout_width="150sp"
-            android:layout_height="150sp"
+            android:layout_width="250sp"
+            android:layout_height="250sp"
+            android:layout_above="@id/logincard"
+            android:layout_below="@id/desc"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
 
         <LinearLayout
             android:id="@+id/logincard"

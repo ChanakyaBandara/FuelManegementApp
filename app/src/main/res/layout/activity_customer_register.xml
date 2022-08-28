@@ -79,8 +79,8 @@
             android:layout_below="@id/desc"
             android:layout_above="@id/logincard"
             android:id="@+id/logo"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/logo"/>
 

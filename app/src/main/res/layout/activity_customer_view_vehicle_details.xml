@@ -62,15 +62,14 @@
                     android:layout_marginBottom="15sp"
                     android:layout_gravity="start"
                     android:fontFamily="@font/medium"
-                    android:text="Drug Details"
+                    android:text="Vehicle Details"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/imgview"
+                    android:id="@+id/vehicleQrView"
                     android:layout_width="250sp"
-                    android:layout_height="180sp"
-                    android:src="@drawable/drugimg"
+                    android:layout_height="250sp"
                     android:layout_gravity="center"
                     android:layout_marginVertical="15sp"/>
 
