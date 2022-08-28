@@ -25,7 +25,6 @@
                 android:background="@color/transparent"
                 android:clickable="true"
                 android:fontFamily="@font/regular"
-                android:onClick="goBack"
                 android:src="@drawable/ic_back"
                 android:textColor="@color/white" />
 
@@ -79,7 +78,7 @@
                             android:inputType="text"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Name"
+                            android:hint="Registration Number"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -89,56 +88,7 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="7">
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_weight="4"
-                            android:layout_width="0sp"
-                            android:layout_height="70dp"
-                            android:gravity="bottom">
-
-                            <EditText
-                                android:id="@+id/txtNIC"
-                                android:inputType="text"
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:hint="NIC No"
-                                android:fontFamily="@font/regular"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:textColor="@color/black"
-                                android:textSize="15sp"
-                                android:backgroundTint="@color/colorAlmostWhite"/>
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_marginLeft="8sp"
-                            android:layout_weight="3"
-                            android:layout_width="0sp"
-                            android:layout_height="70dp"
-                            android:gravity="bottom">
-
-                            <EditText
-                                android:id="@+id/txtAge"
-                                android:inputType="number"
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:hint="Age"
-                                android:fontFamily="@font/regular"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:textColor="@color/black"
-                                android:textSize="15sp"
-                                android:backgroundTint="@color/colorAlmostWhite"/>
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                    </LinearLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -150,7 +100,7 @@
                             android:inputType="textEmailAddress"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Email"
+                            android:hint="Brand"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -166,11 +116,10 @@
                         android:gravity="bottom">
 
                         <EditText
-                            android:id="@+id/txtPhone"
                             android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Phone"
+                            android:hint="Model"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -183,15 +132,32 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:gravity="bottom"
-                        app:passwordToggleEnabled="true">
+                        android:gravity="bottom">
 
                         <EditText
-                            android:id="@+id/txtpassword"
-                            android:inputType="textPassword"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Password"
+                            android:hint="Engine Number"
+                            android:fontFamily="@font/regular"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:backgroundTint="@color/colorAlmostWhite"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:inputType="number"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Chassis Number"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -240,8 +206,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
-                android:text="Save"
-                android:onClick="logout"
+                android:text="Register"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

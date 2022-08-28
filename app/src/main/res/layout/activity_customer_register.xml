@@ -28,7 +28,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Med"
+                    android:text="Fuel"
                     android:textColor="@color/colorAccent"
                     android:fontFamily="@font/bold"
                     android:textSize="35sp" />
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:text="CO"
+                    android:text="App"
                     android:textColor="@color/colorAccent"
                     android:fontFamily="@font/bold"
                     android:textSize="35sp" />
@@ -127,56 +127,24 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="7">
+                android:layout_height="70dp"
+                android:gravity="bottom">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_weight="4"
-                    android:layout_width="0sp"
-                    android:layout_height="70dp"
-                    android:gravity="bottom">
+                <EditText
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="NIC No:"
+                    android:fontFamily="@font/regular"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:backgroundTint="@color/colorAlmostWhite"/>
 
-                    <EditText
-                        android:id="@+id/txtNIC"
-                        android:inputType="text"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:hint="NIC No"
-                        android:fontFamily="@font/regular"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:backgroundTint="@color/colorAlmostWhite"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_marginLeft="8sp"
-                    android:layout_weight="3"
-                    android:layout_width="0sp"
-                    android:layout_height="70dp"
-                    android:gravity="bottom">
-
-                    <EditText
-                        android:id="@+id/txtAge"
-                        android:inputType="number"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:hint="Age"
-                        android:fontFamily="@font/regular"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:backgroundTint="@color/colorAlmostWhite"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -221,6 +189,25 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:gravity="bottom">
+
+                <EditText
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Address"
+                    android:fontFamily="@font/regular"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:backgroundTint="@color/colorAlmostWhite"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
                 android:gravity="bottom"
                 app:passwordToggleEnabled="true">
 
@@ -243,7 +230,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:onClick="ForgetPass"
                 android:text="Forget Password?"
                 android:paddingTop="5sp"
                 android:fontFamily="@font/medium"
@@ -253,7 +239,6 @@
 
             <Button
                 android:id="@+id/reg"
-                android:onClick="registration"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -266,7 +251,6 @@
                 android:textSize="16dp"/>
 
             <LinearLayout
-                android:onClick="goToLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
