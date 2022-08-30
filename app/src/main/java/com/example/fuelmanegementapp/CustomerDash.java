@@ -3,13 +3,16 @@ package com.example.fuelmanegementapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Customer;
 import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -41,9 +44,28 @@ public class CustomerDash extends AppCompatActivity implements httpDataManager {
     }
 
     @Override
-    public void retrieveData(Optional<String> retrievedData) {
+    public void retrieveData(String type,Optional<String> retrievedData) {
         if(retrievedData.isPresent()){
             Log.i("Error_retrievedData", retrievedData.get());
+            customer = new Gson().fromJson(retrievedData.get(), Customer.class);
         }
+    }
+
+    public void goToStations(View view) {
+        Intent intent = new Intent(this, CustomerViewFuelStations.class);
+        this.startActivity(intent);
+    }
+
+    public void goToVehicles(View view) {
+        Intent intent = new Intent(this, CustomerViewVehicles.class);
+        this.startActivity(intent);
+    }
+
+    public void goToProfile(View view) {
+        Intent intent = new Intent(this, CustomerProfile.class);
+        this.startActivity(intent);
+    }
+
+    public void goToSettings(View view) {
     }
 }

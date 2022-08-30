@@ -27,6 +27,7 @@ public class Backgroundworker extends AsyncTask<HashMap<String, String>, Void, S
 
     private com.example.fuelmanegementapp.interfaces.httpDataManager httpDataManager;
     private Dialog myDialog;
+    private String type = "";
 
 
     public Backgroundworker(httpDataManager parent) {
@@ -41,7 +42,8 @@ public class Backgroundworker extends AsyncTask<HashMap<String, String>, Void, S
     @Override
     protected String doInBackground(HashMap<String, String>... params) {
         HashMap<String, String> param = params[0];
-        String login_url = "http://192.168.8.102/FuelManagementWeb/PHP/mobile.php";
+        type = param.get("type");
+        String login_url = "http://192.168.8.101/FuelManagementWeb/PHP/mobile.php";
         try {
             URL url = new URL(login_url);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -102,9 +104,9 @@ public class Backgroundworker extends AsyncTask<HashMap<String, String>, Void, S
     protected void onPostExecute(String result) {
         myDialog.dismiss();
         if(result != null && result.length()>0){
-            httpDataManager.retrieveData(Optional.of(result));
+            httpDataManager.retrieveData(type,Optional.of(result));
         }else {
-            httpDataManager.retrieveData(Optional.empty());
+            httpDataManager.retrieveData(type,Optional.empty());
         }
     }
 

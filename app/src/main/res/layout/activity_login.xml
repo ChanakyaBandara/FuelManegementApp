@@ -191,6 +191,7 @@
                 android:textSize="16dp"/>
 
             <LinearLayout
+                android:clickable="true"
                 android:onClick="goToCustomerRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -204,12 +205,12 @@
                     android:layout_height="wrap_content"
                     android:text="Register as a Customer "
                     android:textColor="@color/ash"
-                    android:clickable="true"
                     android:fontFamily="@font/medium"/>
 
             </LinearLayout>
 
             <LinearLayout
+                android:clickable="true"
                 android:onClick="goToStationRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -221,7 +222,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
                     android:text="Register as a FuelStation"
                     android:textColor="@color/ash"
                     android:fontFamily="@font/medium"/>

@@ -97,7 +97,7 @@
                                 android:src="@drawable/ic_address"/>
 
                             <TextView
-                                android:id="@+id/txtname"
+                                android:id="@+id/txtStationProName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -158,7 +158,7 @@
                                 android:src="@drawable/ic_age"/>
 
                             <TextView
-                                android:id="@+id/txtemail"
+                                android:id="@+id/txtStationProEmail"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -217,7 +217,7 @@
                                 android:src="@drawable/ic_nic"/>
 
                             <TextView
-                                android:id="@+id/txtNIC"
+                                android:id="@+id/txtStationProRegNo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -277,7 +277,7 @@
                                 android:src="@drawable/ic_phone"/>
 
                             <TextView
-                                android:id="@+id/txtPhone"
+                                android:id="@+id/txtStationProPhone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -336,7 +336,7 @@
                                 android:src="@drawable/ic_age"/>
 
                             <TextView
-                                android:id="@+id/txtGender"
+                                android:id="@+id/txtStationProCity"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -395,7 +395,7 @@
                                 android:src="@drawable/ic_age"/>
 
                             <TextView
-                                android:id="@+id/txtAge"
+                                android:id="@+id/txtStationProAddress"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -494,7 +494,7 @@
                 android:textColor="@color/white"/>-->
 
             <Button
-                android:id="@+id/delete"
+                android:onClick="logoutFuel"
                 android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

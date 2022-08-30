@@ -95,7 +95,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/txtPIdrg"
+                        android:id="@+id/txtCusVehReg"
                         android:layout_width="0sp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -104,7 +104,6 @@
                         android:layout_marginBottom="2sp"
                         android:layout_gravity="start"
                         android:fontFamily="@font/regular"
-                        android:text="Amoxillin ESP"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
@@ -131,7 +130,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/txtPImanf"
+                        android:id="@+id/txtCusVehBrand"
                         android:layout_width="0sp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -140,7 +139,6 @@
                         android:layout_marginBottom="2sp"
                         android:layout_gravity="start"
                         android:fontFamily="@font/regular"
-                        android:text="Sy Labs Pvt Ltd"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
@@ -167,6 +165,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/txtCusVehModal"
                         android:layout_width="0sp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -175,7 +174,6 @@
                         android:layout_marginBottom="2sp"
                         android:layout_gravity="start"
                         android:fontFamily="@font/regular"
-                        android:text="250 mg"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
@@ -202,6 +200,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/txtCusVehEngine"
                         android:layout_width="0sp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -210,7 +209,6 @@
                         android:layout_marginBottom="2sp"
                         android:layout_gravity="start"
                         android:fontFamily="@font/regular"
-                        android:text="250 mg"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
@@ -237,6 +235,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/txtCusVehChassis"
                         android:layout_width="0sp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -245,7 +244,6 @@
                         android:layout_marginBottom="2sp"
                         android:layout_gravity="start"
                         android:fontFamily="@font/regular"
-                        android:text="250 mg"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
