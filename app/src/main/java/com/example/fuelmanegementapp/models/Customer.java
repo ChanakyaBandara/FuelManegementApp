@@ -1,6 +1,8 @@
 package com.example.fuelmanegementapp.models;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     //{"cid":"1","name":"test customer","nic":"98989833v","email":"testcus@gmail.com","phone":"77323232","address":"Kandy","lid":"1"}
     private int cid;
     private String name;

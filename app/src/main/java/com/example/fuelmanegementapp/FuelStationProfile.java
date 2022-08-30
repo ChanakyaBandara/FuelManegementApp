@@ -47,14 +47,14 @@ public class FuelStationProfile extends AppCompatActivity implements httpDataMan
         finish();
     }
 
-    public void logout(View view) {
+    public void logoutFuel(View view) {
         SharedPreferences sharedPreferences = getSharedPreferences(Login.SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
         Intent intent = new Intent(FuelStationProfile.this, Login.class);
-        CustomerDash.customer = null;
-        CustomerDash.LID = null;
+        FuelStationDash.fuelStation = null;
+        FuelStationDash.LID = null;
         startActivity(intent);
         finish();
     }

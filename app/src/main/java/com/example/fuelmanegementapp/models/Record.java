@@ -1,6 +1,8 @@
 package com.example.fuelmanegementapp.models;
 
-public class Record {
+import java.io.Serializable;
+
+public class Record implements Serializable {
     //`vtid`, `type`, `description`, `allowed_quota`
     private int vtid;
     private String type;

@@ -3,7 +3,9 @@ package com.example.fuelmanegementapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
@@ -64,5 +66,10 @@ public class CustomerViewVehicles extends AppCompatActivity implements httpDataM
             VehicleAdapter vehicleAdapter = new VehicleAdapter(vehicleList, vehicleIdList, this);
             new RecycleViewConfig().setConfig(recyclerView, this, vehicleAdapter);
         }
+    }
+
+    public void goToAddVehicle(View view) {
+        Intent intent = new Intent(this, CustomerAddVehicle.class);
+        this.startActivity(intent);
     }
 }

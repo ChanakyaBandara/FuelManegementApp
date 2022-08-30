@@ -1,6 +1,8 @@
 package com.example.fuelmanegementapp.models;
 
-public class FuelStation {
+import java.io.Serializable;
+
+public class FuelStation implements Serializable {
     //`sid`, `name`, `email`, `reg_no`, `city`, `address`, `phone`, `lat`, `lon`, `lid`
     private int cid;
     private String name;

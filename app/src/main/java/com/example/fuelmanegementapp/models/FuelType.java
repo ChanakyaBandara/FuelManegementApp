@@ -1,6 +1,8 @@
 package com.example.fuelmanegementapp.models;
 
-public class FuelType {
+import java.io.Serializable;
+
+public class FuelType implements Serializable {
     //`fid`, `fuel`
     private int fid;
     private String fuel;

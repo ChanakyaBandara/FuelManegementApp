@@ -1,6 +1,8 @@
 package com.example.fuelmanegementapp.models;
 
-public class Stock {
+import java.io.Serializable;
+
+public class Stock implements Serializable {
     //`stid`, `sid`, `fid`, `available_amount`
     private int stid;
     private FuelStation station;

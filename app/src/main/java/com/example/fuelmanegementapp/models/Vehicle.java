@@ -1,6 +1,8 @@
 package com.example.fuelmanegementapp.models;
 
-public class Vehicle {
+import java.io.Serializable;
+
+public class Vehicle implements Serializable {
     //`vid`, `reg_no`, `brand`, `model`, `engine_no`, `chassis_no`, `qr`, `vtid`, `cid`, `fid`
     private int vid;
     private String reg_no;

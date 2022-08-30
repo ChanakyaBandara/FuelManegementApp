@@ -101,14 +101,15 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
     }
 
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (grantResults.length > 0) {
 
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    if (cameraAccepted){
+                    if (cameraAccepted) {
                         Toast.makeText(getApplicationContext(), "Permission Granted, Now you can access camera", Toast.LENGTH_LONG).show();
-                    }else {
+                    } else {
                         Toast.makeText(getApplicationContext(), "Permission Denied, You cannot access and camera", Toast.LENGTH_LONG).show();
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(CAMERA)) {
@@ -142,33 +143,14 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
 
     @Override
     public void handleResult(Result result) {
-        String resultstr = result.toString();
-        String prifix = resultstr.substring(0,3);
-        if(prifix.toLowerCase(Locale.ROOT).equals("doc")){
-            HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "load_doctor");
-            param.put("Doc_QR", resultstr);
-            Backgroundworker backgroundworker = new Backgroundworker(FuelStationScanQr.this);
-            backgroundworker.execute(param);
-        }else if(prifix.toLowerCase(Locale.ROOT).equals("pha")) {
-            HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "load_pharmacy");
-            param.put("Pha_QR", resultstr);
-            Backgroundworker backgroundworker = new Backgroundworker(FuelStationScanQr.this);
-            backgroundworker.execute(param);
-        }else {
-            Toast.makeText(getApplicationContext(), "Error "+result.toString(), Toast.LENGTH_LONG).show();
-        }
+        Toast.makeText(getApplicationContext(), "Error "+result.toString(), Toast.LENGTH_LONG).show();
     }
-
-
 
     public void goBack(View view) {
         Intent intent = new Intent(FuelStationScanQr.this, FuelStationDash.class);
         startActivity(intent);
         finish();
     }
-
 
     @Override
     public void retrieveData(String type,Optional<String> retrievedData) {
