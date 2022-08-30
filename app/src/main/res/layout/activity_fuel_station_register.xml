@@ -1,170 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FuelStationRegister">
 
-    <RelativeLayout
+    <ScrollView
+        android:id="@+id/scroll_view_register"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:focusableInTouchMode="true"
-        android:background="@color/white">
+        android:fillViewport="true">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fuel"
-                    android:textColor="@color/colorAccent"
-                    android:fontFamily="@font/bold"
-                    android:textSize="35sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="App"
-                    android:textColor="@color/colorAccent"
-                    android:fontFamily="@font/bold"
-                    android:textSize="35sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@color/colorAccent" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
-            android:gravity="center"
-            android:text="We provide excellent service"
-            android:textColor="@color/black"
-            android:fontFamily="@font/regular"
-            android:textSize="13sp" />
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="200sp"
-            android:layout_height="200sp"
-            android:layout_above="@id/logincard"
-            android:layout_below="@id/desc"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/logo" />
-
-        <LinearLayout
-            android:id="@+id/logincard"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="vertical"
-            android:paddingRight="10dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true">
+            android:background="@color/white"
+            android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/medium"
-                android:text="Registration"
-                android:textColor="@color/colorAccent"
-                android:textSize="25dp" />
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:gravity="bottom">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/txtname"
-                    android:inputType="text"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Name"
-                    android:fontFamily="@font/regular"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fuel"
+                        android:textColor="@color/colorAccent"
+                        android:fontFamily="@font/bold"
+                        android:textSize="35sp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:gravity="bottom">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/txtemail"
-                    android:inputType="textEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Email"
-                    android:fontFamily="@font/regular"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="App"
+                        android:textColor="@color/colorAccent"
+                        android:fontFamily="@font/bold"
+                        android:textSize="35sp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/colorAccent" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_gravity="center"
+                android:layout_above="@id/logincard"
+                android:layout_below="@id/desc"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo" />
 
             <LinearLayout
+                android:id="@+id/logincard"
+                android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="8">
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:paddingRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/medium"
+                    android:text="Registration"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_weight="4"
-                    android:layout_width="0sp"
+                    android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:gravity="bottom">
 
                     <EditText
-                        android:id="@+id/txtNIC"
+                        android:id="@+id/txtStationName"
                         android:inputType="text"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:hint="Reg No"
+                        android:hint="Name"
                         android:fontFamily="@font/regular"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
@@ -175,18 +122,16 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_marginLeft="8sp"
-                    android:layout_weight="4"
-                    android:layout_width="0sp"
+                    android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:gravity="bottom">
 
                     <EditText
-                        android:id="@+id/txtAge"
-                        android:inputType="number"
+                        android:id="@+id/txtStationEmail"
+                        android:inputType="textEmailAddress"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:hint="Phone"
+                        android:hint="Email"
                         android:fontFamily="@font/regular"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
@@ -196,119 +141,183 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:gravity="bottom">
-
-                <EditText
-                    android:id="@+id/txtPhone"
-                    android:inputType="text"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="City"
-                    android:fontFamily="@font/regular"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="8">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_weight="4"
+                        android:layout_width="0sp"
+                        android:layout_height="70dp"
+                        android:gravity="bottom">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:gravity="bottom">
+                        <EditText
+                            android:id="@+id/txtStationRegNo"
+                            android:inputType="text"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Reg No"
+                            android:fontFamily="@font/regular"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:backgroundTint="@color/colorAlmostWhite"/>
 
-                <EditText
-                    android:inputType="text"
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginLeft="8sp"
+                        android:layout_weight="4"
+                        android:layout_width="0sp"
+                        android:layout_height="70dp"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:id="@+id/txtStationPhone"
+                            android:inputType="number"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Phone"
+                            android:fontFamily="@font/regular"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:backgroundTint="@color/colorAlmostWhite"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Address"
-                    android:fontFamily="@font/regular"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:layout_height="70dp"
+                    android:gravity="bottom">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/txtStationCity"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="City"
+                        android:fontFamily="@font/regular"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:backgroundTint="@color/colorAlmostWhite"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:gravity="bottom"
-                app:passwordToggleEnabled="true">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/txtpassword"
-                    android:inputType="textPassword"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Password"
-                    android:fontFamily="@font/regular"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:layout_height="70dp"
+                    android:gravity="bottom">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/txtStationAddress"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Address"
+                        android:fontFamily="@font/regular"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:backgroundTint="@color/colorAlmostWhite"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:text="Forget Password?"
-                android:paddingTop="5sp"
-                android:fontFamily="@font/medium"
-                android:textColor="@color/ash"
-                android:textSize="12dp"
-                android:layout_gravity="end"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/reg"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Register"
-                android:background="@drawable/btn_login"
-                android:textColor="@color/white"
-                android:fontFamily="@font/bold"
-                android:textSize="16dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="bottom"
+                    app:passwordToggleEnabled="true">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/txtStationPassword"
+                        android:inputType="textPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Password"
+                        android:fontFamily="@font/regular"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:backgroundTint="@color/colorAlmostWhite"/>
 
-                <TextView
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Have an account?? "
-                    android:textColor="@color/ash"
-                    android:fontFamily="@font/medium"/>
+                    android:paddingTop="8dp">
 
-                <TextView
+                    <fragment
+                        android:id="@+id/google_map_register"
+                        class="com.example.fuelmanegementapp.util.WorkaroundMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+
+                    <ImageView
+                        android:foregroundGravity="center"
+                        android:layout_width="20dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/gps"
+                        />
+
+
+                </RelativeLayout>
+
+                <Button
+                    android:onClick="registerStation"
+                    android:id="@+id/reg"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Register"
+                    android:background="@drawable/btn_login"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/bold"
+                    android:textSize="16dp"/>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text=" Login Now"
-                    android:textColor="@color/ash"
-                    android:fontFamily="@font/medium"/>
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Have an account?? "
+                        android:textColor="@color/ash"
+                        android:fontFamily="@font/medium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:text=" Login Now"
+                        android:textColor="@color/ash"
+                        android:fontFamily="@font/medium"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

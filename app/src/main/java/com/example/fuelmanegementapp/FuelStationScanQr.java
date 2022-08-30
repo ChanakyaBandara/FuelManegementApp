@@ -171,7 +171,7 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
 
 
     @Override
-    public void retrieveData(Optional<String> retrievedData) {
+    public void retrieveData(String type,Optional<String> retrievedData) {
         if(retrievedData.isPresent()){
             String result = retrievedData.get();
             Log.i("Error_Check",result.toString());

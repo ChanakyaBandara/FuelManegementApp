@@ -87,6 +87,8 @@
                                 android:layout_weight="1"
                                 app:cardCornerRadius="30dp"
                                 app:cardUseCompatPadding="true"
+                                android:clickable="true"
+                                android:onClick="goToStations"
                                 android:foreground="?attr/selectableItemBackground">
 
                                 <LinearLayout
@@ -143,6 +145,8 @@
                                 android:layout_weight="1"
                                 app:cardCornerRadius="30sp"
                                 app:cardUseCompatPadding="true"
+                                android:clickable="true"
+                                android:onClick="goToVehicles"
                                 android:foreground="?attr/selectableItemBackground">
 
                                 <LinearLayout
@@ -208,7 +212,10 @@
                                 android:layout_weight="1"
                                 app:cardCornerRadius="30sp"
                                 app:cardUseCompatPadding="true"
-                                android:foreground="?attr/selectableItemBackground">
+                                android:clickable="true"
+                                android:onClick="goToProfile"
+                                android:foreground="?attr/selectableItemBackground"
+                                tools:ignore="OnClick">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -264,6 +271,8 @@
                                 android:layout_weight="1"
                                 app:cardCornerRadius="30sp"
                                 app:cardUseCompatPadding="true"
+                                android:clickable="true"
+                                android:onClick="goToSettings"
                                 android:foreground="?attr/selectableItemBackground">
 
                                 <LinearLayout

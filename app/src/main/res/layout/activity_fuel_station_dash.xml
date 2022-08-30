@@ -87,6 +87,8 @@
                                 android:layout_weight="1"
                                 app:cardCornerRadius="30sp"
                                 app:cardUseCompatPadding="true"
+                                android:clickable="true"
+                                android:onClick="goToScanQr"
                                 android:foreground="?attr/selectableItemBackground">
 
                                 <LinearLayout
@@ -143,6 +145,8 @@
                                 android:layout_weight="1"
                                 app:cardCornerRadius="30sp"
                                 app:cardUseCompatPadding="true"
+                                android:clickable="true"
+                                android:onClick="goToProfile"
                                 android:foreground="?attr/selectableItemBackground">
 
                                 <LinearLayout

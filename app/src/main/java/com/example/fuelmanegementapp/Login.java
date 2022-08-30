@@ -94,10 +94,6 @@ public class Login extends AppCompatActivity implements httpDataManager {
         }
     }
 
-    public void displayName(String result) {
-
-    }
-
     private boolean haveNetwork() {
         ConnectivityManager cm =
                 (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -119,7 +115,7 @@ public class Login extends AppCompatActivity implements httpDataManager {
     }
 
     @Override
-    public void retrieveData(Optional<String> retrievedData) {
+    public void retrieveData(String type,Optional<String> retrievedData) {
         if(retrievedData.isPresent()){
             String result = retrievedData.get();
             Log.i("Error_Check",result);

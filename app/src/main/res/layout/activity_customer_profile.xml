@@ -335,7 +335,7 @@
                                 android:src="@drawable/ic_age"/>
 
                             <TextView
-                                android:id="@+id/txtGender"
+                                android:id="@+id/txtAddress"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -432,7 +432,9 @@
                 android:textColor="@color/white"/>-->
 
             <Button
-                android:id="@+id/delete"
+                android:id="@+id/logoutBtn"
+                android:clickable="true"
+                android:onClick="logout"
                 android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -442,7 +444,8 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Log out"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:focusable="true" />
 
         </LinearLayout>
 
