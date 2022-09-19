@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class FuelStation implements Serializable {
     //`sid`, `name`, `email`, `reg_no`, `city`, `address`, `phone`, `lat`, `lon`, `lid`
-    private int cid;
+    private int sid;
     private String name;
     private String reg_no;
     private String email;
@@ -15,12 +15,12 @@ public class FuelStation implements Serializable {
     private String lon;
     private int lid;
 
-    public int getCid() {
-        return cid;
+    public int getSid() {
+        return sid;
     }
 
-    public void setCid(int cid) {
-        this.cid = cid;
+    public void setSid(int sid) {
+        this.sid = sid;
     }
 
     public String getName() {

@@ -19,7 +19,7 @@
             android:weightSum="5">
 
             <RelativeLayout
-                android:layout_weight="2.5"
+                android:layout_weight="2"
                 android:layout_width="match_parent"
                 android:layout_height="0sp">
 
@@ -40,7 +40,7 @@
 
                     <TextView
                         android:id="@+id/desc"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="We provide excellent service"
@@ -53,7 +53,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_weight="2.5"
+                android:layout_weight="3"
                 android:layout_width="match_parent"
                 android:layout_height="0sp">
 
@@ -210,10 +210,133 @@
                                 android:layout_marginStart="10sp"
                                 android:layout_marginEnd="10sp"
                                 android:layout_weight="1"
+                                app:cardCornerRadius="30dp"
+                                app:cardUseCompatPadding="true"
+                                android:clickable="true"
+                                android:onClick="goToExtends"
+                                android:foreground="?attr/selectableItemBackground">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="14dp">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:orientation="vertical">
+
+                                            <ImageView
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:layout_gravity="center"
+                                                android:src="@drawable/qrcode" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="5dp"
+                                                android:fontFamily="@font/medium"
+                                                android:layout_gravity="center"
+                                                android:paddingTop="4dp"
+                                                android:text="Fuel Extends"
+                                                android:textColor="@color/txtColor"
+                                                android:textSize="12dp"
+                                                android:textStyle="bold" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="135dp"
+                                android:layout_margin="10dp"
+                                android:layout_marginStart="10sp"
+                                android:layout_marginEnd="10sp"
+                                android:layout_weight="1"
                                 app:cardCornerRadius="30sp"
                                 app:cardUseCompatPadding="true"
                                 android:clickable="true"
-                                android:onClick="goToProfile"
+                                android:onClick="goToSpecialQr"
+                                android:foreground="?attr/selectableItemBackground">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="14dp">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:orientation="vertical">
+
+                                            <ImageView
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:layout_gravity="center"
+                                                android:src="@drawable/prescriptions" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="5dp"
+                                                android:fontFamily="@font/medium"
+                                                android:layout_gravity="center"
+                                                android:paddingTop="4dp"
+                                                android:text="Special QR"
+                                                android:textColor="@color/txtColor"
+                                                android:textSize="12dp"
+                                                android:textStyle="bold" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="135dp"
+                                android:layout_margin="10dp"
+                                android:layout_marginStart="10sp"
+                                android:layout_marginEnd="10sp"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="30sp"
+                                app:cardUseCompatPadding="true"
                                 android:foreground="?attr/selectableItemBackground"
                                 tools:ignore="OnClick">
 
@@ -249,7 +372,7 @@
                                                 android:fontFamily="@font/medium"
                                                 android:layout_gravity="center"
                                                 android:paddingTop="4dp"
-                                                android:text="Profile"
+                                                android:text="Records"
                                                 android:textColor="@color/txtColor"
                                                 android:textSize="12sp"
                                                 android:textStyle="bold" />
@@ -272,7 +395,7 @@
                                 app:cardCornerRadius="30sp"
                                 app:cardUseCompatPadding="true"
                                 android:clickable="true"
-                                android:onClick="goToSettings"
+                                android:onClick="goToProfile"
                                 android:foreground="?attr/selectableItemBackground">
 
                                 <LinearLayout
@@ -307,7 +430,7 @@
                                                 android:fontFamily="@font/medium"
                                                 android:layout_gravity="center"
                                                 android:paddingTop="4dp"
-                                                android:text="Settings"
+                                                android:text="Profile"
                                                 android:textColor="@color/txtColor"
                                                 android:textSize="12sp"
                                                 android:textStyle="bold" />

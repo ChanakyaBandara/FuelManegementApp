@@ -68,4 +68,10 @@ public class CustomerDash extends AppCompatActivity implements httpDataManager {
 
     public void goToSettings(View view) {
     }
+
+    public void goToSpecialQr(View view) {
+    }
+
+    public void goToExtends(View view) {
+    }
 }
