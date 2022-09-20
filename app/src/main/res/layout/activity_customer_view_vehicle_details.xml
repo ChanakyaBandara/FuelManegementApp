@@ -20,10 +20,9 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/transparent"
-                android:src="@drawable/ic_back"/>
+                android:src="@drawable/ic_back" />
 
             <TextView
-                android:visibility="visible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -31,7 +30,8 @@
                 android:fontFamily="@font/medium"
                 android:text="Back"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:visibility="visible" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -39,6 +39,7 @@
             android:id="@+id/scroll_view_register"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/toolBar"
             android:fillViewport="true">
 
             <LinearLayout
@@ -46,15 +47,14 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="10sp"
                 android:orientation="vertical">
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/layout1"
-                    android:layout_below="@id/toolBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_marginStart="10sp"
                     android:layout_marginEnd="10sp"
-                    android:layout_weight="1"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true"
                     android:foreground="?attr/selectableItemBackground">
@@ -82,7 +82,7 @@
                             android:layout_width="250sp"
                             android:layout_height="250sp"
                             android:layout_gravity="center"
-                            android:layout_marginVertical="15sp"/>
+                            android:layout_marginVertical="15sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -267,7 +267,8 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardUseCompatPadding="true"
                     android:layout_margin="20dp"
                     android:layout_marginStart="10sp"
                     android:layout_marginEnd="10sp">
@@ -308,7 +309,7 @@
                                         android:text="Total"
                                         android:fontFamily="@font/roboto_regular"
                                         android:textStyle="bold"
-                                        android:textSize="40dp"/>
+                                        android:textSize="40dp" />
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
@@ -320,7 +321,7 @@
                                             android:text=""
                                             android:fontFamily="@font/roboto_regular"
                                             android:textStyle="bold"
-                                            android:textSize="30dp"/>
+                                            android:textSize="30dp" />
 
                                         <TextView
                                             android:id="@+id/totpie"
@@ -329,7 +330,7 @@
                                             android:text="l"
                                             android:fontFamily="@font/roboto_regular"
                                             android:textStyle="bold"
-                                            android:textSize="30dp"/>
+                                            android:textSize="30dp" />
 
                                     </LinearLayout>
 
