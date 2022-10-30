@@ -92,7 +92,7 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
     private void loadStations() {
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "load_stations");
-        Backgroundworker backgroundworker = new Backgroundworker(this);
+        Backgroundworker backgroundworker = new Backgroundworker(CustomerViewFuelStations.this, this.getApplicationContext());
         backgroundworker.execute(param);
     }
 

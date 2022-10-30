@@ -39,7 +39,7 @@ public class CustomerDash extends AppCompatActivity implements httpDataManager {
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "load_customer_data");
         param.put("LID", user);
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerDash.this);
+        Backgroundworker backgroundworker = new Backgroundworker(CustomerDash.this, this.getApplicationContext());
         backgroundworker.execute(param);
     }
 

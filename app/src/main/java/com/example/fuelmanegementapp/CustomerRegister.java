@@ -54,7 +54,7 @@ public class CustomerRegister extends AppCompatActivity implements httpDataManag
             param.put("address", Address);
             param.put("phone", Phone.trim());
             param.put("Password", Password);
-            Backgroundworker backgroundworker = new Backgroundworker(CustomerRegister.this);
+            Backgroundworker backgroundworker = new Backgroundworker(CustomerRegister.this, this.getApplicationContext());
             backgroundworker.execute(param);
 
         } else {

@@ -239,7 +239,7 @@ public class FuelStationRegister extends AppCompatActivity implements GoogleMap.
             param.put("lat", etxtLat);
             param.put("lon", etxtLan);
             param.put("Password", stationPassword);
-            Backgroundworker backgroundworker = new Backgroundworker(FuelStationRegister.this);
+            Backgroundworker backgroundworker = new Backgroundworker(FuelStationRegister.this, this.getApplicationContext());
             backgroundworker.execute(param);
 
         } else {

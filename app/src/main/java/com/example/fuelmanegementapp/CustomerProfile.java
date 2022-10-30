@@ -36,7 +36,7 @@ public class CustomerProfile extends AppCompatActivity implements httpDataManage
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "load_customer_data");
         param.put("LID", String.valueOf(CustomerDash.customer.getLid()));
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerProfile.this);
+        Backgroundworker backgroundworker = new Backgroundworker(CustomerProfile.this, this.getApplicationContext());
         backgroundworker.execute(param);
     }
 

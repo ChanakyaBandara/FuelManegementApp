@@ -42,7 +42,7 @@ public class CustomerViewVehicles extends AppCompatActivity implements httpDataM
         vehicleIdList = new ArrayList<String>();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerViewVehicles.this);
+        Backgroundworker backgroundworker = new Backgroundworker(CustomerViewVehicles.this, this.getApplicationContext());
         backgroundworker.execute(param);
     }
 

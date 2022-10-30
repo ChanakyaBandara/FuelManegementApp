@@ -1,4 +1,9 @@
+<!DOCTYPE resources [
+    <!ENTITY ip_address "192.168.8.100">
+    ]>
 <resources>
     <string name="app_name">FuelManagementApp</string>
     <string name="map_key">AIzaSyDAWSZE5onNvHxVwOr-Kc3RpBJYjgoUfYk</string>
+    <string name="ip_address">&ip_address;</string>
+    <string name="mainURL">http://&ip_address;/FuelManagementWeb/PHP/mobile.php</string>
 </resources>

@@ -37,7 +37,7 @@ public class FuelStationProfile extends AppCompatActivity implements httpDataMan
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "load_station_data");
         param.put("LID", String.valueOf(FuelStationDash.fuelStation.getLid()));
-        Backgroundworker backgroundworker = new Backgroundworker(FuelStationProfile.this);
+        Backgroundworker backgroundworker = new Backgroundworker(FuelStationProfile.this, this.getApplicationContext());
         backgroundworker.execute(param);
     }
 

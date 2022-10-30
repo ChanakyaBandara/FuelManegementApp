@@ -51,7 +51,7 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
             param.put("vtid", "1");
             param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
             param.put("fid", "1");
-            Backgroundworker backgroundworker = new Backgroundworker(CustomerAddVehicle.this);
+            Backgroundworker backgroundworker = new Backgroundworker(CustomerAddVehicle.this, this.getApplicationContext());
             backgroundworker.execute(param);
         } else {
             Toast.makeText(CustomerAddVehicle.this, "Empty field not allowed!", Toast.LENGTH_SHORT).show();

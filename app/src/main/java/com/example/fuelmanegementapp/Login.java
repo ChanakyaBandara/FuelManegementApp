@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity implements httpDataManager {
             param.put("type", "login");
             param.put("Username", usernic);
             param.put("Password", userpass);
-            Backgroundworker backgroundworker = new Backgroundworker(Login.this);
+            Backgroundworker backgroundworker = new Backgroundworker(Login.this, this.getApplicationContext());
             backgroundworker.execute(param);
         } else {
             Toast.makeText(Login.this, "Empty field not allowed!", Toast.LENGTH_SHORT).show();
