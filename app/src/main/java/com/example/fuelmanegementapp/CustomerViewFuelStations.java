@@ -1,10 +1,5 @@
 package com.example.fuelmanegementapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,6 +8,11 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
@@ -42,12 +42,12 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
     private GoogleMap mMap;
     Location lastLocationclnew;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE=1234;
-    private static final String TAG ="Mapactivity";
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
+    private static final String TAG = "Mapactivity";
     private Boolean mLocationpermissionGranted = false;
     private FusedLocationProviderClient mFusedLocationProviderClient;
-    private static final float DEAFAULT_ZOOM =8f;
-    private List<FuelStation> fuelStationList = new ArrayList<>();
+    private static final float DEAFAULT_ZOOM = 8f;
+    private HashMap<Integer, FuelStation> fuelStationList = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,25 +56,25 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
         getLocationPermission();
     }
 
-    private void getDeviceLoctation(){
-        Log.d(TAG,"getDeviceLocation:getting current Location");
-        mFusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
-        try{
-            if(mLocationpermissionGranted){
-                Task location=mFusedLocationProviderClient.getLastLocation();
-                location.addOnCompleteListener(new OnCompleteListener(){
-                    public void onComplete(@NonNull Task task){
-                        if(task.isSuccessful()){
-                            Log.d(TAG,"onComplete:Found Location");
-                            Location currentLocation=(Location)task.getResult();
-                            lastLocationclnew=currentLocation;
+    private void getDeviceLoctation() {
+        Log.d(TAG, "getDeviceLocation:getting current Location");
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        try {
+            if (mLocationpermissionGranted) {
+                Task location = mFusedLocationProviderClient.getLastLocation();
+                location.addOnCompleteListener(new OnCompleteListener() {
+                    public void onComplete(@NonNull Task task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "onComplete:Found Location");
+                            Location currentLocation = (Location) task.getResult();
+                            lastLocationclnew = currentLocation;
                             assert currentLocation != null;
                             moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
                                     DEAFAULT_ZOOM);
                             loadStations();
-                        }else{
-                            Log.d(TAG,"onComplete:current location is null");
-                            Toast.makeText(CustomerViewFuelStations.this,"unable to get current location",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.d(TAG, "onComplete:current location is null");
+                            Toast.makeText(CustomerViewFuelStations.this, "unable to get current location", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -82,8 +82,8 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
                 });
             }
 
-        }catch(SecurityException e){
-            Log.e(TAG,"getDeviceLocation:SecurityException: " +e.getMessage());
+        } catch (SecurityException e) {
+            Log.e(TAG, "getDeviceLocation:SecurityException: " + e.getMessage());
 
         }
 
@@ -96,13 +96,13 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
         backgroundworker.execute(param);
     }
 
-    private  void moveCamera(LatLng latLng, float zoom){
-        Log.d(TAG,"moveCamera:moving the camera to:lat:"+latLng.latitude+",lng:"+latLng.longitude);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,zoom));
+    private void moveCamera(LatLng latLng, float zoom) {
+        Log.d(TAG, "moveCamera:moving the camera to:lat:" + latLng.latitude + ",lng:" + latLng.longitude);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
     }
 
-    private void initMap(){
-        Log.d(TAG,"initMap:initializingMap");
+    private void initMap() {
+        Log.d(TAG, "initMap:initializingMap");
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -110,17 +110,16 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
         mapFragment.getMapAsync(this);
     }
 
-    private  void getLocationPermission(){
-        Log.d(TAG,"getLocationPermission:getting Location Permission");
-        String[]permission = {Manifest.permission.ACCESS_FINE_LOCATION};
+    private void getLocationPermission() {
+        Log.d(TAG, "getLocationPermission:getting Location Permission");
+        String[] permission = {Manifest.permission.ACCESS_FINE_LOCATION};
         //     Manifest.permission.ACCESS_COARSE_LOCATION};
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(), FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             // if(ContextCompat.checkSelfPermission(this.getApplicationContext(),COURSE_LOCATION)== PackageManager.PERMISSION_GRANTED)
-            mLocationpermissionGranted=true;
+            mLocationpermissionGranted = true;
             initMap();
-        }
-        else{
-            ActivityCompat.requestPermissions(this,permission,LOCATION_PERMISSION_REQUEST_CODE);
+        } else {
+            ActivityCompat.requestPermissions(this, permission, LOCATION_PERMISSION_REQUEST_CODE);
         }
 
     }
@@ -154,9 +153,9 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+//        Toast.makeText(this, "Tag : " + marker.getTag(), Toast.LENGTH_SHORT).show();
         moveCamera(marker.getPosition(), 19);
-        Optional<FuelStation> fuelStationOptional = fuelStationList.stream().filter(fuelStation -> marker.getPosition().equals(new LatLng(Double.valueOf(fuelStation.getLat()), Double.valueOf(fuelStation.getLon()))))
-                .findFirst();
+        Optional<FuelStation> fuelStationOptional = Optional.ofNullable(fuelStationList.get(marker.getTag()));
         if (fuelStationOptional.isPresent()){
             Intent intent = new Intent(this, CustomerFuelStationDetails.class);
             intent.putExtra("FuelStationObj", (Serializable) fuelStationOptional.get());
@@ -169,21 +168,22 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Toast.makeText(this,"Your Current Location",Toast.LENGTH_SHORT).show();
-        Log.d(TAG,"onMapReady:map is ready");
+//        Toast.makeText(this, "Your Current Location", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onMapReady:map is ready");
         mMap = googleMap;
-        if(mLocationpermissionGranted){
+        if (mLocationpermissionGranted) {
             getDeviceLoctation();
             mMap.setMyLocationEnabled(true);
         }
     }
 
-    private Marker setMarker(String title, double lat, double lan){
+    private Marker setMarker(String title, int id, double lat, double lan) {
         LatLng position = new LatLng(lat, lan);
         MarkerOptions markerOptions = new MarkerOptions()
                 .title(title)
                 .position(position);
         Marker marker = mMap.addMarker(markerOptions);
+        marker.setTag(id);
 //        moveCamera(position,16);
         mMap.setOnMarkerClickListener(this);
         return marker;
@@ -192,14 +192,14 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         fuelStationList.clear();
-        if (retrievedData.isPresent()){
+        if (retrievedData.isPresent()) {
             FuelStation[] fuelStations = new Gson().fromJson(retrievedData.get(), FuelStation[].class);
-            if (fuelStations.length==0) {
+            if (fuelStations.length == 0) {
                 Toast.makeText(this, "No Records Available !", Toast.LENGTH_SHORT).show();
             }
             for (FuelStation fuelStation : fuelStations) {
-                setMarker(fuelStation.getName(), Double.valueOf(fuelStation.getLat()), Double.valueOf(fuelStation.getLon()));
-                fuelStationList.add(fuelStation);
+                setMarker(fuelStation.getName(), fuelStation.getSid(), Double.valueOf(fuelStation.getLat()), Double.valueOf(fuelStation.getLon()));
+                fuelStationList.put(fuelStation.getSid(),fuelStation);
             }
 
         }

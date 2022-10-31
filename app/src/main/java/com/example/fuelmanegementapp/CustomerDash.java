@@ -66,6 +66,11 @@ public class CustomerDash extends AppCompatActivity implements httpDataManager {
         this.startActivity(intent);
     }
 
+    public void goToRecords(View view) {
+        Intent intent = new Intent(this, CustomerRecords.class);
+        this.startActivity(intent);
+    }
+
     public void goToSettings(View view) {
     }
 

@@ -9,19 +9,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
-import com.example.fuelmanegementapp.models.Customer;
 import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.recycleviews.RecycleViewConfig;
-import com.example.fuelmanegementapp.recycleviews.vehicle.VehicleAdapter;
+import com.example.fuelmanegementapp.recycleviews.customer.vehicle.VehicleAdapter;
 import com.example.fuelmanegementapp.services.Backgroundworker;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class CustomerViewVehicles extends AppCompatActivity implements httpDataManager {
 

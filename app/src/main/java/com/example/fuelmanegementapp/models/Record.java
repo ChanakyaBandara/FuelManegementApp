@@ -3,41 +3,58 @@ package com.example.fuelmanegementapp.models;
 import java.io.Serializable;
 
 public class Record implements Serializable {
-    //`vtid`, `type`, `description`, `allowed_quota`
-    private int vtid;
-    private String type;
-    private String description;
-    private int allowed_quota;
+    //`rid`, `timestamp`, `vid`, `sid`, `amount`
+    private int rid;
+    private String timestamp;
+    private Vehicle vehicle;
+    private FuelStation fuelStation;
+    private int amount;
 
-    public int getVtid() {
-        return vtid;
+    public Record(int rid, String timestamp, Vehicle vehicle, FuelStation fuelStation, int amount) {
+        this.rid = rid;
+        this.timestamp = timestamp;
+        this.vehicle = vehicle;
+        this.fuelStation = fuelStation;
+        this.amount = amount;
     }
 
-    public void setVtid(int vtid) {
-        this.vtid = vtid;
+    public int getRid() {
+        return rid;
     }
 
-    public String getType() {
-        return type;
+    public void setRid(int rid) {
+        this.rid = rid;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public String getTimestamp() {
+        return timestamp;
     }
 
-    public String getDescription() {
-        return description;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public int getAllowed_quota() {
-        return allowed_quota;
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
-    public void setAllowed_quota(int allowed_quota) {
-        this.allowed_quota = allowed_quota;
+    public FuelStation getFuelStation() {
+        return fuelStation;
+    }
+
+    public void setFuelStation(FuelStation fuelStation) {
+        this.fuelStation = fuelStation;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

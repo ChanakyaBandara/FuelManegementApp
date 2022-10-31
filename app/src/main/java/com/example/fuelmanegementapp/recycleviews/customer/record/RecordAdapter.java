@@ -1,4 +1,4 @@
-package com.example.fuelmanegementapp.recycleviews.vehicle;
+package com.example.fuelmanegementapp.recycleviews.customer.record;
 
 import android.view.ViewGroup;
 
@@ -6,17 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fuelmanegementapp.models.Vehicle;
+import com.example.fuelmanegementapp.models.Record;
 
 import java.util.List;
 
-public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecycleItem> {
+public class RecordAdapter extends RecyclerView.Adapter<RecordRecycleItem> {
 
-    private List<Vehicle> mPer;
+    private List<Record> mPer;
     private List<String> mKey;
     private AppCompatActivity mContext;
 
-    public VehicleAdapter(List<Vehicle> mPer, List<String> mKey, AppCompatActivity mContext) {
+    public RecordAdapter(List<Record> mPer, List<String> mKey, AppCompatActivity mContext) {
         this.mPer = mPer;
         this.mKey = mKey;
         this.mContext = mContext;
@@ -24,12 +24,12 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleRecycleItem> {
 
     @NonNull
     @Override
-    public VehicleRecycleItem onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new VehicleRecycleItem(parent, mContext);
+    public RecordRecycleItem onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new RecordRecycleItem(parent, mContext);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VehicleRecycleItem holder, int position) {
+    public void onBindViewHolder(@NonNull RecordRecycleItem holder, int position) {
         holder.bind(mPer.get(position), mKey.get(position));
     }
 

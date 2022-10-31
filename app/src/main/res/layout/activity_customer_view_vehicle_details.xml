@@ -292,7 +292,7 @@
                                 android:orientation="horizontal">
 
                                 <lecho.lib.hellocharts.view.PieChartView
-                                    android:id="@+id/chart2"
+                                    android:id="@+id/chart"
                                     android:layout_width="200dp"
                                     android:layout_height="200dp" />
 

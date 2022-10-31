@@ -1,4 +1,4 @@
-package com.example.fuelmanegementapp.recycleviews.vehicle;
+package com.example.fuelmanegementapp.recycleviews.customer.vehicle;
 
 import android.content.Intent;
 import android.view.LayoutInflater;

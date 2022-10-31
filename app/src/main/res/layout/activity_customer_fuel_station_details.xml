@@ -106,7 +106,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtPIdrg"
+                                android:id="@+id/txtFSName"
                                 android:layout_width="0sp"
                                 android:layout_weight="3"
                                 android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
                                 android:fontFamily="@font/regular"
-                                android:text="Amoxillin ESP"
+                                android:text=""
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
@@ -142,7 +142,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtPImanf"
+                                android:id="@+id/txtFSEmail"
                                 android:layout_width="0sp"
                                 android:layout_weight="3"
                                 android:layout_height="wrap_content"
@@ -151,7 +151,43 @@
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
                                 android:fontFamily="@font/regular"
-                                android:text="Sy Labs Pvt Ltd"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15sp"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <TextView
+                                android:layout_width="0sp"
+                                android:layout_weight="2"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="15sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_gravity="start"
+                                android:fontFamily="@font/regular"
+                                android:text="Phone : "
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/txtFSPhone"
+                                android:layout_width="0sp"
+                                android:layout_weight="3"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="15sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_gravity="start"
+                                android:fontFamily="@font/regular"
+                                android:text=""
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
@@ -178,7 +214,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtPIcap"
+                                android:id="@+id/txtFSReg"
                                 android:layout_width="0sp"
                                 android:layout_weight="3"
                                 android:layout_height="wrap_content"
@@ -187,46 +223,47 @@
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
                                 android:fontFamily="@font/regular"
-                                android:text="250 mg"
+                                android:text=""
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="15sp"
-                            android:orientation="horizontal"
-                            android:weightSum="5">
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginHorizontal="15sp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="5">-->
 
-                            <TextView
-                                android:layout_width="0sp"
-                                android:layout_weight="2"
-                                android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="15sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="2sp"
-                                android:layout_gravity="start"
-                                android:fontFamily="@font/regular"
-                                android:text="City : "
-                                android:textColor="@color/black"
-                                android:textSize="12sp" />
+<!--                            <TextView-->
+<!--                                android:layout_width="0sp"-->
+<!--                                android:layout_weight="2"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginHorizontal="15sp"-->
+<!--                                android:layout_marginTop="5sp"-->
+<!--                                android:layout_marginBottom="2sp"-->
+<!--                                android:layout_gravity="start"-->
+<!--                                android:fontFamily="@font/regular"-->
+<!--                                android:text="City : "-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="12sp" />-->
 
-                            <TextView
-                                android:layout_width="0sp"
-                                android:layout_weight="3"
-                                android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="15sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="2sp"
-                                android:layout_gravity="start"
-                                android:fontFamily="@font/regular"
-                                android:text="250 mg"
-                                android:textColor="@color/black"
-                                android:textSize="12sp" />
+<!--                            <TextView-->
+<!--                                android:id="@+id/txtFSCity"-->
+<!--                                android:layout_width="0sp"-->
+<!--                                android:layout_weight="3"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginHorizontal="15sp"-->
+<!--                                android:layout_marginTop="5sp"-->
+<!--                                android:layout_marginBottom="2sp"-->
+<!--                                android:layout_gravity="start"-->
+<!--                                android:fontFamily="@font/regular"-->
+<!--                                android:text=""-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="12sp" />-->
 
-                        </LinearLayout>
+<!--                        </LinearLayout>-->
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -249,6 +286,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
+                                android:id="@+id/txtFSAddress"
                                 android:layout_width="0sp"
                                 android:layout_weight="3"
                                 android:layout_height="wrap_content"
@@ -257,7 +295,7 @@
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
                                 android:fontFamily="@font/regular"
-                                android:text="250 mg"
+                                android:text=""
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
@@ -319,6 +357,7 @@
                             <ProgressBar
                                 android:id="@+id/petrolProgressBar"
                                 style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0sp"
                                 android:layout_weight="6"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
@@ -367,6 +406,7 @@
                                 android:id="@+id/dieselProgressBar"
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_weight="6"
+                                android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentTop="true"
