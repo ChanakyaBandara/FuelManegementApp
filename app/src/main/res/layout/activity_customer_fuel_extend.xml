@@ -45,7 +45,6 @@
         <ScrollView
             android:id="@+id/details"
             android:layout_below="@id/toolbar"
-            android:layout_above="@id/logout"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -75,10 +74,10 @@
 
                         <EditText
                             android:id="@+id/txtInCusVehReg"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Registration Number"
+                            android:hint="Week"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -97,10 +96,10 @@
 
                         <EditText
                             android:id="@+id/txtInCusVehBrand"
-                            android:inputType="textEmailAddress"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Brand"
+                            android:hint="Amount"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -117,10 +116,10 @@
 
                         <EditText
                             android:id="@+id/txtInCusVehModal"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Model"
+                            android:hint="Reference Number"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -140,27 +139,7 @@
                             android:inputType="text"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="Engine Number"
-                            android:fontFamily="@font/regular"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
-                            android:id="@+id/txtInCusVehChassis"
-                            android:inputType="number"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:hint="Chassis Number"
+                            android:hint="Approval"
                             android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
