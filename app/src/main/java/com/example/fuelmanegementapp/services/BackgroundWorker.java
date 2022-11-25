@@ -7,6 +7,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.fuelmanegementapp.Login;
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 
 import java.io.BufferedReader;
@@ -23,14 +24,14 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Optional;
 
-public class Backgroundworker extends AsyncTask<HashMap<String, String>, Void, String> {
+public class BackgroundWorker extends AsyncTask<HashMap<String, String>, Void, String> {
 
     private com.example.fuelmanegementapp.interfaces.httpDataManager httpDataManager;
     private Dialog myDialog;
     private String type = "";
 
 
-    public Backgroundworker(httpDataManager parent) {
+    public BackgroundWorker(httpDataManager parent) {
         httpDataManager = parent;
         if( parent instanceof AppCompatActivity){
             AppCompatActivity appCompatActivity = (AppCompatActivity) parent;
@@ -43,7 +44,7 @@ public class Backgroundworker extends AsyncTask<HashMap<String, String>, Void, S
     protected String doInBackground(HashMap<String, String>... params) {
         HashMap<String, String> param = params[0];
         type = param.get("type");
-        String login_url = "http://192.168.8.101/FuelManagementWeb/PHP/mobile.php";
+        String login_url = "http://"+ Login.IP_Address +"/FuelManagementWeb/PHP/mobile.php";
         try {
             URL url = new URL(login_url);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();

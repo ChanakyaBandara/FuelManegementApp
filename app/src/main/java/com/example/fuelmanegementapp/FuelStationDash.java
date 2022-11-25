@@ -1,7 +1,6 @@
 package com.example.fuelmanegementapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +9,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
-import com.example.fuelmanegementapp.models.Customer;
 import com.example.fuelmanegementapp.models.FuelStation;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -39,7 +37,7 @@ public class FuelStationDash extends AppCompatActivity implements httpDataManage
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "load_station_data");
         param.put("LID", lid);
-        Backgroundworker backgroundworker = new Backgroundworker(FuelStationDash.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationDash.this);
         backgroundworker.execute(param);
     }
 

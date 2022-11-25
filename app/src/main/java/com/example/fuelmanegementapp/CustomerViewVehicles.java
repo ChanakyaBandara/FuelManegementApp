@@ -12,7 +12,7 @@ import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.recycleviews.RecycleViewConfig;
 import com.example.fuelmanegementapp.recycleviews.customer.vehicle.VehicleAdapter;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class CustomerViewVehicles extends AppCompatActivity implements httpDataM
         vehicleIdList = new ArrayList<String>();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerViewVehicles.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerViewVehicles.this);
         backgroundworker.execute(param);
     }
 

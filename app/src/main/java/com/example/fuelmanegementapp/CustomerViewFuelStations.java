@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,9 +31,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Optional;
 
 public class CustomerViewFuelStations extends AppCompatActivity implements GoogleMap.OnMarkerClickListener, OnMapReadyCallback, httpDataManager {
@@ -92,7 +90,7 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
     private void loadStations() {
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "load_stations");
-        Backgroundworker backgroundworker = new Backgroundworker(this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(this);
         backgroundworker.execute(param);
     }
 

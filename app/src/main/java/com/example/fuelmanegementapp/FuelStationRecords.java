@@ -13,7 +13,7 @@ import com.example.fuelmanegementapp.models.Record;
 import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.recycleviews.RecycleViewConfig;
 import com.example.fuelmanegementapp.recycleviews.station.record.StationRecordAdapter;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +43,7 @@ public class FuelStationRecords extends AppCompatActivity implements httpDataMan
         recordIdList = new ArrayList<String>();
         recyclerView = (RecyclerView) findViewById(R.id.stationRecordRecyclerView);
 
-        Backgroundworker backgroundworker = new Backgroundworker(FuelStationRecords.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationRecords.this);
         backgroundworker.execute(param);
     }
 

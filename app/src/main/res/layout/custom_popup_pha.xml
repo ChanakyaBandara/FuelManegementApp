@@ -33,17 +33,17 @@
                     android:layout_gravity="start"
                     android:gravity="start"
                     android:textColor="@color/black"
-                    android:text="Pharmacy"
+                    android:text="Current IP"
                     android:layout_weight="1"
                     android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/txtPopupPhaName"
+                    android:id="@+id/btnPopupCurrentIP"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/medium"
                     android:layout_gravity="start"
-                    android:gravity="start"
+                    android:gravity="center"
                     android:textColor="@color/black"
                     android:layout_weight="1"
                     android:textSize="15dp" />
@@ -61,46 +61,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/medium"
-                    android:layout_gravity="start"
+                    android:layout_gravity="bottom"
                     android:gravity="start"
                     android:textColor="@color/black"
-                    android:text="Pharmacy Reg"
+                    android:text="New IP"
                     android:layout_weight="1"
                     android:textSize="15dp" />
 
-                <TextView
-                    android:id="@+id/txtPopupPhaReg"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/medium"
-                    android:layout_gravity="start"
-                    android:gravity="start"
-                    android:textColor="@color/black"
-                    android:layout_weight="1"
-                    android:textSize="15dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2"
-                android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/medium"
-                    android:layout_gravity="start"
-                    android:gravity="start"
-                    android:textColor="@color/black"
-                    android:text="Phone"
-                    android:layout_weight="1"
-                    android:textSize="15dp" />
-
-                <TextView
-                    android:id="@+id/txtPopupPhaPhone"
+                <EditText
+                    android:id="@+id/btnPopupNewIP"
+                    android:inputType="text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/medium"
@@ -116,13 +86,13 @@
 
 
         <Button
-            android:id="@+id/btnPopupPhaAddPres"
+            android:id="@+id/btnPopupBtn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/button_border"
             android:fontFamily="@font/bold"
-            android:text="Select Prescription"
+            android:text="Update IP"
             android:textColor="@color/black"
             android:textStyle="bold" />
     </LinearLayout>

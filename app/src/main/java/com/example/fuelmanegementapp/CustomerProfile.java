@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Customer;
 
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -36,7 +36,7 @@ public class CustomerProfile extends AppCompatActivity implements httpDataManage
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "load_customer_data");
         param.put("LID", String.valueOf(CustomerDash.customer.getLid()));
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerProfile.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerProfile.this);
         backgroundworker.execute(param);
     }
 

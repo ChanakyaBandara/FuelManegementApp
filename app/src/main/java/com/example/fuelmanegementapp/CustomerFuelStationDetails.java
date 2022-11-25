@@ -10,7 +10,7 @@ import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
 import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.models.Stock;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,7 +58,7 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "get_stock_sid");
         param.put("SID", String.valueOf(fuelStation.getSid()));
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerFuelStationDetails.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelStationDetails.this);
         backgroundworker.execute(param);
     }
 

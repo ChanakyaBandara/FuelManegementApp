@@ -10,12 +10,10 @@ import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
 import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.models.Record;
-import com.example.fuelmanegementapp.models.Stock;
 import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.recycleviews.RecycleViewConfig;
 import com.example.fuelmanegementapp.recycleviews.customer.record.RecordAdapter;
-import com.example.fuelmanegementapp.services.Backgroundworker;
-import com.google.gson.Gson;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +43,7 @@ public class CustomerRecords extends AppCompatActivity implements httpDataManage
         recordIdList = new ArrayList<String>();
         recyclerView = (RecyclerView) findViewById(R.id.recordRecyclerView);
 
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerRecords.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerRecords.this);
         backgroundworker.execute(param);
     }
 

@@ -11,26 +11,15 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
-import com.example.fuelmanegementapp.services.Backgroundworker;
 import com.google.zxing.Result;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Locale;
 import java.util.Optional;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -41,7 +30,7 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
     private ZXingScannerView scannerView;
     private static int camId = android.hardware.Camera.CameraInfo.CAMERA_FACING_BACK;
     private Dialog myDialog;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,26 +41,20 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
-        if(currentApiVersion >=  Build.VERSION_CODES.M)
-        {
-            if(checkPermission())
-            {
+        if (currentApiVersion >= Build.VERSION_CODES.M) {
+            if (checkPermission()) {
                 Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
-            }
-            else
-            {
+            } else {
                 requestPermission();
             }
         }
     }
 
-    private boolean checkPermission()
-    {
+    private boolean checkPermission() {
         return (ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA) == PackageManager.PERMISSION_GRANTED);
     }
 
-    private void requestPermission()
-    {
+    private void requestPermission() {
         ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_CAMERA);
     }
 
@@ -82,7 +65,7 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentapiVersion >= android.os.Build.VERSION_CODES.M) {
             if (checkPermission()) {
-                if(scannerView == null) {
+                if (scannerView == null) {
                     scannerView = new ZXingScannerView(this);
                     setContentView(scannerView);
                 }
@@ -143,7 +126,11 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
 
     @Override
     public void handleResult(Result result) {
-        Toast.makeText(getApplicationContext(), "Error "+result.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Error " + result.toString(), Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(FuelStationScanQr.this, FuelStationViewQrInfo.class);
+        intent.putExtra("Extra_qr", result.toString());
+        startActivity(intent);
+        finish();
     }
 
     public void goBack(View view) {
@@ -153,45 +140,11 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
     }
 
     @Override
-    public void retrieveData(String type,Optional<String> retrievedData) {
-        if(retrievedData.isPresent()){
+    public void retrieveData(String type, Optional<String> retrievedData) {
+        if (retrievedData.isPresent()) {
             String result = retrievedData.get();
-            Log.i("Error_Check",result.toString());
-            myDialog.setContentView(R.layout.custom_popup_pha);
-            Button btnPopupPhaAddPres = (Button) myDialog.findViewById(R.id.btnPopupPhaAddPres);
-            TextView txtPopupPhaName = (TextView) myDialog.findViewById(R.id.txtPopupPhaName);
-            TextView txtPopupPhaReg = (TextView) myDialog.findViewById(R.id.txtPopupPhaReg);
-            TextView txtPopupPhaPhone = (TextView) myDialog.findViewById(R.id.txtPopupPhaPhone);
-            int PHID = 0;
-            try {
-                JSONArray jsonArray = new JSONArray(result);
-                JSONObject jsonObj = (JSONObject) jsonArray.get(0);
-                String Name = jsonObj.getString("Ph_name");
-                String Reg = jsonObj.getString("Ph_reg");
-                String Phone = jsonObj.getString("phone");
-                PHID = jsonObj.getInt("ph_ID");
-                txtPopupPhaName.setText(Name);
-                txtPopupPhaReg.setText(Reg);
-                txtPopupPhaPhone.setText(Phone);
+            Log.i("Error_Check", result.toString());
 
-            } catch (JSONException e) {
-                Log.i("Error_Check",e.toString());
-                e.printStackTrace();
-            }
-
-            int finalPHID = PHID;
-            btnPopupPhaAddPres.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(FuelStationScanQr.this,FuelStationViewQrInfo.class);
-                    intent.putExtra("PHID",String.valueOf(finalPHID));
-                    startActivity(intent);
-                }
-            });
-
-
-            myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            myDialog.show();
         }
     }
 }

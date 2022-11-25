@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.models.Stock;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +35,7 @@ public class FuelStationStock extends AppCompatActivity implements httpDataManag
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "get_stock_sid");
         param.put("SID", String.valueOf(FuelStationDash.fuelStation.getSid()));
-        Backgroundworker backgroundworker = new Backgroundworker(FuelStationStock.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationStock.this);
         backgroundworker.execute(param);
     }
 

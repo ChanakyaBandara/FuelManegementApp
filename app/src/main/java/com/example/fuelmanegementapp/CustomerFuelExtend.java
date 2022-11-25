@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Vehicle;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -68,7 +68,7 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
 
         vehicleList = new ArrayList<Vehicle>();
 
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerFuelExtend.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelExtend.this);
         backgroundworker.execute(param);
     }
 
@@ -84,7 +84,7 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
             param.put("week", week.trim());
             param.put("amount", amount.trim());
             param.put("ref", ref.trim());
-            Backgroundworker backgroundworker = new Backgroundworker(CustomerFuelExtend.this);
+            BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelExtend.this);
             backgroundworker.execute(param);
 
         } else {

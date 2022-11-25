@@ -1,7 +1,6 @@
 package com.example.fuelmanegementapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -9,11 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Vehicle;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
@@ -68,7 +66,7 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
         param.put("type", "remaining_quota");
         param.put("vid", String.valueOf(vehicle.getVid()));
 
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerViewVehicleDetails.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerViewVehicleDetails.this);
         backgroundworker.execute(param);
     }
 

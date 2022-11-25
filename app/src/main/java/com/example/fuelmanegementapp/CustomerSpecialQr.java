@@ -11,9 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
-import com.example.fuelmanegementapp.models.FuelType;
-import com.example.fuelmanegementapp.models.Stock;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
@@ -49,7 +47,7 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "get_special_qr");
         param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
-        Backgroundworker backgroundworker = new Backgroundworker(CustomerSpecialQr.this);
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerSpecialQr.this);
         backgroundworker.execute(param);
     }
 
@@ -66,7 +64,7 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
             param.put("ref", ref);
             param.put("qr_code", qr);
             param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
-            Backgroundworker backgroundworker = new Backgroundworker(CustomerSpecialQr.this);
+            BackgroundWorker backgroundworker = new BackgroundWorker(CustomerSpecialQr.this);
             backgroundworker.execute(param);
         } else {
             Toast.makeText(CustomerSpecialQr.this, "Empty field not allowed!", Toast.LENGTH_SHORT).show();

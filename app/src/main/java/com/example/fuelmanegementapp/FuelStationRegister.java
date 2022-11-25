@@ -18,7 +18,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 import com.example.fuelmanegementapp.util.WorkaroundMapFragment;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -239,7 +239,7 @@ public class FuelStationRegister extends AppCompatActivity implements GoogleMap.
             param.put("lat", etxtLat);
             param.put("lon", etxtLan);
             param.put("Password", stationPassword);
-            Backgroundworker backgroundworker = new Backgroundworker(FuelStationRegister.this);
+            BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationRegister.this);
             backgroundworker.execute(param);
 
         } else {

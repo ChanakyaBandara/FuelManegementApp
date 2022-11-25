@@ -7,18 +7,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
-import com.example.fuelmanegementapp.models.Vehicle;
-import com.example.fuelmanegementapp.services.Backgroundworker;
-import com.google.gson.Gson;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -45,7 +41,7 @@ public class FuelStationArival extends AppCompatActivity implements httpDataMana
             param.put("timestamp", date);
             param.put("ft_id", "1");
             param.put("sid", String.valueOf(FuelStationDash.fuelStation.getSid()));
-            Backgroundworker backgroundworker = new Backgroundworker(FuelStationArival.this);
+            BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationArival.this);
             backgroundworker.execute(param);
         } else {
             Toast.makeText(FuelStationArival.this, "Empty field not allowed!", Toast.LENGTH_SHORT).show();

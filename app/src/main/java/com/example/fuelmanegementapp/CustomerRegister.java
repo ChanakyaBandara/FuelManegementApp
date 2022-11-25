@@ -2,7 +2,6 @@ package com.example.fuelmanegementapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
-import com.example.fuelmanegementapp.services.Backgroundworker;
+import com.example.fuelmanegementapp.services.BackgroundWorker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,7 +53,7 @@ public class CustomerRegister extends AppCompatActivity implements httpDataManag
             param.put("address", Address);
             param.put("phone", Phone.trim());
             param.put("Password", Password);
-            Backgroundworker backgroundworker = new Backgroundworker(CustomerRegister.this);
+            BackgroundWorker backgroundworker = new BackgroundWorker(CustomerRegister.this);
             backgroundworker.execute(param);
 
         } else {

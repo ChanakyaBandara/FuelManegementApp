@@ -99,7 +99,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtCusVehReg"
+                                android:id="@+id/txtStaQRVehReg"
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -134,7 +134,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtCusVehBrand"
+                                android:id="@+id/txtStaQRVehBrand"
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -169,7 +169,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtCusVehModal"
+                                android:id="@+id/txtStaQRVehModal"
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -204,7 +204,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtCusVehEngine"
+                                android:id="@+id/txtStaQRVehEngine"
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -239,7 +239,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtCusVehChassis"
+                                android:id="@+id/txtStaQRVehChassis"
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -292,7 +292,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txtCusVehChassis"
+                                android:id="@+id/txtStaQRtotRemaining"
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -301,7 +301,6 @@
                                 android:layout_marginBottom="2sp"
                                 android:layout_weight="2"
                                 android:fontFamily="@font/regular"
-                                android:text="20 l"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
@@ -327,7 +326,7 @@
                                 android:textSize="12sp" />
 
                             <EditText
-                                android:id="@+id/editTextNumberDecimal"
+                                android:id="@+id/txtStaPumpedAmount"
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="15sp"
@@ -354,7 +353,6 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/delete"
                 android:onClick="update"
                 android:visibility="visible"
                 android:layout_width="match_parent"
