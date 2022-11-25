@@ -67,59 +67,36 @@
                     android:orientation="vertical"
                     android:paddingRight="10dp">
 
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Date"
+                        android:minHeight="50dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/txtStationArrDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:maxLength="20"
+                            android:maxLines="1"
+                            android:minHeight="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:gravity="bottom">
 
                         <EditText
-                            android:id="@+id/txtInCusVehReg"
+                            android:id="@+id/txtStationArrAmount"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:backgroundTint="@color/colorAlmostWhite"
                             android:fontFamily="@font/regular"
                             android:hint="Amount"
                             android:inputType="number"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
-                            android:id="@+id/txtInCusVehModal"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/colorAlmostWhite"
-                            android:fontFamily="@font/regular"
-                            android:hint="Time Stamp"
-                            android:inputType="text"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
-                            android:id="@+id/txtInCusVehEngine"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/colorAlmostWhite"
-                            android:fontFamily="@font/regular"
-                            android:hint="Status"
-                            android:inputType="text"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
@@ -151,6 +128,7 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Submit"
+                android:onClick="addArrival"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

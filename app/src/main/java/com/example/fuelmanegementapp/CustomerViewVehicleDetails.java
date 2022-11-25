@@ -33,7 +33,7 @@ import lecho.lib.hellocharts.view.PieChartView;
 
 public class CustomerViewVehicleDetails extends AppCompatActivity implements httpDataManager {
 
-    private TextView txtCusVehReg,txtCusVehBrand,txtCusVehModal,txtCusVehEngine,txtCusVehChassis;
+    private TextView txtCusVehReg,txtCusVehBrand,txtCusVehModal,txtCusVehEngine,txtCusVehChassis,totRemaining;
     private ImageView imageView;
     private Vehicle vehicle;
     private PieChartView pieChartView;
@@ -51,6 +51,7 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
         txtCusVehModal = (TextView) findViewById(R.id.txtCusVehModal);
         txtCusVehEngine = (TextView) findViewById(R.id.txtCusVehEngine);
         txtCusVehChassis = (TextView) findViewById(R.id.txtCusVehChassis);
+        totRemaining = (TextView) findViewById(R.id.totRemaining);
 
         txtCusVehReg.setText(vehicle.getReg_no());
         txtCusVehBrand.setText(vehicle.getBrand());
@@ -93,10 +94,11 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
                 int allowed_quota = jsonObj.getInt("allowed_quota");
                 int total_amount = jsonObj.getInt("total_amount");
                 int usedPercentage = total_amount*100/allowed_quota;
+                totRemaining.setText(String.valueOf(allowed_quota-total_amount));
                 List pieData = new ArrayList<SliceValue>();
                 pieData.add(new SliceValue(usedPercentage, Color.rgb(255,8,12)).setLabel("Used"));
                 pieData.add(new SliceValue(100-usedPercentage, Color.rgb(0, 255, 148)).setLabel("Remaining"));
-                view_piechart(pieData);
+                view_piechart(pieData,usedPercentage);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -104,13 +106,16 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
         }
     }
 
-    public void view_piechart(List pieData){
+    public void view_piechart(List pieData, int usedPercentage){
         PieChartData pieChartData = new PieChartData(pieData);
         pieChartData.setHasLabels(true).setHasLabelsOutside(true).setValueLabelsTextColor(Color.BLACK);
         pieChartData.setHasCenterCircle(true)
-                .setCenterText1("hhhh")
+                .setCenterText1(usedPercentage+" %")
                 .setCenterText1FontSize(15)
-                .setCenterText1Color(Color.parseColor("#212A51"));
+                .setCenterText1Color(Color.parseColor("#212A51"))
+                .setCenterText2("Used")
+                .setCenterText2FontSize(15)
+                .setCenterText2Color(Color.parseColor("#212A51"));
         pieChartView.setPieChartData(pieChartData);
 
     }

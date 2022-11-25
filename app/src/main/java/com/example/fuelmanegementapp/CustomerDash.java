@@ -75,8 +75,12 @@ public class CustomerDash extends AppCompatActivity implements httpDataManager {
     }
 
     public void goToSpecialQr(View view) {
+        Intent intent = new Intent(this, CustomerSpecialQr.class);
+        this.startActivity(intent);
     }
 
     public void goToExtends(View view) {
+        Intent intent = new Intent(this, CustomerFuelExtend.class);
+        this.startActivity(intent);
     }
 }

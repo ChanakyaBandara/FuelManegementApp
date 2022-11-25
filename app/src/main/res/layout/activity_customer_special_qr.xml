@@ -44,10 +44,10 @@
 
         <ScrollView
             android:id="@+id/details"
-            android:layout_below="@id/toolbar"
-            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_marginTop="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,16 +56,16 @@
 
                 <LinearLayout
                     android:id="@+id/logincard"
-                    android:layout_alignParentBottom="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical"
-                    android:paddingRight="10dp"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true">
+                    android:paddingRight="10dp">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -73,20 +73,19 @@
                         android:gravity="bottom">
 
                         <EditText
-                            android:id="@+id/txtInCusVehReg"
-                            android:inputType="text"
+                            android:id="@+id/txtSpecialPurpose"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
+                            android:backgroundTint="@color/colorAlmostWhite"
+                            android:fontFamily="@font/regular"
                             android:hint="Purpose"
-                            android:fontFamily="@font/regular"
+                            android:inputType="text"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
+                            android:textSize="15sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
-
 
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -95,80 +94,54 @@
                         android:gravity="bottom">
 
                         <EditText
-                            android:id="@+id/txtInCusVehBrand"
-                            android:inputType="number"
+                            android:id="@+id/txtSpecialAmount"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
+                            android:backgroundTint="@color/colorAlmostWhite"
+                            android:fontFamily="@font/regular"
                             android:hint="Amount"
-                            android:fontFamily="@font/regular"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
-                            android:id="@+id/txtInCusVehModal"
-                            android:inputType="text"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:hint="Approval"
-                            android:fontFamily="@font/regular"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
-                            android:id="@+id/txtInCusVehEngine"
-                            android:inputType="text"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:hint="Reference Number"
-                            android:fontFamily="@font/regular"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
-                            android:id="@+id/txtInCusVehChassis"
                             android:inputType="number"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:hint="QR Code"
-                            android:fontFamily="@font/regular"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
+                            android:textSize="15sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:id="@+id/txtSpecialRef"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:backgroundTint="@color/colorAlmostWhite"
+                            android:fontFamily="@font/regular"
+                            android:hint="Reference Number"
+                            android:inputType="text"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/SPQrView"
+                        android:layout_width="250sp"
+                        android:layout_height="250sp"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="15sp" />
                 </LinearLayout>
 
             </LinearLayout>

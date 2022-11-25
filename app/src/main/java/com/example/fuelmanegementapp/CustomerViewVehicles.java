@@ -49,13 +49,11 @@ public class CustomerViewVehicles extends AppCompatActivity implements httpDataM
         vehicleIdList.clear();
 
         if (retrievedData.isPresent()){
-
             Vehicle[] vehicles = new Gson().fromJson(retrievedData.get(), Vehicle[].class);
             for (Vehicle vehicle : vehicles) {
                 vehicleList.add(vehicle);
                 vehicleIdList.add(String.valueOf(vehicle.getVid()));
             }
-
         }
         if (vehicleList.isEmpty()) {
             Toast.makeText(this, "No Records Available !", Toast.LENGTH_SHORT).show();

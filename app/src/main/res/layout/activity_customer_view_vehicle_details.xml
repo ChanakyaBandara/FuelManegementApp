@@ -276,8 +276,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="14dp">
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -306,16 +305,17 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Total"
+                                        android:text="Remaining"
                                         android:fontFamily="@font/roboto_regular"
                                         android:textStyle="bold"
-                                        android:textSize="40dp" />
+                                        android:textSize="30dp" />
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content">
 
                                         <TextView
+                                            android:id="@+id/totRemaining"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text=""
@@ -324,11 +324,10 @@
                                             android:textSize="30dp" />
 
                                         <TextView
-                                            android:id="@+id/totpie"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="l"
-                                            android:fontFamily="@font/roboto_regular"
+                                            android:text=" l"
+                                            android:fontFamily="@font/regular"
                                             android:textStyle="bold"
                                             android:textSize="30dp" />
 
