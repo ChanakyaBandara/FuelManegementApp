@@ -1,13 +1,13 @@
 package com.example.fuelmanegementapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Vehicle;
@@ -73,7 +73,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             try {
-                if (type == "load_vehicle_by_qr") {
+                if (type.equals("load_vehicle_by_qr")) {
                     vehicle = new Gson().fromJson(retrievedData.get(), Vehicle.class);
 
                     txtStaQRVehReg.setText(vehicle.getReg_no());
@@ -83,11 +83,11 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
                     txtStaQRVehChassis.setText(vehicle.getChassis_no());
 
                     loadVehicleStock();
-                } else if (type == "remaining_quota") {
+                } else if (type.equals("remaining_quota")) {
                     JSONObject jsonObj = new JSONObject(retrievedData.get());
                     int allowed_quota = jsonObj.getInt("allowed_quota");
                     int total_amount = jsonObj.getInt("total_amount");
-                    txtStaQRtotRemaining.setText(String.valueOf(allowed_quota - total_amount)+" liters");
+                    txtStaQRtotRemaining.setText(String.valueOf(allowed_quota - total_amount) + " liters");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

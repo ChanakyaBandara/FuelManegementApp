@@ -1,8 +1,5 @@
 package com.example.fuelmanegementapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatSpinner;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelType;
@@ -128,13 +128,13 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            if (type == "addVehicle") {
+            if (type.equals("addVehicle")) {
 
                 Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, CustomerViewVehicles.class);
                 this.startActivity(intent);
 
-            } else if (type == "load_fuel_types") {
+            } else if (type.equals("load_fuel_types")) {
                 FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
 //                Creating adapter for spinner
 //                fuelList.add("Petrol");
@@ -142,7 +142,7 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
 //                fuelListKeys.add("1");
 //                fuelListKeys.add("2");
 
-                for (FuelType fuelType:fuelTypes){
+                for (FuelType fuelType : fuelTypes) {
                     fuelList.add(fuelType.getFuel());
                     fuelListKeys.add(String.valueOf(fuelType.getFid()));
                 }
@@ -157,7 +157,7 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
                 // attaching data adapter to spinner
                 fuelSpinner.setAdapter(dataAdapter);
 
-            } else if (type == "load_vehicle_types") {
+            } else if (type.equals("load_vehicle_types")) {
                 VehicleType[] vehicleTypes = new Gson().fromJson(retrievedData.get(), VehicleType[].class);
 //                Creating adapter for spinner
 //                vehicleTypeList.add("Bike");
@@ -165,7 +165,7 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
 //                vehicleTypeListKeys.add("1");
 //                vehicleTypeListKeys.add("2");
 
-                for (VehicleType vehicleType:vehicleTypes){
+                for (VehicleType vehicleType : vehicleTypes) {
                     vehicleTypeList.add(vehicleType.getType());
                     vehicleTypeListKeys.add(String.valueOf(vehicleType.getVtid()));
                 }
