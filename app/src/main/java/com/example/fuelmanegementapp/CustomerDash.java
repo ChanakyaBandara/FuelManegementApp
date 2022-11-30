@@ -83,4 +83,9 @@ public class CustomerDash extends AppCompatActivity implements httpDataManager {
         Intent intent = new Intent(this, CustomerFuelExtend.class);
         this.startActivity(intent);
     }
+
+    public void goToComplaints(View view) {
+        Intent intent = new Intent(this, CustomerComplaint.class);
+        this.startActivity(intent);
+    }
 }

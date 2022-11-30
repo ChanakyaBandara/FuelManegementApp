@@ -21,6 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FuelManegementApp">
         <activity
+            android:name=".CustomerComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".FuelStationViewSPQrInfo"
+            android:exported="false" />
+        <activity
             android:name=".FuelStationArival"
             android:exported="false" />
         <activity

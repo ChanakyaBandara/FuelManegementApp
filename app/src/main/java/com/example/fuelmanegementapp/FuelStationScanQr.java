@@ -2,10 +2,6 @@ package com.example.fuelmanegementapp;
 
 import static android.Manifest.permission.CAMERA;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -16,6 +12,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.google.zxing.Result;
@@ -126,11 +126,23 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
 
     @Override
     public void handleResult(Result result) {
-        Toast.makeText(getApplicationContext(), "Error " + result.toString(), Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(FuelStationScanQr.this, FuelStationViewQrInfo.class);
-        intent.putExtra("Extra_qr", result.toString());
-        startActivity(intent);
-        finish();
+        Log.i("Error_Check", result.toString());
+        String scannedQR = result.toString();
+        String[] splitQR = scannedQR.split("#");
+        Log.i("Error_Check", splitQR[0]);
+        if (splitQR[0].equals("VEH") ) {
+            Intent intent = new Intent(FuelStationScanQr.this, FuelStationViewQrInfo.class);
+            intent.putExtra("Extra_qr", result.toString());
+            startActivity(intent);
+            finish();
+        } else if (splitQR[0].equals("SPQR")) {
+            Intent intent = new Intent(FuelStationScanQr.this, FuelStationViewSPQrInfo.class);
+            intent.putExtra("Extra_qr", result.toString());
+            startActivity(intent);
+            finish();
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid QR", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void goBack(View view) {

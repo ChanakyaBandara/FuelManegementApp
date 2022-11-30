@@ -1,5 +1,9 @@
 package com.example.fuelmanegementapp;
 
+import static com.example.fuelmanegementapp.Login.nic;
+import static com.example.fuelmanegementapp.Login.pass;
+import static com.example.fuelmanegementapp.Login.sts;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -49,7 +53,9 @@ public class CustomerProfile extends AppCompatActivity implements httpDataManage
     public void logout(View view) {
         SharedPreferences sharedPreferences = getSharedPreferences(Login.SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
+        editor.remove(sts);
+        editor.remove(nic);
+        editor.remove(pass);
         editor.apply();
         Intent intent = new Intent(CustomerProfile.this, Login.class);
         CustomerDash.customer = null;
