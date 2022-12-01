@@ -84,7 +84,7 @@ public class CustomerRecords extends AppCompatActivity implements httpDataManage
                 fuelStation.setSid(jsonObj.getInt("sid"));
                 fuelStation.setName(jsonObj.getString("name"));
                 fuelStation.setAddress(jsonObj.getString("address"));
-                Record record = new Record(jsonObj.getInt("rid"),jsonObj.getString("timestamp"),vehicle,fuelStation,jsonObj.getInt("amount"));
+                Record record = new Record(jsonObj.getInt("rid"),jsonObj.getString("timestamp"),vehicle,fuelStation,jsonObj.getInt("amount"),jsonObj.getInt("status"));
                 records.add(record);
             }
         } catch (JSONException e) {

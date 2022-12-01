@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FuelStationArival">
+    tools:context=".FuelStationArrival">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="4dp"
                 android:fontFamily="@font/medium"
-                android:text="Fuel Station Arrival"
+                android:text="Fuel Arrival"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:visibility="visible" />
@@ -42,75 +42,27 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <ScrollView
-            android:id="@+id/details"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@id/BOTTOM_END"
             android:layout_below="@id/toolbar"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="10dp">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layoutAnimation="@anim/layout_animation"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/item_record">
 
-                <LinearLayout
-                    android:id="@+id/logincard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical"
-                    android:paddingRight="10dp">
+            </androidx.recyclerview.widget.RecyclerView>
 
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter Date"
-                        android:minHeight="50dp">
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/txtStationArrDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
-                            android:maxLength="20"
-                            android:maxLines="1"
-                            android:minHeight="50dp" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
-                            android:id="@+id/txtStationArrAmount"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/colorAlmostWhite"
-                            android:fontFamily="@font/regular"
-                            android:hint="Amount"
-                            android:inputType="number"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <LinearLayout
+            android:id="@+id/BOTTOM_END"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -118,7 +70,6 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/delete"
                 android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,7 +78,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
-                android:text="Submit"
+                android:text="Add Arrival"
                 android:onClick="addArrival"
                 android:textColor="@color/white"/>
 

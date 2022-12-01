@@ -9,13 +9,15 @@ public class Record implements Serializable {
     private Vehicle vehicle;
     private FuelStation fuelStation;
     private int amount;
+    private int status;
 
-    public Record(int rid, String timestamp, Vehicle vehicle, FuelStation fuelStation, int amount) {
+    public Record(int rid, String timestamp, Vehicle vehicle, FuelStation fuelStation, int amount, int status) {
         this.rid = rid;
         this.timestamp = timestamp;
         this.vehicle = vehicle;
         this.fuelStation = fuelStation;
         this.amount = amount;
+        this.status = status;
     }
 
     public int getRid() {
@@ -56,5 +58,13 @@ public class Record implements Serializable {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

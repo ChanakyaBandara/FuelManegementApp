@@ -275,17 +275,43 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:weightSum="4">
+                            android:weightSum="8">
 
                             <TextView
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="start"
-                                android:layout_marginHorizontal="15sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="2sp"
-                                android:layout_weight="2"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/regular"
+                                android:text="Fuel Type : "
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/fuelDrop"
+                                android:layout_width="0sp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="5"
+                                android:textColor="@color/black"
+                                android:theme="@style/mySpinnerItemStyle" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:weightSum="8">
+
+                            <TextView
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="3"
                                 android:fontFamily="@font/regular"
                                 android:text="Allowed Amount : "
                                 android:textColor="@color/black"
@@ -294,12 +320,10 @@
                             <TextView
                                 android:id="@+id/txtStaQRtotRemaining"
                                 android:layout_width="0sp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="start"
-                                android:layout_marginHorizontal="15sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="2sp"
-                                android:layout_weight="2"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:layout_weight="5"
                                 android:fontFamily="@font/regular"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
@@ -309,17 +333,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:weightSum="4">
+                            android:weightSum="8">
 
                             <TextView
                                 android:layout_width="0sp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="start"
-                                android:layout_marginHorizontal="15sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="2sp"
-                                android:layout_weight="2"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="3"
                                 android:fontFamily="@font/regular"
                                 android:text="Pumped Amount : "
                                 android:textColor="@color/black"
@@ -328,10 +350,9 @@
                             <EditText
                                 android:id="@+id/txtStaPumpedAmount"
                                 android:layout_width="0sp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="15sp"
-                                android:layout_marginBottom="2sp"
-                                android:layout_weight="2"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="5"
                                 android:inputType="numberDecimal" />
 
                         </LinearLayout>

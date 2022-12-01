@@ -21,6 +21,8 @@ public class FuelStationStock extends AppCompatActivity implements httpDataManag
 
     private TextView txtPetrolStock;
     private TextView txtDieselStock;
+    private TextView txtSuperPetrolStock;
+    private TextView txtSuperDieselStock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class FuelStationStock extends AppCompatActivity implements httpDataManag
         setContentView(R.layout.activity_fuel_station_stock);
         txtPetrolStock = (TextView) findViewById(R.id.txtPetrolStock);
         txtDieselStock = (TextView) findViewById(R.id.txtDieselStock);
+        txtSuperPetrolStock = (TextView) findViewById(R.id.txtSuperPetrolStock);
+        txtSuperDieselStock = (TextView) findViewById(R.id.txtSuperDieselStock);
         loadStocks();
     }
 
@@ -52,8 +56,15 @@ public class FuelStationStock extends AppCompatActivity implements httpDataManag
 
                         if (stock.getFuelType().getFid() == 1) {
                             txtPetrolStock.setText(stock.getAvailable_amount()+" l");
-                        } else {
+                        }
+                        if (stock.getFuelType().getFid() == 2) {
+                            txtSuperPetrolStock.setText(stock.getAvailable_amount()+" l");
+                        }
+                        if (stock.getFuelType().getFid() == 3) {
                             txtDieselStock.setText(stock.getAvailable_amount()+" l");
+                        }
+                        if (stock.getFuelType().getFid() == 4) {
+                            txtSuperDieselStock.setText(stock.getAvailable_amount()+" l");
                         }
                     }
                 } catch (JSONException e) {

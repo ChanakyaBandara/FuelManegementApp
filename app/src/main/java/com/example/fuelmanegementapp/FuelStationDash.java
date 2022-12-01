@@ -70,7 +70,7 @@ public class FuelStationDash extends AppCompatActivity implements httpDataManage
     }
 
     public void goToArrival(View view) {
-        Intent intent = new Intent(this, FuelStationArival.class);
+        Intent intent = new Intent(this, FuelStationArrival.class);
         this.startActivity(intent);
     }
 

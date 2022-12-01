@@ -30,7 +30,7 @@
             android:name=".FuelStationViewSPQrInfo"
             android:exported="false" />
         <activity
-            android:name=".FuelStationArival"
+            android:name=".FuelStationArrival"
             android:exported="false" />
         <activity
             android:name=".FuelStationRecords"

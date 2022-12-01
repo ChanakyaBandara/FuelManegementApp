@@ -27,7 +27,7 @@
                 android:background="@color/white">
 
                 <TextView
-                    android:id="@+id/txtVehicleReg"
+                    android:id="@+id/txtFAStatus"
                     android:layout_below="@id/toolbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                                 android:textSize="15dp" />
 
                             <TextView
-                                android:id="@+id/txtRecDate"
+                                android:id="@+id/txtFADate"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/medium"
@@ -110,7 +110,7 @@
                                 android:textSize="15dp" />
 
                             <TextView
-                                android:id="@+id/txtRecFuel"
+                                android:id="@+id/txtFAFuel"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/medium"
@@ -141,7 +141,7 @@
                                 android:textSize="15dp" />
 
                             <TextView
-                                android:id="@+id/txtRecAmount"
+                                android:id="@+id/txtFAAmount"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/medium"
@@ -156,10 +156,10 @@
                     </LinearLayout>
 
                     <ImageButton
-                        android:id="@+id/imgMarkCancel"
+                        android:id="@+id/imgMarkArrived"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_power"
+                        android:src="@drawable/arrow_right"
                         android:background="@color/transparent"
                         android:layout_gravity="center"
                         android:layout_margin="2dp"/>

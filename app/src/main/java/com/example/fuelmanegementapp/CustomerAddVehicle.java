@@ -113,14 +113,14 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
 
     private void loadFuelSpinnerData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_vehicle_types");
+        param.put("type", "load_fuel_types");
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerAddVehicle.this);
         backgroundworker.execute(param);
     }
 
     private void loadVehicleTypeSpinnerData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_fuel_types");
+        param.put("type", "load_vehicle_types");
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerAddVehicle.this);
         backgroundworker.execute(param);
     }
@@ -136,11 +136,6 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
 
             } else if (type.equals("load_fuel_types")) {
                 FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
-//                Creating adapter for spinner
-//                fuelList.add("Petrol");
-//                fuelList.add("Diesel");
-//                fuelListKeys.add("1");
-//                fuelListKeys.add("2");
 
                 for (FuelType fuelType : fuelTypes) {
                     fuelList.add(fuelType.getFuel());
@@ -159,11 +154,6 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
 
             } else if (type.equals("load_vehicle_types")) {
                 VehicleType[] vehicleTypes = new Gson().fromJson(retrievedData.get(), VehicleType[].class);
-//                Creating adapter for spinner
-//                vehicleTypeList.add("Bike");
-//                vehicleTypeList.add("Car");
-//                vehicleTypeListKeys.add("1");
-//                vehicleTypeListKeys.add("2");
 
                 for (VehicleType vehicleType : vehicleTypes) {
                     vehicleTypeList.add(vehicleType.getType());
