@@ -22,7 +22,7 @@ import java.util.Optional;
 public class CustomerFuelStationDetails extends AppCompatActivity implements httpDataManager {
 
     private FuelStation fuelStation;
-    private TextView txtFSName, txtFSEmail, txtFSPhone, txtFSReg, txtFSCity, txtFSAddress;
+    private TextView txtFSName, txtFSEmail, txtFSPhone, txtFSReg, txtFSCity, txtFSAddress, txtFSOpnCls, txtFSQueue;
     private TextView txtPetrolPercentage, txtDieselPercentage;
     ProgressBar petrolProgressBar, dieselProgressBar;
 
@@ -37,6 +37,8 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
         txtFSReg = (TextView) findViewById(R.id.txtFSReg);
 //        txtFSCity = (TextView) findViewById(R.id.txtFSCity);
         txtFSAddress = (TextView) findViewById(R.id.txtFSAddress);
+        txtFSOpnCls = (TextView) findViewById(R.id.txtFSOpnCls);
+        txtFSQueue = (TextView) findViewById(R.id.txtFSQueue);
         txtPetrolPercentage = (TextView) findViewById(R.id.txtPetrolPercentage);
         txtDieselPercentage = (TextView) findViewById(R.id.txtDieselPercentage);
         petrolProgressBar = (ProgressBar) findViewById(R.id.petrolProgressBar);
@@ -55,6 +57,8 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
         txtFSReg.setText(fuelStation.getReg_no());
 //        txtFSCity.setText(fuelStation.getCity());
         txtFSAddress.setText(fuelStation.getAddress());
+        txtFSOpnCls.setText(fuelStation.getOpn_cls_status());
+        txtFSQueue.setText(fuelStation.getQueue_status());
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", "get_stock_sid");
         param.put("SID", String.valueOf(fuelStation.getSid()));
