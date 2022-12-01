@@ -13,6 +13,8 @@ public class FuelStation implements Serializable {
     private String address;
     private String lat;
     private String lon;
+    private String opn_cls_status;
+    private String queue_status;
     private int lid;
 
     public int getSid() {
@@ -93,5 +95,21 @@ public class FuelStation implements Serializable {
 
     public void setLid(int lid) {
         this.lid = lid;
+    }
+
+    public String getOpn_cls_status() {
+        return opn_cls_status;
+    }
+
+    public void setOpn_cls_status(String opn_cls_status) {
+        this.opn_cls_status = opn_cls_status;
+    }
+
+    public String getQueue_status() {
+        return queue_status;
+    }
+
+    public void setQueue_status(String queue_status) {
+        this.queue_status = queue_status;
     }
 }

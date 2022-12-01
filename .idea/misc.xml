@@ -23,6 +23,7 @@
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_records.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_register.xml" value="0.22" />
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_scan_qr.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_settings.xml" value="0.2677083333333333" />
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_stock.xml" value="0.25" />
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_view_qr_info.xml" value="0.5" />
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/activity_fuel_station_view_spqr_info.xml" value="0.348731884057971" />
@@ -35,6 +36,7 @@
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/item_record.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/item_station_record.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/chanakyab/AndroidStudioProjects/FuelManegementApp/app/src/main/res/layout/item_vehicle.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/chanakyab/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.2677083333333333" />
       </map>
     </option>
   </component>

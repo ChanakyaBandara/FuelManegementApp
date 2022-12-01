@@ -75,5 +75,7 @@ public class FuelStationDash extends AppCompatActivity implements httpDataManage
     }
 
     public void goToSettings(View view) {
+        Intent intent = new Intent(this, FuelStationSettings.class);
+        this.startActivity(intent);
     }
 }
