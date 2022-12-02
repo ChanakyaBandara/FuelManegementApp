@@ -4,8 +4,6 @@ import static com.example.fuelmanegementapp.Login.nic;
 import static com.example.fuelmanegementapp.Login.pass;
 import static com.example.fuelmanegementapp.Login.sts;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,10 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Customer;
-
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -24,21 +24,21 @@ import java.util.Optional;
 
 public class CustomerProfile extends AppCompatActivity implements httpDataManager {
 
-    private TextView txtName,txtPhone,txtNIC,txtEmail,txtAddress;
+    private TextView txtName, txtPhone, txtNIC, txtEmail, txtAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
 
-        txtName = (TextView) findViewById(R.id.txtname);
-        txtPhone = (TextView) findViewById(R.id.txtPhone);
-        txtNIC = (TextView) findViewById(R.id.txtNIC);
-        txtEmail = (TextView) findViewById(R.id.txtemail);
-        txtAddress = (TextView) findViewById(R.id.txtAddress);
+        txtName = findViewById(R.id.txtname);
+        txtPhone = findViewById(R.id.txtPhone);
+        txtNIC = findViewById(R.id.txtNIC);
+        txtEmail = findViewById(R.id.txtemail);
+        txtAddress = findViewById(R.id.txtAddress);
 
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_customer_data");
+        param.put("type", Constants.LOAD_CUSTOMER_DATA);
         param.put("LID", String.valueOf(CustomerDash.customer.getLid()));
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerProfile.this);
         backgroundworker.execute(param);
@@ -65,9 +65,9 @@ public class CustomerProfile extends AppCompatActivity implements httpDataManage
     }
 
     @Override
-    public void retrieveData(String type,Optional<String> retrievedData) {
-        if (retrievedData.isPresent()){
-            Log.i("Error_Check",retrievedData.get());
+    public void retrieveData(String type, Optional<String> retrievedData) {
+        if (retrievedData.isPresent()) {
+            Log.i("Error_Check", retrievedData.get());
 
             Customer customer = new Gson().fromJson(retrievedData.get(), Customer.class);
 

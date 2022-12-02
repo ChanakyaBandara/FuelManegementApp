@@ -1,10 +1,10 @@
 package com.example.fuelmanegementapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
@@ -14,6 +14,7 @@ import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.recycleviews.RecycleViewConfig;
 import com.example.fuelmanegementapp.recycleviews.customer.record.RecordAdapter;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,12 +37,12 @@ public class CustomerRecords extends AppCompatActivity implements httpDataManage
         setContentView(R.layout.activity_customer_records);
 
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_records");
+        param.put("type", Constants.LOAD_RECORDS);
         param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
 
         recordList = new ArrayList<Record>();
         recordIdList = new ArrayList<String>();
-        recyclerView = (RecyclerView) findViewById(R.id.recordRecyclerView);
+        recyclerView = findViewById(R.id.recordRecyclerView);
 
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerRecords.this);
         backgroundworker.execute(param);
@@ -52,7 +53,7 @@ public class CustomerRecords extends AppCompatActivity implements httpDataManage
         recordList.clear();
         recordIdList.clear();
 
-        if (retrievedData.isPresent()){
+        if (retrievedData.isPresent()) {
 
             List<Record> records = getRecords(retrievedData);
             for (Record record : records) {
@@ -84,7 +85,7 @@ public class CustomerRecords extends AppCompatActivity implements httpDataManage
                 fuelStation.setSid(jsonObj.getInt("sid"));
                 fuelStation.setName(jsonObj.getString("name"));
                 fuelStation.setAddress(jsonObj.getString("address"));
-                Record record = new Record(jsonObj.getInt("rid"),jsonObj.getString("timestamp"),vehicle,fuelStation,jsonObj.getInt("amount"),jsonObj.getInt("status"));
+                Record record = new Record(jsonObj.getInt("rid"), jsonObj.getString("timestamp"), vehicle, fuelStation, jsonObj.getInt("amount"), jsonObj.getInt("status"));
                 records.add(record);
             }
         } catch (JSONException e) {

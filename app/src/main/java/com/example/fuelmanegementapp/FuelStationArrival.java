@@ -1,11 +1,5 @@
 package com.example.fuelmanegementapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuWrapperICS;
-import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.collection.ArraySet;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.graphics.Color;
@@ -18,8 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelArrival;
@@ -27,6 +24,7 @@ import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.recycleviews.RecycleViewConfig;
 import com.example.fuelmanegementapp.recycleviews.station.fuelarrival.StationFuelArrivalAdapter;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -50,7 +48,7 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
     private ArrayList<String> fuelListKeys;
     private AppCompatSpinner fuelSpinner;
     private DatePickerDialog picker;
-    private int yr,mon,mday;
+    private int yr, mon, mday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +56,12 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
         setContentView(R.layout.activity_fuel_station_arival);
 
 
-        yr = 0;mon = 0;mday = 0;
+        yr = 0;
+        mon = 0;
+        mday = 0;
         fuelArrivalList = new ArrayList<FuelArrival>();
         fuelArrivalIdList = new ArrayList<String>();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         myDialog = new Dialog(this);
 
         fuelList = new ArrayList<String>();
@@ -73,16 +73,16 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
 
     private void loadFuelSpinnerData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_fuel_types");
+        param.put("type", Constants.LOAD_FUEL_TYPES);
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationArrival.this);
         backgroundworker.execute(param);
     }
 
     public void addArrival(View view) {
         myDialog.setContentView(R.layout.custom_popup_arival);
-        Button btnPopupBtn = (Button) myDialog.findViewById(R.id.btnTxtStationArr);
-        EditText txtStationArrAmount = (EditText) myDialog.findViewById(R.id.txtStationArrAmount);
-        EditText txtStationArrDate = (EditText) myDialog.findViewById(R.id.txtStationArrDate);
+        Button btnPopupBtn = myDialog.findViewById(R.id.btnTxtStationArr);
+        EditText txtStationArrAmount = myDialog.findViewById(R.id.txtStationArrAmount);
+        EditText txtStationArrDate = myDialog.findViewById(R.id.txtStationArrDate);
         fuelSpinner = myDialog.findViewById(R.id.txtStationArrFuelDrop);
 
         txtStationArrDate.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +98,9 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 txtStationArrDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                                yr = year;mon = (monthOfYear + 1);mday = dayOfMonth;
+                                yr = year;
+                                mon = (monthOfYear + 1);
+                                mday = dayOfMonth;
                             }
                         }, year, month, day);
                 picker.show();
@@ -115,7 +117,7 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
                 String ft_id = fuelListKeys.get(fuelSpinner.getSelectedItemPosition());
                 if (!(TextUtils.isEmpty(date) && TextUtils.isEmpty(amount))) {
                     HashMap<String, String> param = new HashMap<String, String>();
-                    param.put("type", "add_fuel_arrival");
+                    param.put("type", Constants.ADD_FUEL_ARRIVAL);
                     param.put("amount", amount);
                     param.put("timestamp", date);
                     param.put("ft_id", ft_id);
@@ -136,7 +138,7 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
 
     private void loadFuelArrivals() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_fuelArrivals");
+        param.put("type", Constants.LOAD_FUEL_ARRIVALS);
         param.put("sid", String.valueOf(FuelStationDash.fuelStation.getSid()));
 
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationArrival.this);
@@ -145,7 +147,7 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
 
     public void updateAsArrived(FuelArrival fuelArrival) {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "update_fuelArrival_status");
+        param.put("type", Constants.UPDATE_FUEL_ARRIVAL_STATUS);
         param.put("fa_id", String.valueOf(fuelArrival.getFa_id()));
         param.put("fid", String.valueOf(fuelArrival.getFuelType().getFid()));
         param.put("sid", String.valueOf(FuelStationDash.fuelStation.getSid()));
@@ -159,50 +161,50 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         try {
-        if (retrievedData.isPresent()) {
-            Log.i("Error_Check", retrievedData.get());
-            if (type.equals("load_fuelArrivals")) {
-                fuelArrivalList.clear();
-                fuelArrivalIdList.clear();
-                if (retrievedData.isPresent()) {
-                    JSONArray jsonArray = new JSONArray(retrievedData.get());
-                    for (int i = 0;i< jsonArray.length();i++){
-                        FuelArrival fuelArrival = new Gson().fromJson(jsonArray.get(i).toString(), FuelArrival.class);
-                        FuelType fuelType = new Gson().fromJson(jsonArray.get(i).toString(), FuelType.class);
-                        fuelArrival.setFuelType(fuelType);
-                        fuelArrivalList.add(fuelArrival);
-                        fuelArrivalIdList.add(String.valueOf(fuelArrival.getFa_id()));
+            if (retrievedData.isPresent()) {
+                Log.i("Error_Check", retrievedData.get());
+                if (type.equals(Constants.LOAD_FUEL_ARRIVALS)) {
+                    fuelArrivalList.clear();
+                    fuelArrivalIdList.clear();
+                    if (retrievedData.isPresent()) {
+                        JSONArray jsonArray = new JSONArray(retrievedData.get());
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            FuelArrival fuelArrival = new Gson().fromJson(jsonArray.get(i).toString(), FuelArrival.class);
+                            FuelType fuelType = new Gson().fromJson(jsonArray.get(i).toString(), FuelType.class);
+                            fuelArrival.setFuelType(fuelType);
+                            fuelArrivalList.add(fuelArrival);
+                            fuelArrivalIdList.add(String.valueOf(fuelArrival.getFa_id()));
+                        }
+                    }
+                    if (fuelArrivalList.isEmpty()) {
+                        Toast.makeText(this, "No Records Available !", Toast.LENGTH_SHORT).show();
+                    } else {
+                        StationFuelArrivalAdapter fuelArrivalAdapter = new StationFuelArrivalAdapter(fuelArrivalList, fuelArrivalIdList, this);
+                        new RecycleViewConfig().setConfig(recyclerView, this, fuelArrivalAdapter);
+                    }
+                } else if (type.equals(Constants.ADD_FUEL_ARRIVAL)) {
+                    JSONObject jsonObj = new JSONObject(retrievedData.get());
+                    String status = jsonObj.getString("Status");
+                    if (status.equals("1")) {
+                        Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
+                        loadFuelArrivals();
+                    }
+                } else if (type.equals(Constants.LOAD_FUEL_TYPES)) {
+                    FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
+                    for (FuelType fuelType : fuelTypes) {
+                        fuelList.add(fuelType.getFuel());
+                        fuelListKeys.add(String.valueOf(fuelType.getFid()));
+                    }
+                } else if (type.equals(Constants.UPDATE_FUEL_ARRIVAL_STATUS)) {
+                    JSONObject jsonObj = new JSONObject(retrievedData.get());
+                    String status = jsonObj.getString("Status");
+                    if (status.equals("1")) {
+                        Toast.makeText(this, "Successfully Updated!", Toast.LENGTH_SHORT).show();
+                        loadFuelArrivals();
                     }
                 }
-                if (fuelArrivalList.isEmpty()) {
-                    Toast.makeText(this, "No Records Available !", Toast.LENGTH_SHORT).show();
-                } else {
-                    StationFuelArrivalAdapter fuelArrivalAdapter = new StationFuelArrivalAdapter(fuelArrivalList, fuelArrivalIdList, this);
-                    new RecycleViewConfig().setConfig(recyclerView, this, fuelArrivalAdapter);
-                }
-            } else if (type.equals("add_fuel_arrival")) {
-                JSONObject jsonObj = new JSONObject(retrievedData.get());
-                String status = jsonObj.getString("Status");
-                if (status.equals("1")) {
-                    Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
-                    loadFuelArrivals();
-                }
-            } else if (type.equals("load_fuel_types")) {
-                FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
-                for (FuelType fuelType : fuelTypes) {
-                    fuelList.add(fuelType.getFuel());
-                    fuelListKeys.add(String.valueOf(fuelType.getFid()));
-                }
-            } else if (type.equals("update_fuelArrival_status")) {
-                JSONObject jsonObj = new JSONObject(retrievedData.get());
-                String status = jsonObj.getString("Status");
-                if (status.equals("1")) {
-                    Toast.makeText(this, "Successfully Updated!", Toast.LENGTH_SHORT).show();
-                    loadFuelArrivals();
-                }
             }
-        }
-        }catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
             Log.i("testingerror", e.toString());
         }

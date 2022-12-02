@@ -16,6 +16,7 @@ import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -41,17 +42,17 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
         setContentView(R.layout.activity_fuel_station_view_qr_info);
         String extra_qr = getIntent().getStringExtra("Extra_qr");
 
-        txtStaQRVehReg = (TextView) findViewById(R.id.txtStaQRVehReg);
-        txtStaQRVehBrand = (TextView) findViewById(R.id.txtStaQRVehBrand);
-        txtStaQRVehModal = (TextView) findViewById(R.id.txtStaQRVehModal);
-        txtStaQRVehEngine = (TextView) findViewById(R.id.txtStaQRVehEngine);
-        txtStaQRVehChassis = (TextView) findViewById(R.id.txtStaQRVehChassis);
-        txtStaQRQuota = (TextView) findViewById(R.id.txtStaQRQuota);
-        txtStaQRExtend = (TextView) findViewById(R.id.txtStaQRExtend);
-        txtStaQRtotRemaining = (TextView) findViewById(R.id.txtStaQRtotRemaining);
-        txtStaPumpedAmount = (EditText) findViewById(R.id.txtStaPumpedAmount);
+        txtStaQRVehReg = findViewById(R.id.txtStaQRVehReg);
+        txtStaQRVehBrand = findViewById(R.id.txtStaQRVehBrand);
+        txtStaQRVehModal = findViewById(R.id.txtStaQRVehModal);
+        txtStaQRVehEngine = findViewById(R.id.txtStaQRVehEngine);
+        txtStaQRVehChassis = findViewById(R.id.txtStaQRVehChassis);
+        txtStaQRQuota = findViewById(R.id.txtStaQRQuota);
+        txtStaQRExtend = findViewById(R.id.txtStaQRExtend);
+        txtStaQRtotRemaining = findViewById(R.id.txtStaQRtotRemaining);
+        txtStaPumpedAmount = findViewById(R.id.txtStaPumpedAmount);
 
-        fuelSpinner = (AppCompatSpinner) findViewById(R.id.fuelDrop);
+        fuelSpinner = findViewById(R.id.fuelDrop);
         fuelSpinner.setPrompt("Choose Fuel Type");
 
         fuelList = new ArrayList<String>();
@@ -63,14 +64,14 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
 
     private void loadFuelSpinnerData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_fuel_types");
+        param.put("type", Constants.LOAD_FUEL_TYPES);
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationViewQrInfo.this);
         backgroundworker.execute(param);
     }
 
     private void loadVehicleByQR(String extra_qr) {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_vehicle_by_qr");
+        param.put("type", Constants.LOAD_VEHICLE_BY_QR);
         param.put("qr", extra_qr);
 
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationViewQrInfo.this);
@@ -82,7 +83,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
         if (Integer.parseInt(pumpedAmount) != 0 && remainingQuota >= Integer.parseInt(pumpedAmount)) {
             if (!TextUtils.isEmpty(pumpedAmount)) {
                 HashMap<String, String> param = new HashMap<String, String>();
-                param.put("type", "add_fuel_record");
+                param.put("type", Constants.ADD_FUEL_RECORD);
                 param.put("sid", String.valueOf(FuelStationDash.fuelStation.getSid()));
                 param.put("vid", String.valueOf(vehicle.getVid()));
                 param.put("fid", fuelListKeys.get(fuelSpinner.getSelectedItemPosition()));
@@ -103,7 +104,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             try {
-                if (type.equals("load_vehicle_by_qr")) {
+                if (type.equals(Constants.LOAD_VEHICLE_BY_QR)) {
                     vehicle = new Gson().fromJson(retrievedData.get(), Vehicle.class);
 
                     txtStaQRVehReg.setText(vehicle.getReg_no());
@@ -113,7 +114,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
                     txtStaQRVehChassis.setText(vehicle.getChassis_no());
 
                     loadVehicleStock();
-                } else if (type.equals("remaining_quota")) {
+                } else if (type.equals(Constants.REMAINING_QUOTA)) {
                     JSONObject jsonObj = new JSONObject(retrievedData.get());
                     int allowed_quota = jsonObj.getInt("allowed_quota");
                     int extend_amount = jsonObj.getInt("extend_amount");
@@ -122,7 +123,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
                     txtStaQRtotRemaining.setText(remainingQuota + " liters");
                     txtStaQRQuota.setText(allowed_quota + " liters");
                     txtStaQRExtend.setText(extend_amount + " liters");
-                } else if (type.equals("load_fuel_types")) {
+                } else if (type.equals(Constants.LOAD_FUEL_TYPES)) {
                     FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
 
                     for (FuelType fuelType : fuelTypes) {
@@ -140,7 +141,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
                     // attaching data adapter to spinner
                     fuelSpinner.setAdapter(dataAdapter);
 
-                } else if (type.equals("add_fuel_record")) {
+                } else if (type.equals(Constants.ADD_FUEL_RECORD)) {
                     Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, FuelStationRecords.class);
                     this.startActivity(intent);
@@ -153,7 +154,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
 
     private void loadVehicleStock() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "remaining_quota");
+        param.put("type", Constants.REMAINING_QUOTA);
         param.put("vid", String.valueOf(vehicle.getVid()));
 
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationViewQrInfo.this);

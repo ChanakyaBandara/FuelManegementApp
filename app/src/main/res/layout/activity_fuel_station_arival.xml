@@ -80,7 +80,7 @@
                 android:background="@drawable/btn_login"
                 android:text="Add Arrival"
                 android:onClick="addArrival"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

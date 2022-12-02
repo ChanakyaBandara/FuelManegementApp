@@ -136,7 +136,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -157,7 +157,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -201,7 +201,7 @@
                 android:background="@drawable/btn_login"
                 android:textColor="@color/white"
                 android:fontFamily="@font/bold"
-                android:textSize="16dp"/>
+                android:textSize="16dp" />
 
             <LinearLayout
                 android:clickable="true"
@@ -218,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:text="Register as a Customer "
                     android:textColor="@color/ash"
-                    android:fontFamily="@font/medium"/>
+                    android:fontFamily="@font/medium" />
 
             </LinearLayout>
 
@@ -237,7 +237,7 @@
                     android:layout_height="wrap_content"
                     android:text="Register as a FuelStation"
                     android:textColor="@color/ash"
-                    android:fontFamily="@font/medium"/>
+                    android:fontFamily="@font/medium" />
 
             </LinearLayout>
 

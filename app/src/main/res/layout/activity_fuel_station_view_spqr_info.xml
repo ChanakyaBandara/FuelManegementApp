@@ -308,7 +308,6 @@
         </ScrollView>
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -327,7 +326,7 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Update"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

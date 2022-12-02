@@ -1,7 +1,5 @@
 package com.example.fuelmanegementapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,8 +8,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,12 +29,12 @@ public class CustomerRegister extends AppCompatActivity implements httpDataManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_register);
 
-        txtName = (EditText) findViewById(R.id.txtName);
-        txtEmail = (EditText) findViewById(R.id.txtEmail);
-        txtNIC = (EditText) findViewById(R.id.txtNIC);
-        txtPhone = (EditText) findViewById(R.id.txtPhone);
-        txtAddress = (EditText) findViewById(R.id.txtAddress);
-        txtPassword = (EditText) findViewById(R.id.txtPassword);
+        txtName = findViewById(R.id.txtName);
+        txtEmail = findViewById(R.id.txtEmail);
+        txtNIC = findViewById(R.id.txtNIC);
+        txtPhone = findViewById(R.id.txtPhone);
+        txtAddress = findViewById(R.id.txtAddress);
+        txtPassword = findViewById(R.id.txtPassword);
     }
 
     public void registration(View view) {
@@ -44,9 +45,9 @@ public class CustomerRegister extends AppCompatActivity implements httpDataManag
         String Address = txtAddress.getText().toString();
         String Password = txtPassword.getText().toString();
 
-        if (!(TextUtils.isEmpty(Name) && TextUtils.isEmpty(NIC) && TextUtils.isEmpty(Address) && TextUtils.isEmpty(Email) && TextUtils.isEmpty(Phone) && TextUtils.isEmpty(Password)  && TextUtils.isEmpty(NIC))) {
+        if (!(TextUtils.isEmpty(Name) && TextUtils.isEmpty(NIC) && TextUtils.isEmpty(Address) && TextUtils.isEmpty(Email) && TextUtils.isEmpty(Phone) && TextUtils.isEmpty(Password) && TextUtils.isEmpty(NIC))) {
             HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "addCustomer");
+            param.put("type", Constants.ADD_CUSTOMER);
             param.put("name", Name);
             param.put("email", Email);
             param.put("nic", NIC.toLowerCase().trim());
@@ -63,7 +64,7 @@ public class CustomerRegister extends AppCompatActivity implements httpDataManag
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
-        if (retrievedData.isPresent()){
+        if (retrievedData.isPresent()) {
             try {
                 JSONObject jsonObj = new JSONObject(retrievedData.get());
                 String status = jsonObj.getString("Status");

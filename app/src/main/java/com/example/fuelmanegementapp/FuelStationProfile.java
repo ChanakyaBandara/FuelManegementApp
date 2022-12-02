@@ -1,12 +1,8 @@
 package com.example.fuelmanegementapp;
 
-import static com.example.fuelmanegementapp.Login.IP;
-import static com.example.fuelmanegementapp.Login.IP_Address;
 import static com.example.fuelmanegementapp.Login.nic;
 import static com.example.fuelmanegementapp.Login.pass;
 import static com.example.fuelmanegementapp.Login.sts;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,9 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -25,22 +24,22 @@ import java.util.Optional;
 
 public class FuelStationProfile extends AppCompatActivity implements httpDataManager {
 
-    private TextView txtName,txtEmail,txtRegNo,txtPhone,txtAddress,txtCity;
+    private TextView txtName, txtEmail, txtRegNo, txtPhone, txtAddress, txtCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuel_station_profile);
 
-        txtName = (TextView) findViewById(R.id.txtStationProName);
-        txtEmail = (TextView) findViewById(R.id.txtStationProEmail);
-        txtRegNo = (TextView) findViewById(R.id.txtStationProRegNo);
-        txtPhone = (TextView) findViewById(R.id.txtStationProPhone);
-        txtAddress = (TextView) findViewById(R.id.txtStationProAddress);
-        txtCity = (TextView) findViewById(R.id.txtStationProCity);
+        txtName = findViewById(R.id.txtStationProName);
+        txtEmail = findViewById(R.id.txtStationProEmail);
+        txtRegNo = findViewById(R.id.txtStationProRegNo);
+        txtPhone = findViewById(R.id.txtStationProPhone);
+        txtAddress = findViewById(R.id.txtStationProAddress);
+        txtCity = findViewById(R.id.txtStationProCity);
 
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_station_data");
+        param.put("type", Constants.LOAD_STATION_DATA);
         param.put("LID", String.valueOf(FuelStationDash.fuelStation.getLid()));
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationProfile.this);
         backgroundworker.execute(param);
@@ -68,8 +67,8 @@ public class FuelStationProfile extends AppCompatActivity implements httpDataMan
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
-        if (retrievedData.isPresent()){
-            Log.i("Error_Check",retrievedData.get());
+        if (retrievedData.isPresent()) {
+            Log.i("Error_Check", retrievedData.get());
 
             FuelStation fuelStation = new Gson().fromJson(retrievedData.get(), FuelStation.class);
 

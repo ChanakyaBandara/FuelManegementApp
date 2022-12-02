@@ -79,7 +79,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="45dp"
                             android:textColor="@color/black"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" />
 
 
                     </LinearLayout>
@@ -170,7 +170,7 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Request Extend"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

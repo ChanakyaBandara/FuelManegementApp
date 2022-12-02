@@ -82,7 +82,7 @@
             android:layout_width="200sp"
             android:layout_height="200sp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
 
         <LinearLayout
             android:id="@+id/logincard"
@@ -123,7 +123,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,7 +143,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,7 +163,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -183,7 +183,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -203,7 +203,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -224,7 +224,7 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:backgroundTint="@color/colorAlmostWhite"/>
+                    android:backgroundTint="@color/colorAlmostWhite" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -237,7 +237,7 @@
                 android:fontFamily="@font/medium"
                 android:textColor="@color/ash"
                 android:textSize="12dp"
-                android:layout_gravity="end"/>
+                android:layout_gravity="end" />
 
             <Button
                 android:id="@+id/reg"
@@ -268,7 +268,7 @@
                     android:layout_height="wrap_content"
                     android:text="Have an account?? "
                     android:textColor="@color/ash"
-                    android:fontFamily="@font/medium"/>
+                    android:fontFamily="@font/medium" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -276,7 +276,7 @@
                     android:clickable="true"
                     android:text=" Login Now"
                     android:textColor="@color/ash"
-                    android:fontFamily="@font/medium"/>
+                    android:fontFamily="@font/medium" />
 
             </LinearLayout>
 

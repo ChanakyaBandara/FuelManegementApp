@@ -20,6 +20,7 @@ import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.models.SpecialQR;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -48,16 +49,16 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_special_qr);
 
-        txtSpecialPurpose = (EditText) findViewById(R.id.txtSpecialPurpose);
-        txtSpecialAmount = (EditText) findViewById(R.id.txtSpecialAmount);
-        txtSpecialRef = (EditText) findViewById(R.id.txtSpecialRef);
-        txtSpecialRemAmount = (EditText) findViewById(R.id.txtSpecialRemAmount);
+        txtSpecialPurpose = findViewById(R.id.txtSpecialPurpose);
+        txtSpecialAmount = findViewById(R.id.txtSpecialAmount);
+        txtSpecialRef = findViewById(R.id.txtSpecialRef);
+        txtSpecialRemAmount = findViewById(R.id.txtSpecialRemAmount);
         layoutSpecialRemAmount = findViewById(R.id.layoutSpecialRemAmount);
         btnSPQRSubmit = findViewById(R.id.btnSPQRSubmit);
         btnSPQRDelete = findViewById(R.id.btnSPQRDelete);
-        imageView = (ImageView) findViewById(R.id.SPQrView);
+        imageView = findViewById(R.id.SPQrView);
 
-        fuelSpinner = (AppCompatSpinner) findViewById(R.id.fuelDrop);
+        fuelSpinner = findViewById(R.id.fuelDrop);
         fuelSpinner.setPrompt("Choose Fuel Type");
 
         fuelList = new ArrayList<String>();
@@ -68,14 +69,14 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
 
     private void loadFuelSpinnerData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_fuel_types");
+        param.put("type", Constants.LOAD_FUEL_TYPES);
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerSpecialQr.this);
         backgroundworker.execute(param);
     }
 
     private void loadSPQR() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "get_special_qr");
+        param.put("type", Constants.GET_SPECIAL_QR);
         param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerSpecialQr.this);
         backgroundworker.execute(param);
@@ -88,7 +89,7 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
         qr = "SPQR#" + Calendar.getInstance().getTimeInMillis();
         if (!(TextUtils.isEmpty(purpose) && TextUtils.isEmpty(amount) && TextUtils.isEmpty(ref))) {
             HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "add_special_qr");
+            param.put("type", Constants.ADD_SPECIAL_QR);
             param.put("purpose", purpose);
             param.put("amount", amount);
             param.put("ref", ref);
@@ -105,8 +106,8 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             try {
-                if (type.equals("get_special_qr")) {
-                    if(!retrievedData.get().isEmpty()){
+                if (type.equals(Constants.GET_SPECIAL_QR)) {
+                    if (!retrievedData.get().isEmpty()) {
                         btnSPQRSubmit.setVisibility(View.GONE);
                         btnSPQRDelete.setVisibility(View.VISIBLE);
                         specialQR = new Gson().fromJson(retrievedData.get(), SpecialQR.class);
@@ -121,10 +122,10 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
                         txtSpecialRef.setEnabled(false);
                         int remainingAmount = specialQR.getAmount() - specialQR.getUsed();
 
-                        if(specialQR.getApproval()==1){
+                        if (specialQR.getApproval() == 1) {
                             generateQRCode(specialQR.getQr_code());
                             txtSpecialRemAmount.setText(String.valueOf(remainingAmount));
-                        }else {
+                        } else {
                             txtSpecialRemAmount.setText("Approval Pending!");
                             txtSpecialRemAmount.setTextColor(Color.GREEN);
                         }
@@ -137,18 +138,18 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
                         fuelList.add(fuelType.getFuel());
                         fuelListKeys.add(String.valueOf(fuelType.getFid()));
                         updateFuelSpinner();
-                    }else {
+                    } else {
                         btnSPQRSubmit.setVisibility(View.VISIBLE);
                         btnSPQRDelete.setVisibility(View.GONE);
                     }
-                } else if (type.equals("add_special_qr")) {
+                } else if (type.equals(Constants.ADD_SPECIAL_QR)) {
                     Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
                     generateQRCode(qr);
-                } else if (type.equals("remove_special_qr")) {
+                } else if (type.equals(Constants.REMOVE_SPECIAL_QR)) {
                     Toast.makeText(this, "Successfully removed!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, FuelStationDash.class);
                     this.startActivity(intent);
-                } else if (type.equals("load_fuel_types")) {
+                } else if (type.equals(Constants.LOAD_FUEL_TYPES)) {
                     FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
 
                     for (FuelType fuelType : fuelTypes) {
@@ -193,7 +194,7 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
 
     public void removeQR(View view) {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "remove_special_qr");
+        param.put("type", Constants.REMOVE_SPECIAL_QR);
         param.put("SPID", String.valueOf(specialQR.getSqr_id()));
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerSpecialQr.this);
         backgroundworker.execute(param);

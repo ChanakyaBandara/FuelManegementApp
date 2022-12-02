@@ -15,6 +15,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -37,10 +38,10 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_fuel_extend);
-        txtExtendAmount = (TextView) findViewById(R.id.txtExtendAmount);
-        txtExtendRef = (TextView) findViewById(R.id.txtExtendRef);
+        txtExtendAmount = findViewById(R.id.txtExtendAmount);
+        txtExtendRef = findViewById(R.id.txtExtendRef);
 
-        spinnerType = (AppCompatSpinner) findViewById(R.id.selectVehicle);
+        spinnerType = findViewById(R.id.selectVehicle);
         spinnerType.setPrompt("Select Vehicle");
 
         loadVehicles();
@@ -53,7 +54,7 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                if(vehicleList != null && vehicleList.size() > 0){
+                if (vehicleList != null && vehicleList.size() > 0) {
                     selectedVehicle = vehicleList.get(0);
                 }
             }
@@ -62,7 +63,7 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
 
     private void loadVehicles() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_vehicles");
+        param.put("type", Constants.LOAD_VEHICLES);
         param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
 
         vehicleList = new ArrayList<Vehicle>();
@@ -75,9 +76,9 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
         String amount = txtExtendAmount.getText().toString();
         String ref = txtExtendRef.getText().toString();
 
-        if (!(TextUtils.isEmpty(amount) && TextUtils.isEmpty(ref)) && selectedVehicle != null ) {
+        if (!(TextUtils.isEmpty(amount) && TextUtils.isEmpty(ref)) && selectedVehicle != null) {
             HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "add_extend");
+            param.put("type", Constants.ADD_EXTEND);
             param.put("vid", String.valueOf(selectedVehicle.getVid()));
             param.put("amount", amount.trim());
             param.put("ref", ref.trim());
@@ -92,8 +93,8 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         try {
-            if (retrievedData.isPresent()){
-                if(type.equals("load_vehicles")){
+            if (retrievedData.isPresent()) {
+                if (type.equals(Constants.LOAD_VEHICLES)) {
                     Vehicle[] vehicles = new Gson().fromJson(retrievedData.get(), Vehicle[].class);
                     for (Vehicle vehicle : vehicles) {
                         vehicleList.add(vehicle);
@@ -102,7 +103,7 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
                         Toast.makeText(this, "No Records Available !", Toast.LENGTH_SHORT).show();
                     }
                     loadSpinner();
-                }else if (type.equals("add_extend")){
+                } else if (type.equals(Constants.ADD_EXTEND)) {
                     JSONObject jsonObj = new JSONObject(retrievedData.get());
                     String status = jsonObj.getString("Status");
                     if (status.equals("1")) {
@@ -110,7 +111,7 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
                     }
                 }
             }
-        }catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
             Log.i("testingerror", e.toString());
         }

@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.example.fuelmanegementapp.util.WorkaroundMapFragment;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -61,17 +62,17 @@ public class FuelStationRegister extends AppCompatActivity implements GoogleMap.
         setContentView(R.layout.activity_fuel_station_register);
 
 
-        txtStationName = (EditText) findViewById(R.id.txtStationName);
-        txtStationEmail = (EditText) findViewById(R.id.txtStationEmail);
-        txtStationRegNo = (EditText) findViewById(R.id.txtStationRegNo);
-        txtStationPhone = (EditText) findViewById(R.id.txtStationPhone);
-        txtStationAddress = (EditText) findViewById(R.id.txtStationAddress);
-        txtStationCity = (EditText) findViewById(R.id.txtStationCity);
-        txtStationPassword = (EditText) findViewById(R.id.txtStationPassword);
+        txtStationName = findViewById(R.id.txtStationName);
+        txtStationEmail = findViewById(R.id.txtStationEmail);
+        txtStationRegNo = findViewById(R.id.txtStationRegNo);
+        txtStationPhone = findViewById(R.id.txtStationPhone);
+        txtStationAddress = findViewById(R.id.txtStationAddress);
+        txtStationCity = findViewById(R.id.txtStationCity);
+        txtStationPassword = findViewById(R.id.txtStationPassword);
 
         getLocationPermission();
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map_register);
-        mScrollView = (ScrollView) findViewById(R.id.scroll_view_register); //parent scrollview in xml, give your scrollview id value
+        mScrollView = findViewById(R.id.scroll_view_register); //parent scrollview in xml, give your scrollview id value
     }
 
     private void getDeviceLoctation() {
@@ -227,9 +228,9 @@ public class FuelStationRegister extends AppCompatActivity implements GoogleMap.
         String stationCity = txtStationCity.getText().toString();
         String stationPassword = txtStationPassword.getText().toString();
 
-        if (!(TextUtils.isEmpty(stationName) && TextUtils.isEmpty(stationEmail) && TextUtils.isEmpty(stationRegNo) && TextUtils.isEmpty(stationPhone) && TextUtils.isEmpty(stationAddress) && TextUtils.isEmpty(stationCity)  && TextUtils.isEmpty(stationPassword))) {
+        if (!(TextUtils.isEmpty(stationName) && TextUtils.isEmpty(stationEmail) && TextUtils.isEmpty(stationRegNo) && TextUtils.isEmpty(stationPhone) && TextUtils.isEmpty(stationAddress) && TextUtils.isEmpty(stationCity) && TextUtils.isEmpty(stationPassword))) {
             HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "addFuelStation");
+            param.put("type", Constants.ADD_FUEL_STATION);
             param.put("name", stationName);
             param.put("email", stationEmail);
             param.put("reg_no", stationRegNo);
@@ -249,7 +250,7 @@ public class FuelStationRegister extends AppCompatActivity implements GoogleMap.
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
-        if (retrievedData.isPresent()){
+        if (retrievedData.isPresent()) {
             try {
                 JSONObject jsonObj = new JSONObject(retrievedData.get());
                 String status = jsonObj.getString("Status");

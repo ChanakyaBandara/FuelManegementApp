@@ -28,7 +28,7 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
 
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
-    private static int camId = android.hardware.Camera.CameraInfo.CAMERA_FACING_BACK;
+    private static final int camId = android.hardware.Camera.CameraInfo.CAMERA_FACING_BACK;
     private Dialog myDialog;
 
     @Override
@@ -83,7 +83,7 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
         scannerView.stopCamera();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case REQUEST_CAMERA:
@@ -130,7 +130,7 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
         String scannedQR = result.toString();
         String[] splitQR = scannedQR.split("#");
         Log.i("Error_Check", splitQR[0]);
-        if (splitQR[0].equals("VEH") ) {
+        if (splitQR[0].equals("VEH")) {
             Intent intent = new Intent(FuelStationScanQr.this, FuelStationViewQrInfo.class);
             intent.putExtra("Extra_qr", result.toString());
             startActivity(intent);
@@ -155,7 +155,7 @@ public class FuelStationScanQr extends AppCompatActivity implements httpDataMana
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             String result = retrievedData.get();
-            Log.i("Error_Check", result.toString());
+            Log.i("Error_Check", result);
 
         }
     }

@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -45,7 +46,7 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
     private Boolean mLocationpermissionGranted = false;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private static final float DEAFAULT_ZOOM = 8f;
-    private HashMap<Integer, FuelStation> fuelStationList = new HashMap<>();
+    private final HashMap<Integer, FuelStation> fuelStationList = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +90,7 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
 
     private void loadStations() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_stations");
+        param.put("type", Constants.LOAD_STATIONS);
         BackgroundWorker backgroundworker = new BackgroundWorker(this);
         backgroundworker.execute(param);
     }
@@ -154,9 +155,9 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
 //        Toast.makeText(this, "Tag : " + marker.getTag(), Toast.LENGTH_SHORT).show();
         moveCamera(marker.getPosition(), 19);
         Optional<FuelStation> fuelStationOptional = Optional.ofNullable(fuelStationList.get(marker.getTag()));
-        if (fuelStationOptional.isPresent()){
+        if (fuelStationOptional.isPresent()) {
             Intent intent = new Intent(this, CustomerFuelStationDetails.class);
-            intent.putExtra("FuelStationObj", (Serializable) fuelStationOptional.get());
+            intent.putExtra("FuelStationObj", fuelStationOptional.get());
             this.startActivity(intent);
         }
 
@@ -197,7 +198,7 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
             }
             for (FuelStation fuelStation : fuelStations) {
                 setMarker(fuelStation.getName(), fuelStation.getSid(), Double.valueOf(fuelStation.getLat()), Double.valueOf(fuelStation.getLon()));
-                fuelStationList.put(fuelStation.getSid(),fuelStation);
+                fuelStationList.put(fuelStation.getSid(), fuelStation);
             }
 
         }

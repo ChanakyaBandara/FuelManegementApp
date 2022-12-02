@@ -13,6 +13,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -26,19 +27,19 @@ public class FuelStationSettings extends AppCompatActivity implements httpDataMa
     private AppCompatSpinner spinnerOpnCls, spinnerQueue;
     List<String> dataOpnClsList = new ArrayList<>();
     List<String> dataQueueList = new ArrayList<>();
-    private static String OPEN = "Open";
-    private static String CLOSE = "Close";
-    private static String LONG = "Long";
-    private static String MEDIUM = "Medium";
-    private static String SHORT = "Short";
+    private static final String OPEN = "Open";
+    private static final String CLOSE = "Close";
+    private static final String LONG = "Long";
+    private static final String MEDIUM = "Medium";
+    private static final String SHORT = "Short";
     private FuelStation fuelStation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuel_station_settings);
-        spinnerOpnCls = (AppCompatSpinner) findViewById(R.id.selectOpnCls);
-        spinnerQueue = (AppCompatSpinner) findViewById(R.id.selectQueue);
+        spinnerOpnCls = findViewById(R.id.selectOpnCls);
+        spinnerQueue = findViewById(R.id.selectQueue);
         loadOpnClsSpinner();
         loadQueueSpinner();
         loadStationData();
@@ -71,9 +72,9 @@ public class FuelStationSettings extends AppCompatActivity implements httpDataMa
     private void updateStatus() {
         String opn_cls_status = dataOpnClsList.get(spinnerOpnCls.getSelectedItemPosition());
         String queue_status = dataQueueList.get(spinnerQueue.getSelectedItemPosition());
-        if ( !opn_cls_status.equals(fuelStation.getOpn_cls_status()) || !queue_status.equals(fuelStation.getQueue_status())){
+        if (!opn_cls_status.equals(fuelStation.getOpn_cls_status()) || !queue_status.equals(fuelStation.getQueue_status())) {
             HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "update_station_status");
+            param.put("type", Constants.UPDATE_STATION_STATUS);
             param.put("LID", String.valueOf(FuelStationDash.fuelStation.getLid()));
             param.put("opn_cls_status", opn_cls_status);
             param.put("queue_status", queue_status);
@@ -84,7 +85,7 @@ public class FuelStationSettings extends AppCompatActivity implements httpDataMa
 
     private void loadStationData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_station_data");
+        param.put("type", Constants.LOAD_STATION_DATA);
         param.put("LID", String.valueOf(FuelStationDash.fuelStation.getLid()));
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationSettings.this);
         backgroundworker.execute(param);
@@ -129,10 +130,10 @@ public class FuelStationSettings extends AppCompatActivity implements httpDataMa
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             Log.i("Error_Check", retrievedData.get());
-            if (type.equals("load_station_data")) {
+            if (type.equals(Constants.LOAD_STATION_DATA)) {
                 fuelStation = new Gson().fromJson(retrievedData.get(), FuelStation.class);
                 updateSpinners();
-            }else if (type.equals("update_station_status")) {
+            } else if (type.equals(Constants.UPDATE_STATION_STATUS)) {
                 String opn_cls_status = dataOpnClsList.get(spinnerOpnCls.getSelectedItemPosition());
                 String queue_status = dataQueueList.get(spinnerQueue.getSelectedItemPosition());
                 fuelStation.setOpn_cls_status(opn_cls_status);

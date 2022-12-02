@@ -26,7 +26,7 @@
                 android:clickable="true"
                 android:fontFamily="@font/regular"
                 android:src="@drawable/ic_back"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
             <TextView
                 android:visibility="visible"
@@ -94,7 +94,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_address"/>
+                                android:src="@drawable/ic_address" />
 
                             <TextView
                                 android:id="@+id/txtname"
@@ -109,7 +109,6 @@
                                 android:textSize="15dp" />
 
                         </LinearLayout>
-
 
 
                     </LinearLayout>
@@ -155,7 +154,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_nic"/>
+                                android:src="@drawable/ic_nic" />
 
                             <TextView
                                 android:id="@+id/txtNIC"
@@ -214,7 +213,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_age"/>
+                                android:src="@drawable/ic_age" />
 
                             <TextView
                                 android:id="@+id/txtemail"
@@ -273,7 +272,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_phone"/>
+                                android:src="@drawable/ic_phone" />
 
                             <TextView
                                 android:id="@+id/txtPhone"
@@ -332,7 +331,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_age"/>
+                                android:src="@drawable/ic_age" />
 
                             <TextView
                                 android:id="@+id/txtAddress"

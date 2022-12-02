@@ -1,8 +1,5 @@
 package com.example.fuelmanegementapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -22,8 +19,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,9 +54,9 @@ public class Login extends AppCompatActivity implements httpDataManager {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        txtUsername = (EditText) findViewById(R.id.txtUsername);
-        txtPassword = (EditText) findViewById(R.id.txtpassword);
-        logcheckBox = (CheckBox) findViewById(R.id.logcheckBox);
+        txtUsername = findViewById(R.id.txtUsername);
+        txtPassword = findViewById(R.id.txtpassword);
+        logcheckBox = findViewById(R.id.logcheckBox);
 
         if (haveNetwork()) {
             load_user();
@@ -81,7 +82,7 @@ public class Login extends AppCompatActivity implements httpDataManager {
             if (!(TextUtils.isEmpty(usernic) && TextUtils.isEmpty(userpass))) {
                 //Toast.makeText(Login.this, usernic+" "+userpass, Toast.LENGTH_SHORT).show();
                 HashMap<String, String> param = new HashMap<String, String>();
-                param.put("type", "login");
+                param.put("type", Constants.LOGIN);
                 param.put("Username", usernic);
                 param.put("Password", userpass);
                 BackgroundWorker backgroundworker = new BackgroundWorker(Login.this);
@@ -186,9 +187,9 @@ public class Login extends AppCompatActivity implements httpDataManager {
 
     public void viewSettings(View view) {
         myDialog.setContentView(R.layout.custom_popup_pha);
-        Button btnPopupBtn = (Button) myDialog.findViewById(R.id.btnPopupBtn);
-        TextView btnPopupCurrentIP = (TextView) myDialog.findViewById(R.id.btnPopupCurrentIP);
-        TextView btnPopupNewIP = (TextView) myDialog.findViewById(R.id.btnPopupNewIP);
+        Button btnPopupBtn = myDialog.findViewById(R.id.btnPopupBtn);
+        TextView btnPopupCurrentIP = myDialog.findViewById(R.id.btnPopupCurrentIP);
+        TextView btnPopupNewIP = myDialog.findViewById(R.id.btnPopupNewIP);
 
         btnPopupCurrentIP.setText(IP_Address);
 

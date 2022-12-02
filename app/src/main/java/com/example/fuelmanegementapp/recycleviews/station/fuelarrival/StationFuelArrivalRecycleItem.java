@@ -1,5 +1,7 @@
 package com.example.fuelmanegementapp.recycleviews.station.fuelarrival;
 
+import static com.example.fuelmanegementapp.util.CommonUtils.getStatus;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,18 +56,4 @@ public class StationFuelArrivalRecycleItem extends RecyclerView.ViewHolder {
         this.key = key;
     }
 
-    private String getStatus(String status) {
-        switch (Integer.parseInt(status)) {
-            case 0:
-                return "Pending";
-            case 1:
-                return "On Route";
-            case 2:
-                return "Arrived";
-            case 3:
-                return "Will be delay";
-            default:
-                return "NA";
-        }
-    }
 }

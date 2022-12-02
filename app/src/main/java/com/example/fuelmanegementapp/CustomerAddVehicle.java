@@ -16,6 +16,7 @@ import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.models.VehicleType;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -40,16 +41,16 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_add_vehicle);
 
-        txtInCusVehReg = (EditText) findViewById(R.id.txtInCusVehReg);
-        txtInCusVehBrand = (EditText) findViewById(R.id.txtInCusVehBrand);
-        txtInCusVehModal = (EditText) findViewById(R.id.txtInCusVehModal);
-        txtInCusVehEngine = (EditText) findViewById(R.id.txtInCusVehEngine);
-        txtInCusVehChassis = (EditText) findViewById(R.id.txtInCusVehChassis);
+        txtInCusVehReg = findViewById(R.id.txtInCusVehReg);
+        txtInCusVehBrand = findViewById(R.id.txtInCusVehBrand);
+        txtInCusVehModal = findViewById(R.id.txtInCusVehModal);
+        txtInCusVehEngine = findViewById(R.id.txtInCusVehEngine);
+        txtInCusVehChassis = findViewById(R.id.txtInCusVehChassis);
 
-        fuelSpinner = (AppCompatSpinner) findViewById(R.id.fuelDrop);
+        fuelSpinner = findViewById(R.id.fuelDrop);
         fuelSpinner.setPrompt("Choose Fuel Type");
 
-        vehicleTypeSpinner = (AppCompatSpinner) findViewById(R.id.vehicleTypeDrop);
+        vehicleTypeSpinner = findViewById(R.id.vehicleTypeDrop);
         vehicleTypeSpinner.setPrompt("Choose Vehicle Type");
 
         fuelList = new ArrayList<String>();
@@ -94,7 +95,7 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
         String chassis = txtInCusVehChassis.getText().toString();
         if (!(TextUtils.isEmpty(regNo) && TextUtils.isEmpty(brand) && TextUtils.isEmpty(modal) && TextUtils.isEmpty(engine) && TextUtils.isEmpty(chassis))) {
             HashMap<String, String> param = new HashMap<String, String>();
-            param.put("type", "addVehicle");
+            param.put("type", Constants.ADD_VEHICLE);
             param.put("regNo", regNo);
             param.put("brand", brand);
             param.put("modal", modal);
@@ -113,14 +114,14 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
 
     private void loadFuelSpinnerData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_fuel_types");
+        param.put("type", Constants.LOAD_FUEL_TYPES);
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerAddVehicle.this);
         backgroundworker.execute(param);
     }
 
     private void loadVehicleTypeSpinnerData() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_vehicle_types");
+        param.put("type", Constants.LOAD_VEHICLE_TYPES);
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerAddVehicle.this);
         backgroundworker.execute(param);
     }
@@ -128,13 +129,13 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            if (type.equals("addVehicle")) {
+            if (type.equals(Constants.ADD_VEHICLE)) {
 
                 Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, CustomerViewVehicles.class);
                 this.startActivity(intent);
 
-            } else if (type.equals("load_fuel_types")) {
+            } else if (type.equals(Constants.LOAD_FUEL_TYPES)) {
                 FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
 
                 for (FuelType fuelType : fuelTypes) {
@@ -152,7 +153,7 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
                 // attaching data adapter to spinner
                 fuelSpinner.setAdapter(dataAdapter);
 
-            } else if (type.equals("load_vehicle_types")) {
+            } else if (type.equals(Constants.LOAD_VEHICLE_TYPES)) {
                 VehicleType[] vehicleTypes = new Gson().fromJson(retrievedData.get(), VehicleType[].class);
 
                 for (VehicleType vehicleType : vehicleTypes) {

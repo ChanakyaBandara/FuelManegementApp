@@ -1,5 +1,7 @@
 package com.example.fuelmanegementapp;
 
+import static com.example.fuelmanegementapp.util.CommonUtils.getStatus;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ProgressBar;
@@ -16,6 +18,7 @@ import com.example.fuelmanegementapp.models.FuelStation;
 import com.example.fuelmanegementapp.models.FuelType;
 import com.example.fuelmanegementapp.models.Stock;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -41,22 +44,22 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_fuel_station_details);
 
-        txtFSName = (TextView) findViewById(R.id.txtFSName);
-        txtFSEmail = (TextView) findViewById(R.id.txtFSEmail);
-        txtFSPhone = (TextView) findViewById(R.id.txtFSPhone);
-        txtFSReg = (TextView) findViewById(R.id.txtFSReg);
+        txtFSName = findViewById(R.id.txtFSName);
+        txtFSEmail = findViewById(R.id.txtFSEmail);
+        txtFSPhone = findViewById(R.id.txtFSPhone);
+        txtFSReg = findViewById(R.id.txtFSReg);
 //        txtFSCity = (TextView) findViewById(R.id.txtFSCity);
-        txtFSAddress = (TextView) findViewById(R.id.txtFSAddress);
-        txtFSOpnCls = (TextView) findViewById(R.id.txtFSOpnCls);
-        txtFSQueue = (TextView) findViewById(R.id.txtFSQueue);
-        txtPetrolPercentage = (TextView) findViewById(R.id.txtPetrolPercentage);
-        txtSuperPetrolPercentage = (TextView) findViewById(R.id.txtSuperPetrolPercentage);
-        txtDieselPercentage = (TextView) findViewById(R.id.txtDieselPercentage);
-        txtSuperDieselPercentage = (TextView) findViewById(R.id.txtSuperDieselPercentage);
-        petrolProgressBar = (ProgressBar) findViewById(R.id.petrolProgressBar);
-        superPetrolProgressBar = (ProgressBar) findViewById(R.id.superPetrolProgressBar);
-        dieselProgressBar = (ProgressBar) findViewById(R.id.dieselProgressBar);
-        superDieselProgressBar = (ProgressBar) findViewById(R.id.superDieselProgressBar);
+        txtFSAddress = findViewById(R.id.txtFSAddress);
+        txtFSOpnCls = findViewById(R.id.txtFSOpnCls);
+        txtFSQueue = findViewById(R.id.txtFSQueue);
+        txtPetrolPercentage = findViewById(R.id.txtPetrolPercentage);
+        txtSuperPetrolPercentage = findViewById(R.id.txtSuperPetrolPercentage);
+        txtDieselPercentage = findViewById(R.id.txtDieselPercentage);
+        txtSuperDieselPercentage = findViewById(R.id.txtSuperDieselPercentage);
+        petrolProgressBar = findViewById(R.id.petrolProgressBar);
+        superPetrolProgressBar = findViewById(R.id.superPetrolProgressBar);
+        dieselProgressBar = findViewById(R.id.dieselProgressBar);
+        superDieselProgressBar = findViewById(R.id.superDieselProgressBar);
 
         fuelArrivalList = new ArrayList<>();
 
@@ -68,7 +71,7 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
 
     private void loadFuelArrivals() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_fuelArrivals");
+        param.put("type", Constants.LOAD_FUEL_ARRIVALS);
         param.put("sid", String.valueOf(fuelStation.getSid()));
 
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelStationDetails.this);
@@ -85,14 +88,14 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
         txtFSOpnCls.setText(fuelStation.getOpn_cls_status());
         txtFSQueue.setText(fuelStation.getQueue_status());
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "get_stock_sid");
+        param.put("type", Constants.GET_STOCK_SID);
         param.put("SID", String.valueOf(fuelStation.getSid()));
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelStationDetails.this);
         backgroundworker.execute(param);
     }
 
     public void manageTable() {
-        TableLayout tbl1 = (TableLayout) findViewById(R.id.tblArrival);
+        TableLayout tbl1 = findViewById(R.id.tblArrival);
         for (FuelArrival fuelArrival : fuelArrivalList) {
             TableRow tblrw = new TableRow(this);
 
@@ -126,26 +129,12 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
         }
     }
 
-    private String getStatus(String status) {
-        switch (Integer.parseInt(status)) {
-            case 0:
-                return "Pending";
-            case 1:
-                return "On Route";
-            case 2:
-                return "Arrived";
-            case 3:
-                return "Will be delay";
-            default:
-                return "NA";
-        }
-    }
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             try {
-                if (type.equals("get_stock_sid")) {
+                if (type.equals(Constants.GET_STOCK_SID)) {
                     JSONArray jsonArray = new JSONArray(retrievedData.get());
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObj = jsonArray.getJSONObject(i);
@@ -167,7 +156,7 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
                         }
                     }
                     loadFuelArrivals();
-                } else if (type.equals("load_fuelArrivals")) {
+                } else if (type.equals(Constants.LOAD_FUEL_ARRIVALS)) {
                     fuelArrivalList.clear();
                     if (retrievedData.isPresent()) {
                         JSONArray jsonArray = new JSONArray(retrievedData.get());

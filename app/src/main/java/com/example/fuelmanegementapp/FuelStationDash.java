@@ -1,16 +1,17 @@
 package com.example.fuelmanegementapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.FuelStation;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -35,7 +36,7 @@ public class FuelStationDash extends AppCompatActivity implements httpDataManage
 
     private void load_member_name(String lid) {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_station_data");
+        param.put("type", Constants.LOAD_STATION_DATA);
         param.put("LID", lid);
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationDash.this);
         backgroundworker.execute(param);
@@ -43,7 +44,7 @@ public class FuelStationDash extends AppCompatActivity implements httpDataManage
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
-        if(retrievedData.isPresent()){
+        if (retrievedData.isPresent()) {
             Log.i("Error_retrievedData", retrievedData.get());
             fuelStation = new Gson().fromJson(retrievedData.get(), FuelStation.class);
         }

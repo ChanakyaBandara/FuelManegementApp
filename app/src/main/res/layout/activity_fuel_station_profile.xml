@@ -26,7 +26,7 @@
                 android:clickable="true"
                 android:fontFamily="@font/regular"
                 android:src="@drawable/ic_back"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
             <TextView
                 android:visibility="visible"
@@ -94,7 +94,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_address"/>
+                                android:src="@drawable/ic_address" />
 
                             <TextView
                                 android:id="@+id/txtStationProName"
@@ -109,7 +109,6 @@
                                 android:textSize="15dp" />
 
                         </LinearLayout>
-
 
 
                     </LinearLayout>
@@ -155,7 +154,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_age"/>
+                                android:src="@drawable/ic_age" />
 
                             <TextView
                                 android:id="@+id/txtStationProEmail"
@@ -214,7 +213,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_nic"/>
+                                android:src="@drawable/ic_nic" />
 
                             <TextView
                                 android:id="@+id/txtStationProRegNo"
@@ -274,7 +273,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_phone"/>
+                                android:src="@drawable/ic_phone" />
 
                             <TextView
                                 android:id="@+id/txtStationProPhone"
@@ -333,7 +332,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_age"/>
+                                android:src="@drawable/ic_age" />
 
                             <TextView
                                 android:id="@+id/txtStationProCity"
@@ -392,7 +391,7 @@
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/ic_age"/>
+                                android:src="@drawable/ic_age" />
 
                             <TextView
                                 android:id="@+id/txtStationProAddress"
@@ -411,7 +410,6 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-
 
 
                 <!--<androidx.cardview.widget.CardView
@@ -504,7 +502,7 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Log out"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

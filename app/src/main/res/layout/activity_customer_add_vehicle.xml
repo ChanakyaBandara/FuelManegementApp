@@ -84,10 +84,9 @@
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
                             android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
+                            android:backgroundTint="@color/colorAlmostWhite" />
 
                     </com.google.android.material.textfield.TextInputLayout>
-
 
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +105,7 @@
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
                             android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
+                            android:backgroundTint="@color/colorAlmostWhite" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +125,7 @@
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
                             android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
+                            android:backgroundTint="@color/colorAlmostWhite" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,7 +145,7 @@
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
                             android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
+                            android:backgroundTint="@color/colorAlmostWhite" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,7 +165,7 @@
                             android:paddingRight="15dp"
                             android:textColor="@color/black"
                             android:textSize="15sp"
-                            android:backgroundTint="@color/colorAlmostWhite"/>
+                            android:backgroundTint="@color/colorAlmostWhite" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,7 +183,7 @@
                             android:layout_height="45dp"
                             android:theme="@style/mySpinnerItemStyle"
                             android:textColor="@color/black"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -201,7 +200,7 @@
                             android:layout_height="45dp"
                             android:theme="@style/mySpinnerItemStyle"
                             android:textColor="@color/black"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -246,7 +245,7 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Register"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.fuelmanegementapp.interfaces.httpDataManager;
 import com.example.fuelmanegementapp.models.Vehicle;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
@@ -41,19 +42,19 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_view_vehicle_details);
         pieChartView = findViewById(R.id.chart);
-        imageView = (ImageView) findViewById(R.id.vehicleQrView);
+        imageView = findViewById(R.id.vehicleQrView);
         vehicle = (Vehicle) getIntent().getSerializableExtra("Extra_rec");
 
-        txtCusVehReg = (TextView) findViewById(R.id.txtCusVehReg);
-        txtCusVehBrand = (TextView) findViewById(R.id.txtCusVehBrand);
-        txtCusVehModal = (TextView) findViewById(R.id.txtCusVehModal);
-        txtCusVehEngine = (TextView) findViewById(R.id.txtCusVehEngine);
-        txtCusVehChassis = (TextView) findViewById(R.id.txtCusVehChassis);
-        totRemaining = (TextView) findViewById(R.id.totRemaining);
-        
-        txtCusVehQuota = (TextView) findViewById(R.id.txtCusVehQuota);
-        txtCusVehExtend = (TextView) findViewById(R.id.txtCusVehExtend);
-        txtCusVehtotRemaining = (TextView) findViewById(R.id.txtCusVehtotRemaining);
+        txtCusVehReg = findViewById(R.id.txtCusVehReg);
+        txtCusVehBrand = findViewById(R.id.txtCusVehBrand);
+        txtCusVehModal = findViewById(R.id.txtCusVehModal);
+        txtCusVehEngine = findViewById(R.id.txtCusVehEngine);
+        txtCusVehChassis = findViewById(R.id.txtCusVehChassis);
+        totRemaining = findViewById(R.id.totRemaining);
+
+        txtCusVehQuota = findViewById(R.id.txtCusVehQuota);
+        txtCusVehExtend = findViewById(R.id.txtCusVehExtend);
+        txtCusVehtotRemaining = findViewById(R.id.txtCusVehtotRemaining);
 
         txtCusVehReg.setText(vehicle.getReg_no());
         txtCusVehBrand.setText(vehicle.getBrand());
@@ -67,7 +68,7 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
 
     private void getRemainingQuota() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "remaining_quota");
+        param.put("type", Constants.REMAINING_QUOTA);
         param.put("vid", String.valueOf(vehicle.getVid()));
 
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerViewVehicleDetails.this);
@@ -99,7 +100,7 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
                 int usedPercentage = total_amount * 100 / (allowed_quota + extend_amount);
                 int remainingQuota = (allowed_quota + extend_amount) - total_amount;
                 totRemaining.setText(String.valueOf(remainingQuota));
-                
+
                 txtCusVehtotRemaining.setText(remainingQuota + " liters");
                 txtCusVehQuota.setText(allowed_quota + " liters");
                 txtCusVehExtend.setText(extend_amount + " liters");

@@ -19,6 +19,7 @@ import com.example.fuelmanegementapp.models.Complaint;
 import com.example.fuelmanegementapp.recycleviews.RecycleViewConfig;
 import com.example.fuelmanegementapp.recycleviews.customer.complaint.ComplaintAdapter;
 import com.example.fuelmanegementapp.services.BackgroundWorker;
+import com.example.fuelmanegementapp.util.Constants;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class CustomerComplaint extends AppCompatActivity implements httpDataMana
 
         complaintList = new ArrayList<Complaint>();
         complaintIdList = new ArrayList<String>();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         myDialog = new Dialog(this);
 
         loadComplaints();
@@ -48,7 +49,7 @@ public class CustomerComplaint extends AppCompatActivity implements httpDataMana
 
     private void loadComplaints() {
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", "load_complaints");
+        param.put("type", Constants.LOAD_COMPLAINTS);
         param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
 
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerComplaint.this);
@@ -59,7 +60,7 @@ public class CustomerComplaint extends AppCompatActivity implements httpDataMana
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             Log.i("Error_Check", retrievedData.get());
-            if (type.equals("load_complaints")) {
+            if (type.equals(Constants.LOAD_COMPLAINTS)) {
                 complaintList.clear();
                 complaintIdList.clear();
 
@@ -77,7 +78,7 @@ public class CustomerComplaint extends AppCompatActivity implements httpDataMana
                     new RecycleViewConfig().setConfig(recyclerView, this, complaintAdapter);
                 }
             }
-            if (type.equals("add_complaint")) {
+            if (type.equals(Constants.ADD_COMPLAINT)) {
                 loadComplaints();
             }
         }
@@ -85,8 +86,8 @@ public class CustomerComplaint extends AppCompatActivity implements httpDataMana
 
     public void goToAddComplaint(View view) {
         myDialog.setContentView(R.layout.custom_popup_complaint);
-        Button btnPopupBtn = (Button) myDialog.findViewById(R.id.btnPopupBtn);
-        TextView btnPopupComplaint = (TextView) myDialog.findViewById(R.id.btnPopupComplaint);
+        Button btnPopupBtn = myDialog.findViewById(R.id.btnPopupBtn);
+        TextView btnPopupComplaint = myDialog.findViewById(R.id.btnPopupComplaint);
 
         btnPopupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +95,7 @@ public class CustomerComplaint extends AppCompatActivity implements httpDataMana
                 String complaintTxt = btnPopupComplaint.getText().toString();
                 if (!TextUtils.isEmpty(complaintTxt)) {
                     HashMap<String, String> param = new HashMap<String, String>();
-                    param.put("type", "add_complaint");
+                    param.put("type", Constants.ADD_COMPLAINT);
                     param.put("note", complaintTxt);
                     param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
 

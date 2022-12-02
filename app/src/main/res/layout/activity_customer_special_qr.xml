@@ -202,7 +202,7 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_login"
                 android:text="Submit"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btnSPQRDelete"
@@ -216,7 +216,7 @@
                 android:fontFamily="@font/medium"
                 android:background="@drawable/btn_delete"
                 android:text="Remove"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
