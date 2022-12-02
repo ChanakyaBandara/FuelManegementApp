@@ -90,27 +90,6 @@
                         android:gravity="bottom">
 
                         <EditText
-                            android:id="@+id/txtExtendWeek"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:backgroundTint="@color/colorAlmostWhite"
-                            android:fontFamily="@font/regular"
-                            android:hint="Week"
-                            android:inputType="number"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="15sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:gravity="bottom">
-
-                        <EditText
                             android:id="@+id/txtExtendAmount"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -145,6 +124,19 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <TextView
+                        android:id="@+id/txtExtendStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="15sp"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginBottom="2sp"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -159,7 +151,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/delete"
+                android:id="@+id/btnExtendSubmit"
                 android:onClick="requestExtend"
                 android:visibility="visible"
                 android:layout_width="match_parent"

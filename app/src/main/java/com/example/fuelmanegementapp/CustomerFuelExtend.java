@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,10 +31,12 @@ import java.util.stream.Collectors;
 
 public class CustomerFuelExtend extends AppCompatActivity implements httpDataManager {
 
-    private TextView txtExtendAmount, txtExtendRef;
+    private TextView  txtExtendStatus;
+    private EditText txtExtendAmount, txtExtendRef;
     private ArrayList<Vehicle> vehicleList;
     private AppCompatSpinner spinnerType;
     private Vehicle selectedVehicle;
+    private Button btnExtendSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +44,14 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
         setContentView(R.layout.activity_customer_fuel_extend);
         txtExtendAmount = findViewById(R.id.txtExtendAmount);
         txtExtendRef = findViewById(R.id.txtExtendRef);
+        txtExtendStatus = findViewById(R.id.txtExtendStatus);
+        btnExtendSubmit = findViewById(R.id.btnExtendSubmit);
+
 
         spinnerType = findViewById(R.id.selectVehicle);
         spinnerType.setPrompt("Select Vehicle");
+
+        vehicleList = new ArrayList<Vehicle>();
 
         loadVehicles();
 
@@ -50,6 +59,8 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedVehicle = vehicleList.get(position);
+                clearFields();
+                loadExtends();
             }
 
             @Override
@@ -65,9 +76,14 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
         HashMap<String, String> param = new HashMap<String, String>();
         param.put("type", Constants.LOAD_VEHICLES);
         param.put("cid", String.valueOf(CustomerDash.customer.getCid()));
+        BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelExtend.this);
+        backgroundworker.execute(param);
+    }
 
-        vehicleList = new ArrayList<Vehicle>();
-
+    private void loadExtends() {
+        HashMap<String, String> param = new HashMap<String, String>();
+        param.put("type", Constants.GET_EXTENDS);
+        param.put("vid", String.valueOf(selectedVehicle.getVid()));
         BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelExtend.this);
         backgroundworker.execute(param);
     }
@@ -109,12 +125,36 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
                     if (status.equals("1")) {
                         Toast.makeText(this, "Extend Requested!", Toast.LENGTH_SHORT).show();
                     }
+                } else if (type.equals(Constants.GET_EXTENDS)) {
+                    JSONObject jsonObj = new JSONObject(retrievedData.get());
+                    int amount = jsonObj.getInt("amount");
+                    String ref = jsonObj.getString("ref");
+                    int approval = jsonObj.getInt("approval");
+                    txtExtendAmount.setText(String.valueOf(amount));
+                    txtExtendAmount.setEnabled(false);
+                    txtExtendRef.setText(ref);
+                    txtExtendRef.setEnabled(false);
+                    btnExtendSubmit.setVisibility(View.GONE);
+                    if (approval==1){
+                        txtExtendStatus.setText("Approved !");
+                    }else {
+                        txtExtendStatus.setText("Pending For Approval !");
+                    }
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
             Log.i("testingerror", e.toString());
         }
+    }
+
+    private void clearFields(){
+        btnExtendSubmit.setVisibility(View.VISIBLE);
+        txtExtendAmount.setText("");
+        txtExtendAmount.setEnabled(true);
+        txtExtendRef.setText("");
+        txtExtendRef.setEnabled(true);
+        txtExtendStatus.setText("");
     }
 
     private void loadSpinner() {
