@@ -59,9 +59,8 @@
                     android:layout_below="@id/toolBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginEnd="10sp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="5dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true"
                     android:foreground="?attr/selectableItemBackground">
@@ -381,9 +380,8 @@
                     android:layout_below="@id/toolBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginEnd="10sp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="5dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true"
                     android:foreground="?attr/selectableItemBackground">
@@ -414,9 +412,9 @@
 
                             <TextView
                                 android:layout_width="0sp"
-                                android:layout_weight="2"
+                                android:layout_weight="3"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="10sp"
+                                android:layout_marginHorizontal="4sp"
                                 android:layout_marginTop="5sp"
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
@@ -440,9 +438,57 @@
                             <TextView
                                 android:id="@+id/txtPetrolPercentage"
                                 android:layout_width="0sp"
-                                android:layout_weight="2"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="10sp"
+                                android:layout_marginHorizontal="4sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_gravity="start"
+                                android:fontFamily="@font/regular"
+                                android:text="100%"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15sp"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="0sp"
+                                android:layout_weight="3"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="4sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_gravity="start"
+                                android:fontFamily="@font/regular"
+                                android:text="Super Petrol"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                            <ProgressBar
+                                android:id="@+id/superPetrolProgressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0sp"
+                                android:layout_weight="6"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:indeterminate="false"
+                                android:max="100"
+                                android:progress="50" />
+
+                            <TextView
+                                android:id="@+id/txtSuperPetrolPercentage"
+                                android:layout_width="0sp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="4sp"
                                 android:layout_marginTop="5sp"
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
@@ -462,9 +508,9 @@
 
                             <TextView
                                 android:layout_width="0sp"
-                                android:layout_weight="2"
+                                android:layout_weight="3"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="10sp"
+                                android:layout_marginHorizontal="4sp"
                                 android:layout_marginTop="5sp"
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
@@ -488,9 +534,57 @@
                             <TextView
                                 android:id="@+id/txtDieselPercentage"
                                 android:layout_width="0sp"
-                                android:layout_weight="2"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="10sp"
+                                android:layout_marginHorizontal="4sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_gravity="start"
+                                android:fontFamily="@font/regular"
+                                android:text="100%"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15sp"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="0sp"
+                                android:layout_weight="3"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="4sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_gravity="start"
+                                android:fontFamily="@font/regular"
+                                android:text="Super Diesel"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                            <ProgressBar
+                                android:id="@+id/superDieselProgressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_weight="6"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:indeterminate="false"
+                                android:max="100"
+                                android:progress="50" />
+
+                            <TextView
+                                android:id="@+id/txtSuperDieselPercentage"
+                                android:layout_width="0sp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="4sp"
                                 android:layout_marginTop="5sp"
                                 android:layout_marginBottom="2sp"
                                 android:layout_gravity="start"
@@ -509,9 +603,8 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginEnd="10sp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="5dp"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="true"
                     android:foreground="?attr/selectableItemBackground">
@@ -534,7 +627,7 @@
                         android:textSize="18sp" />
 
                         <TableLayout
-                            android:id="@+id/tblDrugs"
+                            android:id="@+id/tblArrival"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginVertical="10sp"
@@ -547,7 +640,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5sp"
                                     android:layout_marginBottom="2sp"
-                                    android:layout_gravity="center"
+                                    android:layout_gravity="start"
                                     android:fontFamily="@font/medium"
                                     android:text="Date/Time"
                                     android:textColor="@color/black"
@@ -559,9 +652,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5sp"
                                     android:layout_marginBottom="2sp"
-                                    android:layout_gravity="center"
+                                    android:layout_gravity="start"
                                     android:fontFamily="@font/medium"
-                                    android:text="Petrol"
+                                    android:text="Fuel"
                                     android:textColor="@color/black"
                                     android:textSize="14sp"
                                     android:layout_column="1"/>
@@ -571,9 +664,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5sp"
                                     android:layout_marginBottom="2sp"
-                                    android:layout_gravity="center"
+                                    android:layout_gravity="start"
                                     android:fontFamily="@font/medium"
-                                    android:text="Diesel"
+                                    android:text="Amount"
                                     android:textColor="@color/black"
                                     android:textSize="14sp"
                                     android:layout_column="1"/>
@@ -583,7 +676,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5sp"
                                     android:layout_marginBottom="2sp"
-                                    android:layout_gravity="center"
+                                    android:layout_gravity="start"
                                     android:fontFamily="@font/medium"
                                     android:text="Status"
                                     android:textColor="@color/black"

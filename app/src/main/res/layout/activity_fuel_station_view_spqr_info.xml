@@ -217,6 +217,40 @@
                                 android:layout_marginBottom="2sp"
                                 android:layout_weight="2"
                                 android:fontFamily="@font/regular"
+                                android:text="Fuel Type : "
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/txtStaSQRFuelType"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginHorizontal="15sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/regular"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <TextView
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginHorizontal="15sp"
+                                android:layout_marginTop="5sp"
+                                android:layout_marginBottom="2sp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/regular"
                                 android:text="Allowed Amount : "
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />

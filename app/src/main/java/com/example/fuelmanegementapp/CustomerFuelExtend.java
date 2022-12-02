@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 
 public class CustomerFuelExtend extends AppCompatActivity implements httpDataManager {
 
-    private TextView txtExtendWeek, txtExtendAmount, txtExtendRef;
+    private TextView txtExtendAmount, txtExtendRef;
     private ArrayList<Vehicle> vehicleList;
     private AppCompatSpinner spinnerType;
     private Vehicle selectedVehicle;
@@ -37,7 +37,6 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_fuel_extend);
-        txtExtendWeek = (TextView) findViewById(R.id.txtExtendWeek);
         txtExtendAmount = (TextView) findViewById(R.id.txtExtendAmount);
         txtExtendRef = (TextView) findViewById(R.id.txtExtendRef);
 
@@ -73,15 +72,13 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
     }
 
     public void requestExtend(View view) {
-        String week = txtExtendWeek.getText().toString();
         String amount = txtExtendAmount.getText().toString();
         String ref = txtExtendRef.getText().toString();
 
-        if (!(TextUtils.isEmpty(week) && TextUtils.isEmpty(amount) && TextUtils.isEmpty(ref)) && selectedVehicle != null ) {
+        if (!(TextUtils.isEmpty(amount) && TextUtils.isEmpty(ref)) && selectedVehicle != null ) {
             HashMap<String, String> param = new HashMap<String, String>();
             param.put("type", "add_extend");
             param.put("vid", String.valueOf(selectedVehicle.getVid()));
-            param.put("week", week.trim());
             param.put("amount", amount.trim());
             param.put("ref", ref.trim());
             BackgroundWorker backgroundworker = new BackgroundWorker(CustomerFuelExtend.this);

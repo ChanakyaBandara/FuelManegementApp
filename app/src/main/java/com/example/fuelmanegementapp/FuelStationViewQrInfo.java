@@ -1,5 +1,6 @@
 package com.example.fuelmanegementapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -26,7 +27,7 @@ import java.util.Optional;
 
 public class FuelStationViewQrInfo extends AppCompatActivity implements httpDataManager {
 
-    private TextView txtStaQRVehReg, txtStaQRVehBrand, txtStaQRVehModal, txtStaQRVehEngine, txtStaQRVehChassis, txtStaQRtotRemaining;
+    private TextView txtStaQRVehReg, txtStaQRVehBrand, txtStaQRVehModal, txtStaQRVehEngine, txtStaQRVehChassis, txtStaQRtotRemaining, txtStaQRQuota, txtStaQRExtend;
     private EditText txtStaPumpedAmount;
     private AppCompatSpinner fuelSpinner;
     private Vehicle vehicle;
@@ -45,6 +46,8 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
         txtStaQRVehModal = (TextView) findViewById(R.id.txtStaQRVehModal);
         txtStaQRVehEngine = (TextView) findViewById(R.id.txtStaQRVehEngine);
         txtStaQRVehChassis = (TextView) findViewById(R.id.txtStaQRVehChassis);
+        txtStaQRQuota = (TextView) findViewById(R.id.txtStaQRQuota);
+        txtStaQRExtend = (TextView) findViewById(R.id.txtStaQRExtend);
         txtStaQRtotRemaining = (TextView) findViewById(R.id.txtStaQRtotRemaining);
         txtStaPumpedAmount = (EditText) findViewById(R.id.txtStaPumpedAmount);
 
@@ -76,7 +79,7 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
 
     public void update(View view) {
         String pumpedAmount = txtStaPumpedAmount.getText().toString();
-        if (Integer.parseInt(pumpedAmount)!=0 && remainingQuota >= Integer.parseInt(pumpedAmount)) {
+        if (Integer.parseInt(pumpedAmount) != 0 && remainingQuota >= Integer.parseInt(pumpedAmount)) {
             if (!TextUtils.isEmpty(pumpedAmount)) {
                 HashMap<String, String> param = new HashMap<String, String>();
                 param.put("type", "add_fuel_record");
@@ -113,9 +116,12 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
                 } else if (type.equals("remaining_quota")) {
                     JSONObject jsonObj = new JSONObject(retrievedData.get());
                     int allowed_quota = jsonObj.getInt("allowed_quota");
+                    int extend_amount = jsonObj.getInt("extend_amount");
                     int total_amount = jsonObj.getInt("total_amount");
-                    remainingQuota = allowed_quota - total_amount;
+                    remainingQuota = (allowed_quota + extend_amount) - total_amount;
                     txtStaQRtotRemaining.setText(remainingQuota + " liters");
+                    txtStaQRQuota.setText(allowed_quota + " liters");
+                    txtStaQRExtend.setText(extend_amount + " liters");
                 } else if (type.equals("load_fuel_types")) {
                     FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
 
@@ -136,6 +142,8 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
 
                 } else if (type.equals("add_fuel_record")) {
                     Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, FuelStationRecords.class);
+                    this.startActivity(intent);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

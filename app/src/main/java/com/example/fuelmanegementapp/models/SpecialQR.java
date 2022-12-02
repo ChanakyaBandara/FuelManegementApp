@@ -5,7 +5,10 @@ public class SpecialQR {
     private int sqr_id;
     private Customer customer;
     private String purpose;
+    private FuelType fuelType;
     private int amount;
+    private int used;
+    private int approval;
     private String ref;
     private String qr_code;
     private int status;
@@ -34,12 +37,36 @@ public class SpecialQR {
         this.purpose = purpose;
     }
 
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
     public int getAmount() {
         return amount;
     }
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public int getUsed() {
+        return used;
+    }
+
+    public int getApproval() {
+        return approval;
+    }
+
+    public void setApproval(int approval) {
+        this.approval = approval;
+    }
+
+    public void setUsed(int used) {
+        this.used = used;
     }
 
     public String getRef() {
