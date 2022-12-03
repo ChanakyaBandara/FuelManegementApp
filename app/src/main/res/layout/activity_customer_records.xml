@@ -17,16 +17,6 @@
             android:background="@null"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <ImageButton
-                android:id="@+id/backBtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/transparent"
-                android:clickable="true"
-                android:fontFamily="@font/regular"
-                android:src="@drawable/ic_back"
-                android:textColor="@color/white" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
