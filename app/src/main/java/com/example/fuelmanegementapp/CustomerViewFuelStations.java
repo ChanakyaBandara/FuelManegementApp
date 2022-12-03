@@ -159,6 +159,7 @@ public class CustomerViewFuelStations extends AppCompatActivity implements Googl
             Intent intent = new Intent(this, CustomerFuelStationDetails.class);
             intent.putExtra("FuelStationObj", fuelStationOptional.get());
             this.startActivity(intent);
+            finish();
         }
 
         return false;

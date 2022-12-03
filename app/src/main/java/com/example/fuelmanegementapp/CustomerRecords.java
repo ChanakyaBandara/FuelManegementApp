@@ -1,6 +1,7 @@
 package com.example.fuelmanegementapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,6 +91,7 @@ public class CustomerRecords extends AppCompatActivity implements httpDataManage
             }
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.i("Error_test1", e.toString());
         }
 
         return records;

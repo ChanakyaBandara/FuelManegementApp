@@ -1,6 +1,7 @@
 package com.example.fuelmanegementapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -70,6 +71,7 @@ public class FuelStationStock extends AppCompatActivity implements httpDataManag
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Log.i("Error_test1", e.toString());
                 }
             }
         }

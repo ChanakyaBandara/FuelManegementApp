@@ -59,7 +59,6 @@ public class CustomerComplaint extends AppCompatActivity implements httpDataMana
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            Log.i("Error_Check", retrievedData.get());
             if (type.equals(Constants.LOAD_COMPLAINTS)) {
                 complaintList.clear();
                 complaintIdList.clear();

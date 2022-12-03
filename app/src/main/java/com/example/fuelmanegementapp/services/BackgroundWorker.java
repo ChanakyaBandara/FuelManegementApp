@@ -105,6 +105,7 @@ public class BackgroundWorker extends AsyncTask<HashMap<String, String>, Void, S
     protected void onPostExecute(String result) {
         myDialog.dismiss();
         if(result != null && result.length()>0){
+            Log.i("Error_Check_API-"+type, result);
             httpDataManager.retrieveData(type,Optional.of(result));
         }else {
             httpDataManager.retrieveData(type,Optional.empty());

@@ -4,6 +4,7 @@ import static com.example.fuelmanegementapp.util.CommonUtils.getStatus;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -175,6 +176,7 @@ public class CustomerFuelStationDetails extends AppCompatActivity implements htt
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
+                Log.i("Error_test1", e.toString());
             }
         }
     }

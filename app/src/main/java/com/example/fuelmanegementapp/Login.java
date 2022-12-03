@@ -121,18 +121,19 @@ public class Login extends AppCompatActivity implements httpDataManager {
     public void goToCustomerRegister(View view) {
         Intent intent = new Intent(this, CustomerRegister.class);
         this.startActivity(intent);
+        finish();
     }
 
     public void goToStationRegister(View view) {
         Intent intent = new Intent(this, FuelStationRegister.class);
         this.startActivity(intent);
+        finish();
     }
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
             String result = retrievedData.get();
-            Log.i("Error_Check", result);
             try {
                 JSONObject jsonObj = new JSONObject(result);
                 String status = jsonObj.getString("Status");
@@ -155,11 +156,13 @@ public class Login extends AppCompatActivity implements httpDataManager {
                         String Extra_text1 = LID;
                         intent.putExtra("LID", Extra_text1);
                         this.startActivity(intent);
+                        finish();
                     } else if (Type.equals("3")) {
                         Intent intent = new Intent(this, FuelStationDash.class);
                         String Extra_text1 = LID;
                         intent.putExtra("LID", Extra_text1);
                         this.startActivity(intent);
+                        finish();
                     }
                 } else {
                     alertDialog = new AlertDialog.Builder(this).create();
@@ -168,7 +171,6 @@ public class Login extends AppCompatActivity implements httpDataManager {
                     alertDialog.show();
                 }
             } catch (JSONException e) {
-                Log.i("Error_Check", result);
                 e.printStackTrace();
                 alertDialog = new AlertDialog.Builder(this).create();
                 alertDialog.setTitle("Login Status");

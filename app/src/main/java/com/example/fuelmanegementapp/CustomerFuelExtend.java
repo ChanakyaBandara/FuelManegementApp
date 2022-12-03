@@ -144,7 +144,7 @@ public class CustomerFuelExtend extends AppCompatActivity implements httpDataMan
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.i("testingerror", e.toString());
+            Log.i("Error_test1", e.toString());
         }
     }
 

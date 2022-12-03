@@ -30,4 +30,7 @@ public class Constants {
     public static final String UPDATE_FUEL_ARRIVAL_STATUS = "update_fuel_arrival_status";
     public static final String UPDATE_STATION_STATUS = "update_station_status";
     public static final String LOGIN = "login";
+    public static final String SUCCESSFULLY_ADDED_MSG = "Successfully added!";
+    public static final String SUCCESSFULLY_UPDATED_MSG = "Successfully Updated!";
+    public static final String SUCCESSFULLY_REMOVED_MSG = "Successfully removed!";
 }

@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -143,12 +144,13 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
                         btnSPQRDelete.setVisibility(View.GONE);
                     }
                 } else if (type.equals(Constants.ADD_SPECIAL_QR)) {
-                    Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, Constants.SUCCESSFULLY_ADDED_MSG, Toast.LENGTH_SHORT).show();
                     generateQRCode(qr);
                 } else if (type.equals(Constants.REMOVE_SPECIAL_QR)) {
-                    Toast.makeText(this, "Successfully removed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, Constants.SUCCESSFULLY_REMOVED_MSG, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, FuelStationDash.class);
                     this.startActivity(intent);
+                    finish();
                 } else if (type.equals(Constants.LOAD_FUEL_TYPES)) {
                     FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);
 
@@ -162,6 +164,7 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                Log.i("Error_test1", e.toString());
             }
         }
     }
@@ -189,6 +192,7 @@ public class CustomerSpecialQr extends AppCompatActivity implements httpDataMana
             imageView.setImageBitmap(bitmap);
         } catch (Exception e) {
             e.printStackTrace();
+            Log.i("Error_test1", e.toString());
         }
     }
 

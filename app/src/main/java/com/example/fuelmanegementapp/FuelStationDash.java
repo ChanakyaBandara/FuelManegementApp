@@ -45,7 +45,6 @@ public class FuelStationDash extends AppCompatActivity implements httpDataManage
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            Log.i("Error_retrievedData", retrievedData.get());
             fuelStation = new Gson().fromJson(retrievedData.get(), FuelStation.class);
         }
     }

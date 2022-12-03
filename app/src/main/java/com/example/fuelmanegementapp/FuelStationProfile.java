@@ -68,10 +68,7 @@ public class FuelStationProfile extends AppCompatActivity implements httpDataMan
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            Log.i("Error_Check", retrievedData.get());
-
             FuelStation fuelStation = new Gson().fromJson(retrievedData.get(), FuelStation.class);
-
             txtName.setText(fuelStation.getName());
             txtEmail.setText(fuelStation.getEmail());
             txtPhone.setText(fuelStation.getPhone());

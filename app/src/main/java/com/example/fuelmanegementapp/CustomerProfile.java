@@ -67,14 +67,11 @@ public class CustomerProfile extends AppCompatActivity implements httpDataManage
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            Log.i("Error_Check", retrievedData.get());
-
             Customer customer = new Gson().fromJson(retrievedData.get(), Customer.class);
-
             txtName.setText(customer.getName());
             txtEmail.setText(customer.getEmail());
-            txtPhone.setText(customer.getNic());
-            txtNIC.setText(customer.getPhone());
+            txtPhone.setText(customer.getPhone());
+            txtNIC.setText(customer.getNic());
             txtAddress.setText(customer.getAddress());
         }
     }

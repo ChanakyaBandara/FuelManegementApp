@@ -77,7 +77,6 @@ public class FuelStationViewSPQrInfo extends AppCompatActivity implements httpDa
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
-        Log.i("Error_Check", retrievedData.get());
         if (retrievedData.isPresent()) {
             if (type.equals(Constants.LOAD_SPECIAL_QR_BY_QR)) {
                 specialQR = new Gson().fromJson(retrievedData.get(), SpecialQR.class);
@@ -92,9 +91,10 @@ public class FuelStationViewSPQrInfo extends AppCompatActivity implements httpDa
                 txtStaSQRPurpose.setText(specialQR.getPurpose());
                 txtStaSQRFuelType.setText(specialQR.getFuelType().getFuel());
             } else if (type.equals(Constants.ADD_SPECIAL_QR_RECORD)) {
-                Toast.makeText(this, "Successfully Updated!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, Constants.SUCCESSFULLY_UPDATED_MSG, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, FuelStationDash.class);
                 this.startActivity(intent);
+                finish();
             }
         }
     }

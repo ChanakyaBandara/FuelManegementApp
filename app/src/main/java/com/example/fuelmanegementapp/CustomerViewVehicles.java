@@ -67,5 +67,6 @@ public class CustomerViewVehicles extends AppCompatActivity implements httpDataM
     public void goToAddVehicle(View view) {
         Intent intent = new Intent(this, CustomerAddVehicle.class);
         this.startActivity(intent);
+        finish();
     }
 }

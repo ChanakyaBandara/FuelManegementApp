@@ -131,9 +131,10 @@ public class CustomerAddVehicle extends AppCompatActivity implements httpDataMan
         if (retrievedData.isPresent()) {
             if (type.equals(Constants.ADD_VEHICLE)) {
 
-                Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, Constants.SUCCESSFULLY_ADDED_MSG, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, CustomerViewVehicles.class);
                 this.startActivity(intent);
+                finish();
 
             } else if (type.equals(Constants.LOAD_FUEL_TYPES)) {
                 FuelType[] fuelTypes = new Gson().fromJson(retrievedData.get(), FuelType[].class);

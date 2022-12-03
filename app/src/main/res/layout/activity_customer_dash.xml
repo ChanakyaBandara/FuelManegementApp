@@ -114,7 +114,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/qrcode" />
+                                                android:src="@drawable/ic_fuel_station" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -172,7 +172,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/prescriptions" />
+                                                android:src="@drawable/ic_vehicles" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/qrcode" />
+                                                android:src="@drawable/ic_qr_code" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -297,7 +297,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/prescriptions" />
+                                                android:src="@drawable/ic_sp_qr_code" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -364,7 +364,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/purchases" />
+                                                android:src="@drawable/ic_records" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -422,7 +422,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/profile" />
+                                                android:src="@drawable/ic_cus_profile" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -489,7 +489,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/purchases" />
+                                                android:src="@drawable/ic_complain" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -547,7 +547,7 @@
                                                 android:layout_width="50dp"
                                                 android:layout_height="50dp"
                                                 android:layout_gravity="center"
-                                                android:src="@drawable/profile" />
+                                                android:src="@drawable/ic_settings" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"

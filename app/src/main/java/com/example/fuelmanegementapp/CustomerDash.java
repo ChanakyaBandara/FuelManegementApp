@@ -47,7 +47,6 @@ public class CustomerDash extends AppCompatActivity implements httpDataManager {
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            Log.i("Error_retrievedData", retrievedData.get());
             customer = new Gson().fromJson(retrievedData.get(), Customer.class);
         }
     }

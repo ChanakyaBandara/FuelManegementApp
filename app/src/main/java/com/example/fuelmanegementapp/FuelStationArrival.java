@@ -162,7 +162,6 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
     public void retrieveData(String type, Optional<String> retrievedData) {
         try {
             if (retrievedData.isPresent()) {
-                Log.i("Error_Check", retrievedData.get());
                 if (type.equals(Constants.LOAD_FUEL_ARRIVALS)) {
                     fuelArrivalList.clear();
                     fuelArrivalIdList.clear();
@@ -186,7 +185,7 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
                     JSONObject jsonObj = new JSONObject(retrievedData.get());
                     String status = jsonObj.getString("Status");
                     if (status.equals("1")) {
-                        Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, Constants.SUCCESSFULLY_ADDED_MSG, Toast.LENGTH_SHORT).show();
                         loadFuelArrivals();
                     }
                 } else if (type.equals(Constants.LOAD_FUEL_TYPES)) {
@@ -199,14 +198,14 @@ public class FuelStationArrival extends AppCompatActivity implements httpDataMan
                     JSONObject jsonObj = new JSONObject(retrievedData.get());
                     String status = jsonObj.getString("Status");
                     if (status.equals("1")) {
-                        Toast.makeText(this, "Successfully Updated!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, Constants.SUCCESSFULLY_UPDATED_MSG, Toast.LENGTH_SHORT).show();
                         loadFuelArrivals();
                     }
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.i("testingerror", e.toString());
+            Log.i("Error_test1", e.toString());
         }
     }
 

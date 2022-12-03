@@ -259,11 +259,12 @@ public class FuelStationRegister extends AppCompatActivity implements GoogleMap.
                     Intent intent = new Intent(this, FuelStationDash.class);
                     intent.putExtra("LID", LID);
                     this.startActivity(intent);
+                    finish();
                 }
 
             } catch (JSONException e) {
                 e.printStackTrace();
-                Log.i("testingerror", e.toString());
+                Log.i("Error_test1", e.toString());
             }
         }
     }

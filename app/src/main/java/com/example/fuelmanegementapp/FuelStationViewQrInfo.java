@@ -3,6 +3,7 @@ package com.example.fuelmanegementapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -142,12 +143,14 @@ public class FuelStationViewQrInfo extends AppCompatActivity implements httpData
                     fuelSpinner.setAdapter(dataAdapter);
 
                 } else if (type.equals(Constants.ADD_FUEL_RECORD)) {
-                    Toast.makeText(this, "Successfully added!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, Constants.SUCCESSFULLY_ADDED_MSG, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, FuelStationRecords.class);
                     this.startActivity(intent);
+                    finish();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
+                Log.i("Error_test1", e.toString());
             }
         }
     }

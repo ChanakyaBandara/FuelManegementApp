@@ -85,13 +85,13 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
             imageView.setImageBitmap(bitmap);
         } catch (Exception e) {
             e.printStackTrace();
+            Log.i("Error_test1", e.toString());
         }
     }
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            Log.i("Error", retrievedData.get());
             try {
                 JSONObject jsonObj = new JSONObject(retrievedData.get());
                 int allowed_quota = jsonObj.getInt("allowed_quota");
@@ -110,6 +110,7 @@ public class CustomerViewVehicleDetails extends AppCompatActivity implements htt
                 view_piechart(pieData, usedPercentage);
             } catch (JSONException e) {
                 e.printStackTrace();
+                Log.i("Error_test1", e.toString());
             }
 
         }

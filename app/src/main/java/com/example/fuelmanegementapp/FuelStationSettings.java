@@ -129,7 +129,6 @@ public class FuelStationSettings extends AppCompatActivity implements httpDataMa
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
         if (retrievedData.isPresent()) {
-            Log.i("Error_Check", retrievedData.get());
             if (type.equals(Constants.LOAD_STATION_DATA)) {
                 fuelStation = new Gson().fromJson(retrievedData.get(), FuelStation.class);
                 updateSpinners();

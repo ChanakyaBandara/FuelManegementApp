@@ -634,7 +634,7 @@
                                     android:layout_marginBottom="2sp"
                                     android:layout_gravity="start"
                                     android:fontFamily="@font/medium"
-                                    android:text="Date/Time"
+                                    android:text="Date"
                                     android:textColor="@color/black"
                                     android:textSize="14sp"
                                     android:layout_column="1" />
