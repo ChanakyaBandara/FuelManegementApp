@@ -159,7 +159,7 @@
                         android:id="@+id/imgMarkArrived"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/arrow_right"
+                        android:src="@drawable/ic_approve_arrival"
                         android:background="@color/transparent"
                         android:layout_gravity="center"
                         android:layout_margin="2dp" />

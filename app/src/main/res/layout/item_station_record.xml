@@ -159,7 +159,7 @@
                         android:id="@+id/imgMarkCancel"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_power"
+                        android:src="@drawable/ic_cancel_pump"
                         android:background="@color/transparent"
                         android:layout_gravity="center"
                         android:layout_margin="2dp" />

@@ -26,6 +26,7 @@ public class Constants {
     public static final String LOAD_VEHICLE_BY_QR = "load_vehicle_by_qr";
     public static final String LOAD_SPECIAL_QR_BY_QR = "load_specialQR_by_qr";
     public static final String REMOVE_SPECIAL_QR = "remove_special_qr";
+    public static final String REMOVE_RECORD = "remove_record";
     public static final String REMAINING_QUOTA = "remaining_quota";
     public static final String UPDATE_FUEL_ARRIVAL_STATUS = "update_fuel_arrival_status";
     public static final String UPDATE_STATION_STATUS = "update_station_status";

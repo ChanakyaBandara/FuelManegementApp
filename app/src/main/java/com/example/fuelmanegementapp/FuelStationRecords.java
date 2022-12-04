@@ -37,13 +37,17 @@ public class FuelStationRecords extends AppCompatActivity implements httpDataMan
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuel_station_records);
 
-        HashMap<String, String> param = new HashMap<String, String>();
-        param.put("type", Constants.LOAD_STATION_RECORDS);
-        param.put("sid", String.valueOf(FuelStationDash.fuelStation.getSid()));
-
         recordList = new ArrayList<Record>();
         recordIdList = new ArrayList<String>();
         recyclerView = findViewById(R.id.stationRecordRecyclerView);
+
+        loadRecords();
+    }
+
+    private void loadRecords() {
+        HashMap<String, String> param = new HashMap<String, String>();
+        param.put("type", Constants.LOAD_STATION_RECORDS);
+        param.put("sid", String.valueOf(FuelStationDash.fuelStation.getSid()));
 
         BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationRecords.this);
         backgroundworker.execute(param);
@@ -51,23 +55,39 @@ public class FuelStationRecords extends AppCompatActivity implements httpDataMan
 
     @Override
     public void retrieveData(String type, Optional<String> retrievedData) {
-        recordList.clear();
-        recordIdList.clear();
-
         if (retrievedData.isPresent()) {
+            try {
+                if (type.equals(Constants.LOAD_STATION_RECORDS)) {
+                    recordList.clear();
+                    recordIdList.clear();
 
-            List<Record> records = getRecords(retrievedData);
-            for (Record record : records) {
-                recordList.add(record);
-                recordIdList.add(String.valueOf(record.getRid()));
+                    if (retrievedData.isPresent()) {
+
+                        List<Record> records = getRecords(retrievedData);
+                        for (Record record : records) {
+                            recordList.add(record);
+                            recordIdList.add(String.valueOf(record.getRid()));
+                        }
+
+                    }
+                    if (recordList.isEmpty()) {
+                        Toast.makeText(this, "No Records Available !", Toast.LENGTH_SHORT).show();
+                    } else {
+                        StationRecordAdapter recordAdapter = new StationRecordAdapter(recordList, recordIdList, this);
+                        new RecycleViewConfig().setConfig(recyclerView, this, recordAdapter);
+                    }
+                } else if (type.equals(Constants.REMOVE_RECORD)) {
+                    JSONObject jsonObj = new JSONObject(retrievedData.get());
+                    String status = jsonObj.getString("Status");
+                    if (status.equals("1")) {
+                        Toast.makeText(this, "Cancellation Requested!", Toast.LENGTH_SHORT).show();
+                        loadRecords();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.i("Error_test1", e.toString());
             }
-
-        }
-        if (recordList.isEmpty()) {
-            Toast.makeText(this, "No Records Available !", Toast.LENGTH_SHORT).show();
-        } else {
-            StationRecordAdapter recordAdapter = new StationRecordAdapter(recordList, recordIdList, this);
-            new RecycleViewConfig().setConfig(recyclerView, this, recordAdapter);
         }
     }
 
@@ -98,6 +118,11 @@ public class FuelStationRecords extends AppCompatActivity implements httpDataMan
     }
 
     public void updateAsCancelled(Record record) {
+        HashMap<String, String> param = new HashMap<String, String>();
+        param.put("type", Constants.REMOVE_RECORD);
+        param.put("rid", String.valueOf(record.getRid()));
 
+        BackgroundWorker backgroundworker = new BackgroundWorker(FuelStationRecords.this);
+        backgroundworker.execute(param);
     }
 }
